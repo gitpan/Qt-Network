@@ -1,0 +1,418 @@
+# this typemap is only used by xsubpp
+# to marshal THIS in xs code
+QNetworkAccessManager *                 		T_PTROBJ_0000
+QAbstractNetworkCache *                 		T_PTROBJ_0001
+QUdpSocket *                            		T_PTROBJ_0002
+QTcpSocket *                            		T_PTROBJ_0003
+QHostAddress *                          		T_PTROBJ_0004
+QNetworkDiskCache *                     		T_PTROBJ_0005
+QFtp *                                  		T_PTROBJ_0006
+QNetworkRequest *                       		T_PTROBJ_0007
+QSysInfo *                              		T_PTROBJ_0008
+QHttp *                                 		T_PTROBJ_0009
+QSslCertificate *                       		T_PTROBJ_0010
+QAuthenticator *                        		T_PTROBJ_0011
+QNetworkCacheMetaData *                 		T_PTROBJ_0012
+QNetworkProxyQuery *                    		T_PTROBJ_0013
+QNetworkCookie *                        		T_PTROBJ_0014
+QSslSocket *                            		T_PTROBJ_0015
+QFlag *                                 		T_PTROBJ_0016
+QIPv6Address *                          		T_PTROBJ_0017
+QAbstractSocket *                       		T_PTROBJ_0018
+QUrlInfo *                              		T_PTROBJ_0019
+QNetworkAddressEntry *                  		T_PTROBJ_0020
+QIncompatibleFlag *                     		T_PTROBJ_0021
+QNetworkReply *                         		T_PTROBJ_0022
+QInternal *                             		T_PTROBJ_0023
+QNetworkProxy *                         		T_PTROBJ_0024
+QHttpHeader *                           		T_PTROBJ_0025
+QHttpResponseHeader *                   		T_PTROBJ_0026
+QNetworkProxyFactory *                  		T_PTROBJ_0027
+QSslKey *                               		T_PTROBJ_0028
+QIODevice *                             		T_PTROBJ_0029
+QNetworkInterface *                     		T_PTROBJ_0030
+QSslError *                             		T_PTROBJ_0031
+QHostInfo *                             		T_PTROBJ_0032
+QLocalServer *                          		T_PTROBJ_0033
+QHttpRequestHeader *                    		T_PTROBJ_0034
+QSslCipher *                            		T_PTROBJ_0035
+QTcpServer *                            		T_PTROBJ_0036
+QNetworkCookieJar *                     		T_PTROBJ_0037
+QLocalSocket *                          		T_PTROBJ_0038
+QSslConfiguration *                     		T_PTROBJ_0039
+QBool *                                 		T_PTROBJ_0040
+
+################################################################
+INPUT
+T_PTROBJ_0000
+    if (sv_derived_from($arg, \"Qt::Network::QNetworkAccessManager\"))
+        $var = reinterpret_cast<$type>(SvIV((SV*)SvRV($arg)));
+    else
+        Perl_croak(aTHX_ \"$var is not of type Qt::Network::QNetworkAccessManager\");
+
+T_PTROBJ_0001
+    if (sv_derived_from($arg, \"Qt::Network::QAbstractNetworkCache\"))
+        $var = reinterpret_cast<$type>(SvIV((SV*)SvRV($arg)));
+    else
+        Perl_croak(aTHX_ \"$var is not of type Qt::Network::QAbstractNetworkCache\");
+
+T_PTROBJ_0002
+    if (sv_derived_from($arg, \"Qt::Network::QUdpSocket\"))
+        $var = reinterpret_cast<$type>(SvIV((SV*)SvRV($arg)));
+    else
+        Perl_croak(aTHX_ \"$var is not of type Qt::Network::QUdpSocket\");
+
+T_PTROBJ_0003
+    if (sv_derived_from($arg, \"Qt::Network::QTcpSocket\"))
+        $var = reinterpret_cast<$type>(SvIV((SV*)SvRV($arg)));
+    else
+        Perl_croak(aTHX_ \"$var is not of type Qt::Network::QTcpSocket\");
+
+T_PTROBJ_0004
+    if (sv_derived_from($arg, \"Qt::Network::QHostAddress\"))
+        $var = reinterpret_cast<$type>(SvIV((SV*)SvRV($arg)));
+    else
+        Perl_croak(aTHX_ \"$var is not of type Qt::Network::QHostAddress\");
+
+T_PTROBJ_0005
+    if (sv_derived_from($arg, \"Qt::Network::QNetworkDiskCache\"))
+        $var = reinterpret_cast<$type>(SvIV((SV*)SvRV($arg)));
+    else
+        Perl_croak(aTHX_ \"$var is not of type Qt::Network::QNetworkDiskCache\");
+
+T_PTROBJ_0006
+    if (sv_derived_from($arg, \"Qt::Network::QFtp\"))
+        $var = reinterpret_cast<$type>(SvIV((SV*)SvRV($arg)));
+    else
+        Perl_croak(aTHX_ \"$var is not of type Qt::Network::QFtp\");
+
+T_PTROBJ_0007
+    if (sv_derived_from($arg, \"Qt::Network::QNetworkRequest\"))
+        $var = reinterpret_cast<$type>(SvIV((SV*)SvRV($arg)));
+    else
+        Perl_croak(aTHX_ \"$var is not of type Qt::Network::QNetworkRequest\");
+
+T_PTROBJ_0008
+    if (sv_derived_from($arg, \"Qt::Core::QSysInfo\"))
+        $var = reinterpret_cast<$type>(SvIV((SV*)SvRV($arg)));
+    else
+        Perl_croak(aTHX_ \"$var is not of type Qt::Core::QSysInfo\");
+
+T_PTROBJ_0009
+    if (sv_derived_from($arg, \"Qt::Network::QHttp\"))
+        $var = reinterpret_cast<$type>(SvIV((SV*)SvRV($arg)));
+    else
+        Perl_croak(aTHX_ \"$var is not of type Qt::Network::QHttp\");
+
+T_PTROBJ_0010
+    if (sv_derived_from($arg, \"Qt::Network::QSslCertificate\"))
+        $var = reinterpret_cast<$type>(SvIV((SV*)SvRV($arg)));
+    else
+        Perl_croak(aTHX_ \"$var is not of type Qt::Network::QSslCertificate\");
+
+T_PTROBJ_0011
+    if (sv_derived_from($arg, \"Qt::Network::QAuthenticator\"))
+        $var = reinterpret_cast<$type>(SvIV((SV*)SvRV($arg)));
+    else
+        Perl_croak(aTHX_ \"$var is not of type Qt::Network::QAuthenticator\");
+
+T_PTROBJ_0012
+    if (sv_derived_from($arg, \"Qt::Network::QNetworkCacheMetaData\"))
+        $var = reinterpret_cast<$type>(SvIV((SV*)SvRV($arg)));
+    else
+        Perl_croak(aTHX_ \"$var is not of type Qt::Network::QNetworkCacheMetaData\");
+
+T_PTROBJ_0013
+    if (sv_derived_from($arg, \"Qt::Network::QNetworkProxyQuery\"))
+        $var = reinterpret_cast<$type>(SvIV((SV*)SvRV($arg)));
+    else
+        Perl_croak(aTHX_ \"$var is not of type Qt::Network::QNetworkProxyQuery\");
+
+T_PTROBJ_0014
+    if (sv_derived_from($arg, \"Qt::Network::QNetworkCookie\"))
+        $var = reinterpret_cast<$type>(SvIV((SV*)SvRV($arg)));
+    else
+        Perl_croak(aTHX_ \"$var is not of type Qt::Network::QNetworkCookie\");
+
+T_PTROBJ_0015
+    if (sv_derived_from($arg, \"Qt::Network::QSslSocket\"))
+        $var = reinterpret_cast<$type>(SvIV((SV*)SvRV($arg)));
+    else
+        Perl_croak(aTHX_ \"$var is not of type Qt::Network::QSslSocket\");
+
+T_PTROBJ_0016
+    if (sv_derived_from($arg, \"Qt::Core::QFlag\"))
+        $var = reinterpret_cast<$type>(SvIV((SV*)SvRV($arg)));
+    else
+        Perl_croak(aTHX_ \"$var is not of type Qt::Core::QFlag\");
+
+T_PTROBJ_0017
+    if (sv_derived_from($arg, \"Qt::Network::QIPv6Address\"))
+        $var = reinterpret_cast<$type>(SvIV((SV*)SvRV($arg)));
+    else
+        Perl_croak(aTHX_ \"$var is not of type Qt::Network::QIPv6Address\");
+
+T_PTROBJ_0018
+    if (sv_derived_from($arg, \"Qt::Network::QAbstractSocket\"))
+        $var = reinterpret_cast<$type>(SvIV((SV*)SvRV($arg)));
+    else
+        Perl_croak(aTHX_ \"$var is not of type Qt::Network::QAbstractSocket\");
+
+T_PTROBJ_0019
+    if (sv_derived_from($arg, \"Qt::Network::QUrlInfo\"))
+        $var = reinterpret_cast<$type>(SvIV((SV*)SvRV($arg)));
+    else
+        Perl_croak(aTHX_ \"$var is not of type Qt::Network::QUrlInfo\");
+
+T_PTROBJ_0020
+    if (sv_derived_from($arg, \"Qt::Network::QNetworkAddressEntry\"))
+        $var = reinterpret_cast<$type>(SvIV((SV*)SvRV($arg)));
+    else
+        Perl_croak(aTHX_ \"$var is not of type Qt::Network::QNetworkAddressEntry\");
+
+T_PTROBJ_0021
+    if (sv_derived_from($arg, \"Qt::Core::QIncompatibleFlag\"))
+        $var = reinterpret_cast<$type>(SvIV((SV*)SvRV($arg)));
+    else
+        Perl_croak(aTHX_ \"$var is not of type Qt::Core::QIncompatibleFlag\");
+
+T_PTROBJ_0022
+    if (sv_derived_from($arg, \"Qt::Network::QNetworkReply\"))
+        $var = reinterpret_cast<$type>(SvIV((SV*)SvRV($arg)));
+    else
+        Perl_croak(aTHX_ \"$var is not of type Qt::Network::QNetworkReply\");
+
+T_PTROBJ_0023
+    if (sv_derived_from($arg, \"Qt::Core::QInternal\"))
+        $var = reinterpret_cast<$type>(SvIV((SV*)SvRV($arg)));
+    else
+        Perl_croak(aTHX_ \"$var is not of type Qt::Core::QInternal\");
+
+T_PTROBJ_0024
+    if (sv_derived_from($arg, \"Qt::Network::QNetworkProxy\"))
+        $var = reinterpret_cast<$type>(SvIV((SV*)SvRV($arg)));
+    else
+        Perl_croak(aTHX_ \"$var is not of type Qt::Network::QNetworkProxy\");
+
+T_PTROBJ_0025
+    if (sv_derived_from($arg, \"Qt::Network::QHttpHeader\"))
+        $var = reinterpret_cast<$type>(SvIV((SV*)SvRV($arg)));
+    else
+        Perl_croak(aTHX_ \"$var is not of type Qt::Network::QHttpHeader\");
+
+T_PTROBJ_0026
+    if (sv_derived_from($arg, \"Qt::Network::QHttpResponseHeader\"))
+        $var = reinterpret_cast<$type>(SvIV((SV*)SvRV($arg)));
+    else
+        Perl_croak(aTHX_ \"$var is not of type Qt::Network::QHttpResponseHeader\");
+
+T_PTROBJ_0027
+    if (sv_derived_from($arg, \"Qt::Network::QNetworkProxyFactory\"))
+        $var = reinterpret_cast<$type>(SvIV((SV*)SvRV($arg)));
+    else
+        Perl_croak(aTHX_ \"$var is not of type Qt::Network::QNetworkProxyFactory\");
+
+T_PTROBJ_0028
+    if (sv_derived_from($arg, \"Qt::Network::QSslKey\"))
+        $var = reinterpret_cast<$type>(SvIV((SV*)SvRV($arg)));
+    else
+        Perl_croak(aTHX_ \"$var is not of type Qt::Network::QSslKey\");
+
+T_PTROBJ_0029
+    if (sv_derived_from($arg, \"Qt::Core::QIODevice\"))
+        $var = reinterpret_cast<$type>(SvIV((SV*)SvRV($arg)));
+    else
+        Perl_croak(aTHX_ \"$var is not of type Qt::Core::QIODevice\");
+
+T_PTROBJ_0030
+    if (sv_derived_from($arg, \"Qt::Network::QNetworkInterface\"))
+        $var = reinterpret_cast<$type>(SvIV((SV*)SvRV($arg)));
+    else
+        Perl_croak(aTHX_ \"$var is not of type Qt::Network::QNetworkInterface\");
+
+T_PTROBJ_0031
+    if (sv_derived_from($arg, \"Qt::Network::QSslError\"))
+        $var = reinterpret_cast<$type>(SvIV((SV*)SvRV($arg)));
+    else
+        Perl_croak(aTHX_ \"$var is not of type Qt::Network::QSslError\");
+
+T_PTROBJ_0032
+    if (sv_derived_from($arg, \"Qt::Network::QHostInfo\"))
+        $var = reinterpret_cast<$type>(SvIV((SV*)SvRV($arg)));
+    else
+        Perl_croak(aTHX_ \"$var is not of type Qt::Network::QHostInfo\");
+
+T_PTROBJ_0033
+    if (sv_derived_from($arg, \"Qt::Network::QLocalServer\"))
+        $var = reinterpret_cast<$type>(SvIV((SV*)SvRV($arg)));
+    else
+        Perl_croak(aTHX_ \"$var is not of type Qt::Network::QLocalServer\");
+
+T_PTROBJ_0034
+    if (sv_derived_from($arg, \"Qt::Network::QHttpRequestHeader\"))
+        $var = reinterpret_cast<$type>(SvIV((SV*)SvRV($arg)));
+    else
+        Perl_croak(aTHX_ \"$var is not of type Qt::Network::QHttpRequestHeader\");
+
+T_PTROBJ_0035
+    if (sv_derived_from($arg, \"Qt::Network::QSslCipher\"))
+        $var = reinterpret_cast<$type>(SvIV((SV*)SvRV($arg)));
+    else
+        Perl_croak(aTHX_ \"$var is not of type Qt::Network::QSslCipher\");
+
+T_PTROBJ_0036
+    if (sv_derived_from($arg, \"Qt::Network::QTcpServer\"))
+        $var = reinterpret_cast<$type>(SvIV((SV*)SvRV($arg)));
+    else
+        Perl_croak(aTHX_ \"$var is not of type Qt::Network::QTcpServer\");
+
+T_PTROBJ_0037
+    if (sv_derived_from($arg, \"Qt::Network::QNetworkCookieJar\"))
+        $var = reinterpret_cast<$type>(SvIV((SV*)SvRV($arg)));
+    else
+        Perl_croak(aTHX_ \"$var is not of type Qt::Network::QNetworkCookieJar\");
+
+T_PTROBJ_0038
+    if (sv_derived_from($arg, \"Qt::Network::QLocalSocket\"))
+        $var = reinterpret_cast<$type>(SvIV((SV*)SvRV($arg)));
+    else
+        Perl_croak(aTHX_ \"$var is not of type Qt::Network::QLocalSocket\");
+
+T_PTROBJ_0039
+    if (sv_derived_from($arg, \"Qt::Network::QSslConfiguration\"))
+        $var = reinterpret_cast<$type>(SvIV((SV*)SvRV($arg)));
+    else
+        Perl_croak(aTHX_ \"$var is not of type Qt::Network::QSslConfiguration\");
+
+T_PTROBJ_0040
+    if (sv_derived_from($arg, \"Qt::Core::QBool\"))
+        $var = reinterpret_cast<$type>(SvIV((SV*)SvRV($arg)));
+    else
+        Perl_croak(aTHX_ \"$var is not of type Qt::Core::QBool\");
+
+
+################################################################
+OUTPUT
+T_PTROBJ_0000
+    sv_setref_pv($arg, \"Qt::Network::QNetworkAccessManager\", (void *)$var);
+
+T_PTROBJ_0001
+    sv_setref_pv($arg, \"Qt::Network::QAbstractNetworkCache\", (void *)$var);
+
+T_PTROBJ_0002
+    sv_setref_pv($arg, \"Qt::Network::QUdpSocket\", (void *)$var);
+
+T_PTROBJ_0003
+    sv_setref_pv($arg, \"Qt::Network::QTcpSocket\", (void *)$var);
+
+T_PTROBJ_0004
+    sv_setref_pv($arg, \"Qt::Network::QHostAddress\", (void *)$var);
+
+T_PTROBJ_0005
+    sv_setref_pv($arg, \"Qt::Network::QNetworkDiskCache\", (void *)$var);
+
+T_PTROBJ_0006
+    sv_setref_pv($arg, \"Qt::Network::QFtp\", (void *)$var);
+
+T_PTROBJ_0007
+    sv_setref_pv($arg, \"Qt::Network::QNetworkRequest\", (void *)$var);
+
+T_PTROBJ_0008
+    sv_setref_pv($arg, \"Qt::Core::QSysInfo\", (void *)$var);
+
+T_PTROBJ_0009
+    sv_setref_pv($arg, \"Qt::Network::QHttp\", (void *)$var);
+
+T_PTROBJ_0010
+    sv_setref_pv($arg, \"Qt::Network::QSslCertificate\", (void *)$var);
+
+T_PTROBJ_0011
+    sv_setref_pv($arg, \"Qt::Network::QAuthenticator\", (void *)$var);
+
+T_PTROBJ_0012
+    sv_setref_pv($arg, \"Qt::Network::QNetworkCacheMetaData\", (void *)$var);
+
+T_PTROBJ_0013
+    sv_setref_pv($arg, \"Qt::Network::QNetworkProxyQuery\", (void *)$var);
+
+T_PTROBJ_0014
+    sv_setref_pv($arg, \"Qt::Network::QNetworkCookie\", (void *)$var);
+
+T_PTROBJ_0015
+    sv_setref_pv($arg, \"Qt::Network::QSslSocket\", (void *)$var);
+
+T_PTROBJ_0016
+    sv_setref_pv($arg, \"Qt::Core::QFlag\", (void *)$var);
+
+T_PTROBJ_0017
+    sv_setref_pv($arg, \"Qt::Network::QIPv6Address\", (void *)$var);
+
+T_PTROBJ_0018
+    sv_setref_pv($arg, \"Qt::Network::QAbstractSocket\", (void *)$var);
+
+T_PTROBJ_0019
+    sv_setref_pv($arg, \"Qt::Network::QUrlInfo\", (void *)$var);
+
+T_PTROBJ_0020
+    sv_setref_pv($arg, \"Qt::Network::QNetworkAddressEntry\", (void *)$var);
+
+T_PTROBJ_0021
+    sv_setref_pv($arg, \"Qt::Core::QIncompatibleFlag\", (void *)$var);
+
+T_PTROBJ_0022
+    sv_setref_pv($arg, \"Qt::Network::QNetworkReply\", (void *)$var);
+
+T_PTROBJ_0023
+    sv_setref_pv($arg, \"Qt::Core::QInternal\", (void *)$var);
+
+T_PTROBJ_0024
+    sv_setref_pv($arg, \"Qt::Network::QNetworkProxy\", (void *)$var);
+
+T_PTROBJ_0025
+    sv_setref_pv($arg, \"Qt::Network::QHttpHeader\", (void *)$var);
+
+T_PTROBJ_0026
+    sv_setref_pv($arg, \"Qt::Network::QHttpResponseHeader\", (void *)$var);
+
+T_PTROBJ_0027
+    sv_setref_pv($arg, \"Qt::Network::QNetworkProxyFactory\", (void *)$var);
+
+T_PTROBJ_0028
+    sv_setref_pv($arg, \"Qt::Network::QSslKey\", (void *)$var);
+
+T_PTROBJ_0029
+    sv_setref_pv($arg, \"Qt::Core::QIODevice\", (void *)$var);
+
+T_PTROBJ_0030
+    sv_setref_pv($arg, \"Qt::Network::QNetworkInterface\", (void *)$var);
+
+T_PTROBJ_0031
+    sv_setref_pv($arg, \"Qt::Network::QSslError\", (void *)$var);
+
+T_PTROBJ_0032
+    sv_setref_pv($arg, \"Qt::Network::QHostInfo\", (void *)$var);
+
+T_PTROBJ_0033
+    sv_setref_pv($arg, \"Qt::Network::QLocalServer\", (void *)$var);
+
+T_PTROBJ_0034
+    sv_setref_pv($arg, \"Qt::Network::QHttpRequestHeader\", (void *)$var);
+
+T_PTROBJ_0035
+    sv_setref_pv($arg, \"Qt::Network::QSslCipher\", (void *)$var);
+
+T_PTROBJ_0036
+    sv_setref_pv($arg, \"Qt::Network::QTcpServer\", (void *)$var);
+
+T_PTROBJ_0037
+    sv_setref_pv($arg, \"Qt::Network::QNetworkCookieJar\", (void *)$var);
+
+T_PTROBJ_0038
+    sv_setref_pv($arg, \"Qt::Network::QLocalSocket\", (void *)$var);
+
+T_PTROBJ_0039
+    sv_setref_pv($arg, \"Qt::Network::QSslConfiguration\", (void *)$var);
+
+T_PTROBJ_0040
+    sv_setref_pv($arg, \"Qt::Core::QBool\", (void *)$var);
+
