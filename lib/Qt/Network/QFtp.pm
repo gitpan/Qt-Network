@@ -7,43 +7,11 @@ use strict;
 use warnings;
 #use Carp;
 
-our $VERSION = '0.01_01';
+our $VERSION = '0.01_02';
+our $ISA     = qw/Qt::Core::QObject/;
 
 
 # FIXME: operator overload
-
-# enums
-# enum value in perl is enum item index number
-sub Unconnected() { 0 }
-sub HostLookup() { 1 }
-sub Connecting() { 2 }
-sub Connected() { 3 }
-sub LoggedIn() { 4 }
-sub Closing() { 5 }
-sub NoError() { 0 }
-sub UnknownError() { 1 }
-sub HostNotFound() { 2 }
-sub ConnectionRefused() { 3 }
-sub NotConnected() { 4 }
-sub None() { 0 }
-sub SetTransferMode() { 1 }
-sub SetProxy() { 2 }
-sub ConnectToHost() { 3 }
-sub Login() { 4 }
-sub Close() { 5 }
-sub List() { 6 }
-sub Cd() { 7 }
-sub Get() { 8 }
-sub Put() { 9 }
-sub Remove() { 10 }
-sub Mkdir() { 11 }
-sub Rmdir() { 12 }
-sub Rename() { 13 }
-sub RawCommand() { 14 }
-sub Active() { 0 }
-sub Passive() { 1 }
-sub Binary() { 0 }
-sub Ascii() { 1 }
 
 
 1;
@@ -56,85 +24,148 @@ Qt::Network::QFtp
 
 =over
 
-=item    QFtp(QObject * parent = 0)
+=item   QFtp(QObject * parent)
 
-=item    QFtp(QObject * parent)
+=item   QFtp(QObject * parent = 0)
 
-=item    ~QFtp()
+=item   ~QFtp()
 
-=item   void abort()
+=item  void abort()
 
-=item   qint64 bytesAvailable()
+=item  qint64 bytesAvailable()
 
-=item   int cd(const QString & dir)
+=item  int cd(const QString & dir)
 
-=item   void clearPendingCommands()
+=item  void clearPendingCommands()
 
-=item   int close()
+=item  int close()
 
-=item   int connectToHost(const QString & host, quint16 port = 21)
+=item  int connectToHost(const QString & host, quint16 port)
 
-=item   int connectToHost(const QString & host, quint16 port)
+=item  int connectToHost(const QString & host, quint16 port = 21)
 
-=item   QFtp::Command currentCommand()
+=item  QFtp::Command currentCommand()
 
-=item   QIODevice * currentDevice()
+=item  QIODevice * currentDevice()
 
-=item   int currentId()
+=item  int currentId()
 
-=item   QFtp::Error error()
+=item  QFtp::Error error()
 
-=item   QString errorString()
+=item  QString errorString()
 
-=item   int get(const QString & file, QIODevice * dev, QFtp::TransferType type = QFtp::Binary)
+=item  int get(const QString & file, QIODevice * dev, QFtp::TransferType type)
 
-=item   int get(const QString & file, QIODevice * dev, QFtp::TransferType type)
+=item  int get(const QString & file, QIODevice * dev, QFtp::TransferType type = QFtp::Binary)
 
-=item   int get(const QString & file, QIODevice * dev = 0, QFtp::TransferType type = QFtp::Binary)
+=item  int get(const QString & file, QIODevice * dev = 0, QFtp::TransferType type = QFtp::Binary)
 
-=item   int get(const QString & file, QIODevice * dev, QFtp::TransferType type = QFtp::Binary)
+=item  bool hasPendingCommands()
 
-=item   bool hasPendingCommands()
+=item  int list(const QString & dir)
 
-=item   int list(const QString & dir = QString())
+=item  int list(const QString & dir = QString())
 
-=item   int list(const QString & dir)
+=item  int login(const QString & user, const QString & password)
 
-=item   int login(const QString & user, const QString & password = QString())
+=item  int login(const QString & user, const QString & password = QString())
 
-=item   int login(const QString & user, const QString & password)
+=item  int login(const QString & user = QString(), const QString & password = QString())
 
-=item   int login(const QString & user = QString(), const QString & password = QString())
+=item  int mkdir(const QString & dir)
 
-=item   int login(const QString & user, const QString & password = QString())
+=item  int put(const QByteArray & data, const QString & file, QFtp::TransferType type)
 
-=item   int mkdir(const QString & dir)
+=item  int put(const QByteArray & data, const QString & file, QFtp::TransferType type = QFtp::Binary)
 
-=item   int put(const QByteArray & data, const QString & file, QFtp::TransferType type = QFtp::Binary)
+=item  int put(QIODevice * dev, const QString & file, QFtp::TransferType type)
 
-=item   int put(const QByteArray & data, const QString & file, QFtp::TransferType type)
+=item  int put(QIODevice * dev, const QString & file, QFtp::TransferType type = QFtp::Binary)
 
-=item   int put(QIODevice * dev, const QString & file, QFtp::TransferType type = QFtp::Binary)
+=item  int rawCommand(const QString & command)
 
-=item   int put(QIODevice * dev, const QString & file, QFtp::TransferType type)
+=item  qint64 read(char * data, qint64 maxlen)
 
-=item   int rawCommand(const QString & command)
+=item  QByteArray readAll()
 
-=item   qint64 read(char * data, qint64 maxlen)
+=item  int remove(const QString & file)
 
-=item   QByteArray readAll()
+=item  int rename(const QString & oldname, const QString & newname)
 
-=item   int remove(const QString & file)
+=item  int rmdir(const QString & dir)
 
-=item   int rename(const QString & oldname, const QString & newname)
+=item  int setProxy(const QString & host, quint16 port)
 
-=item   int rmdir(const QString & dir)
+=item  int setTransferMode(QFtp::TransferMode mode)
 
-=item   int setProxy(const QString & host, quint16 port)
+=item  QFtp::State state()
 
-=item   int setTransferMode(QFtp::TransferMode mode)
 
-=item   QFtp::State state()
+=back
+
+=head1 ENUM VALUES
+
+=over
+
+=item Unconnected
+
+=item HostLookup
+
+=item Connecting
+
+=item Connected
+
+=item LoggedIn
+
+=item Closing
+
+=item NoError
+
+=item UnknownError
+
+=item HostNotFound
+
+=item ConnectionRefused
+
+=item NotConnected
+
+=item None
+
+=item SetTransferMode
+
+=item SetProxy
+
+=item ConnectToHost
+
+=item Login
+
+=item Close
+
+=item List
+
+=item Cd
+
+=item Get
+
+=item Put
+
+=item Remove
+
+=item Mkdir
+
+=item Rmdir
+
+=item Rename
+
+=item RawCommand
+
+=item Active
+
+=item Passive
+
+=item Binary
+
+=item Ascii
 
 
 =back

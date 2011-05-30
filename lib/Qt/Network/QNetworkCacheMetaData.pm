@@ -7,11 +7,10 @@ use strict;
 use warnings;
 #use Carp;
 
-our $VERSION = '0.01_01';
+our $VERSION = '0.01_02';
 
 
 # FIXME: operator overload
-
 
 
 1;
@@ -24,35 +23,42 @@ Qt::Network::QNetworkCacheMetaData
 
 =over
 
-=item    QNetworkCacheMetaData()
+=item   QNetworkCacheMetaData()
 
-=item    QNetworkCacheMetaData(const QNetworkCacheMetaData & other)
+=item   QNetworkCacheMetaData(const QNetworkCacheMetaData & other)
 
-=item    ~QNetworkCacheMetaData()
+=item   ~QNetworkCacheMetaData()
 
-=item   QDateTime expirationDate()
+=item  QDateTime expirationDate()
 
-=item   bool isValid()
+=item  bool isValid()
 
-=item   QDateTime lastModified()
+=item  QDateTime lastModified()
 
-=item   bool operator!=(const QNetworkCacheMetaData & other)
+=item  bool operator!=(const QNetworkCacheMetaData & other)
 
-=item   QNetworkCacheMetaData & operator=(const QNetworkCacheMetaData & other)
+=item  QNetworkCacheMetaData & operator=(const QNetworkCacheMetaData & other)
 
-=item   bool operator==(const QNetworkCacheMetaData & other)
+=item  bool operator==(const QNetworkCacheMetaData & other)
 
-=item   bool saveToDisk()
+=item  bool saveToDisk()
 
-=item   void setExpirationDate(const QDateTime & dateTime)
+=item  void setExpirationDate(const QDateTime & dateTime)
 
-=item   void setLastModified(const QDateTime & dateTime)
+=item  void setLastModified(const QDateTime & dateTime)
 
-=item   void setSaveToDisk(bool allow)
+=item  void setSaveToDisk(bool allow)
 
-=item   void setUrl(const QUrl & url)
+=item  void setUrl(const QUrl & url)
 
-=item   QUrl url()
+=item  QUrl url()
+
+
+=back
+
+=head1 ENUM VALUES
+
+=over
 
 
 =back

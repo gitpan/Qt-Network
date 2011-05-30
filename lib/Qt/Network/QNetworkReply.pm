@@ -7,37 +7,11 @@ use strict;
 use warnings;
 #use Carp;
 
-our $VERSION = '0.01_01';
-our $ISA     = qw/QIODevice/;
+our $VERSION = '0.01_02';
+our $ISA     = qw/Qt::Core::QIODevice/;
 
 
 # FIXME: operator overload
-
-# enums
-# enum value in perl is enum item index number
-sub NoError() { 0 }
-sub ConnectionRefusedError() { 1 }
-sub RemoteHostClosedError() { 2 }
-sub HostNotFoundError() { 3 }
-sub TimeoutError() { 4 }
-sub OperationCanceledError() { 5 }
-sub SslHandshakeFailedError() { 6 }
-sub UnknownNetworkError() { 7 }
-sub ProxyConnectionRefusedError() { 8 }
-sub ProxyConnectionClosedError() { 9 }
-sub ProxyNotFoundError() { 10 }
-sub ProxyTimeoutError() { 11 }
-sub ProxyAuthenticationRequiredError() { 12 }
-sub UnknownProxyError() { 13 }
-sub ContentAccessDenied() { 14 }
-sub ContentOperationNotPermittedError() { 15 }
-sub ContentNotFoundError() { 16 }
-sub AuthenticationRequiredError() { 17 }
-sub ContentReSendError() { 18 }
-sub UnknownContentError() { 19 }
-sub ProtocolUnknownError() { 20 }
-sub ProtocolInvalidOperationError() { 21 }
-sub ProtocolFailure() { 22 }
 
 
 1;
@@ -50,45 +24,100 @@ Qt::Network::QNetworkReply
 
 =over
 
-=item    ~QNetworkReply()
+=item   ~QNetworkReply()
 
-=item   void abort()
+=item  void abort()
 
-=item   QVariant attribute(QNetworkRequest::Attribute code)
+=item  QVariant attribute(QNetworkRequest::Attribute code)
 
-=item   void close()
+=item  void close()
 
-=item   QNetworkReply::NetworkError error()
+=item  QNetworkReply::NetworkError error()
 
-=item   bool hasRawHeader(const QByteArray & headerName)
+=item  bool hasRawHeader(const QByteArray & headerName)
 
-=item   QVariant header(QNetworkRequest::KnownHeaders header)
+=item  QVariant header(QNetworkRequest::KnownHeaders header)
 
-=item   void ignoreSslErrors()
+=item  void ignoreSslErrors()
 
-=item   bool isFinished()
+=item  bool isFinished()
 
-=item   bool isRunning()
+=item  bool isRunning()
 
-=item   bool isSequential()
+=item  bool isSequential()
 
-=item   QNetworkAccessManager * manager()
+=item  QNetworkAccessManager * manager()
 
-=item   QNetworkAccessManager::Operation operation()
+=item  QNetworkAccessManager::Operation operation()
 
-=item   QByteArray rawHeader(const QByteArray & headerName)
+=item  QByteArray rawHeader(const QByteArray & headerName)
 
-=item   qint64 readBufferSize()
+=item  qint64 readBufferSize()
 
-=item   QNetworkRequest request()
+=item  QNetworkRequest request()
 
-=item   void setReadBufferSize(qint64 size)
+=item  void setReadBufferSize(qint64 size)
 
-=item   void setSslConfiguration(const QSslConfiguration & configuration)
+=item  void setSslConfiguration(const QSslConfiguration & configuration)
 
-=item   QSslConfiguration sslConfiguration()
+=item  QSslConfiguration sslConfiguration()
 
-=item   QUrl url()
+=item  QUrl url()
+
+
+=back
+
+=head1 ENUM VALUES
+
+=over
+
+=item NoError
+
+=item ConnectionRefusedError
+
+=item RemoteHostClosedError
+
+=item HostNotFoundError
+
+=item TimeoutError
+
+=item OperationCanceledError
+
+=item SslHandshakeFailedError
+
+=item TemporaryNetworkFailureError
+
+=item UnknownNetworkError
+
+=item ProxyConnectionRefusedError
+
+=item ProxyConnectionClosedError
+
+=item ProxyNotFoundError
+
+=item ProxyTimeoutError
+
+=item ProxyAuthenticationRequiredError
+
+=item UnknownProxyError
+
+=item ContentAccessDenied
+
+=item ContentOperationNotPermittedError
+
+=item ContentNotFoundError
+
+=item AuthenticationRequiredError
+
+=item ContentReSendError
+
+=item UnknownContentError
+
+=item ProtocolUnknownError
+
+=item ProtocolInvalidOperationError
+
+=item ProtocolFailure
 
 
 =back

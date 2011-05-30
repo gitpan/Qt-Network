@@ -7,19 +7,10 @@ use strict;
 use warnings;
 #use Carp;
 
-our $VERSION = '0.01_01';
+our $VERSION = '0.01_02';
 
 
 # FIXME: operator overload
-
-# enums
-# enum value in perl is enum item index number
-sub IsUp() { 0 }
-sub IsRunning() { 1 }
-sub CanBroadcast() { 2 }
-sub IsLoopBack() { 3 }
-sub IsPointToPoint() { 4 }
-sub CanMulticast() { 5 }
 
 
 1;
@@ -32,27 +23,48 @@ Qt::Network::QNetworkInterface
 
 =over
 
-=item    QNetworkInterface()
+=item   QNetworkInterface()
 
-=item    QNetworkInterface(const QNetworkInterface & other)
+=item   QNetworkInterface(const QNetworkInterface & other)
 
-=item    ~QNetworkInterface()
+=item   ~QNetworkInterface()
 
-=item   QString hardwareAddress()
+=item  QFlags<QNetworkInterface::InterfaceFlag> flags()
 
-=item   QString humanReadableName()
+=item  QString hardwareAddress()
 
-=item   int index()
+=item  QString humanReadableName()
 
-=item   static QNetworkInterface interfaceFromIndex(int index)
+=item  int index()
 
-=item   static QNetworkInterface interfaceFromName(const QString & name)
+=item  static QNetworkInterface interfaceFromIndex(int index)
 
-=item   bool isValid()
+=item  static QNetworkInterface interfaceFromName(const QString & name)
 
-=item   QString name()
+=item  bool isValid()
 
-=item   QNetworkInterface & operator=(const QNetworkInterface & other)
+=item  QString name()
+
+=item  QNetworkInterface & operator=(const QNetworkInterface & other)
+
+
+=back
+
+=head1 ENUM VALUES
+
+=over
+
+=item IsUp
+
+=item IsRunning
+
+=item CanBroadcast
+
+=item IsLoopBack
+
+=item IsPointToPoint
+
+=item CanMulticast
 
 
 =back

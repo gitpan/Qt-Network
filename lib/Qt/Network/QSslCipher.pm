@@ -7,11 +7,10 @@ use strict;
 use warnings;
 #use Carp;
 
-our $VERSION = '0.01_01';
+our $VERSION = '0.01_02';
 
 
 # FIXME: operator overload
-
 
 
 1;
@@ -24,37 +23,44 @@ Qt::Network::QSslCipher
 
 =over
 
-=item    QSslCipher()
+=item   QSslCipher()
 
-=item    QSslCipher(const QSslCipher & other)
+=item   QSslCipher(const QSslCipher & other)
 
-=item    QSslCipher(const QString & name, QSsl::SslProtocol protocol)
+=item   QSslCipher(const QString & name, QSsl::SslProtocol protocol)
 
-=item    ~QSslCipher()
+=item   ~QSslCipher()
 
-=item   QString authenticationMethod()
+=item  QString authenticationMethod()
 
-=item   QString encryptionMethod()
+=item  QString encryptionMethod()
 
-=item   bool isNull()
+=item  bool isNull()
 
-=item   QString keyExchangeMethod()
+=item  QString keyExchangeMethod()
 
-=item   QString name()
+=item  QString name()
 
-=item   bool operator!=(const QSslCipher & other)
+=item  bool operator!=(const QSslCipher & other)
 
-=item   QSslCipher & operator=(const QSslCipher & other)
+=item  QSslCipher & operator=(const QSslCipher & other)
 
-=item   bool operator==(const QSslCipher & other)
+=item  bool operator==(const QSslCipher & other)
 
-=item   QSsl::SslProtocol protocol()
+=item  QSsl::SslProtocol protocol()
 
-=item   QString protocolString()
+=item  QString protocolString()
 
-=item   int supportedBits()
+=item  int supportedBits()
 
-=item   int usedBits()
+=item  int usedBits()
+
+
+=back
+
+=head1 ENUM VALUES
+
+=over
 
 
 =back

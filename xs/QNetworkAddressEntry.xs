@@ -27,32 +27,33 @@ QNetworkAddressEntry *ret;
 QNetworkAddressEntry * arg10;
 PPCODE:
     switch(items) {
-    case 1:
+      case 1:
       {
-        ret = new QNetworkAddressEntry();
+        if (1) {
+      
+    ret = new QNetworkAddressEntry();
     ST(0) = sv_newmortal();
     sv_setref_pv(ST(0), "Qt::Network::QNetworkAddressEntry", (void *)ret);
     XSRETURN(1);
+    }
         break;
       }
-    case 2:
+      case 2:
       {
         if (sv_isa(ST(1), "Qt::Network::QNetworkAddressEntry")) {
-        arg10 = reinterpret_cast<QNetworkAddressEntry *>(SvIV((SV*)SvRV(ST(1))));
-    }
-    else
-        Perl_croak(aTHX_ "arg10 is not of type Qt::Network::QNetworkAddressEntry");
+      arg10 = reinterpret_cast<QNetworkAddressEntry *>(SvIV((SV*)SvRV(ST(1))));
     ret = new QNetworkAddressEntry(*arg10);
     ST(0) = sv_newmortal();
     sv_setref_pv(ST(0), "Qt::Network::QNetworkAddressEntry", (void *)ret);
     XSRETURN(1);
+    }
+	else
+            Perl_croak(aTHX_ "wrong number/type of arguments passed in");
         break;
       }
-    default:
-      {
+      default:
         Perl_croak(aTHX_ "wrong number/type of arguments passed in");
         break;
-      }
     }
 
 ##  ~QNetworkAddressEntry()
@@ -67,30 +68,39 @@ void
 QNetworkAddressEntry::broadcast(...)
 PREINIT:
 PPCODE:
+    if (1) {
+      
     QHostAddress ret = THIS->broadcast();
     ST(0) = sv_newmortal();
     sv_setref_pv(ST(0), "Qt::Network::QHostAddress", (void *)new QHostAddress(ret));
     XSRETURN(1);
+    }
 
 ## QHostAddress ip()
 void
 QNetworkAddressEntry::ip(...)
 PREINIT:
 PPCODE:
+    if (1) {
+      
     QHostAddress ret = THIS->ip();
     ST(0) = sv_newmortal();
     sv_setref_pv(ST(0), "Qt::Network::QHostAddress", (void *)new QHostAddress(ret));
     XSRETURN(1);
+    }
 
 ## QHostAddress netmask()
 void
 QNetworkAddressEntry::netmask(...)
 PREINIT:
 PPCODE:
+    if (1) {
+      
     QHostAddress ret = THIS->netmask();
     ST(0) = sv_newmortal();
     sv_setref_pv(ST(0), "Qt::Network::QHostAddress", (void *)new QHostAddress(ret));
     XSRETURN(1);
+    }
 
 ## bool operator!=(const QNetworkAddressEntry & other)
 void
@@ -99,14 +109,12 @@ PREINIT:
 QNetworkAddressEntry * arg00;
 PPCODE:
     if (sv_isa(ST(1), "Qt::Network::QNetworkAddressEntry")) {
-        arg00 = reinterpret_cast<QNetworkAddressEntry *>(SvIV((SV*)SvRV(ST(1))));
-    }
-    else
-        Perl_croak(aTHX_ "arg00 is not of type Qt::Network::QNetworkAddressEntry");
+      arg00 = reinterpret_cast<QNetworkAddressEntry *>(SvIV((SV*)SvRV(ST(1))));
     bool ret = THIS->operator!=(*arg00);
     ST(0) = sv_newmortal();
     ST(0) = boolSV(ret);
     XSRETURN(1);
+    }
 
 ## QNetworkAddressEntry & operator=(const QNetworkAddressEntry & other)
 void
@@ -115,14 +123,12 @@ PREINIT:
 QNetworkAddressEntry * arg00;
 PPCODE:
     if (sv_isa(ST(1), "Qt::Network::QNetworkAddressEntry")) {
-        arg00 = reinterpret_cast<QNetworkAddressEntry *>(SvIV((SV*)SvRV(ST(1))));
-    }
-    else
-        Perl_croak(aTHX_ "arg00 is not of type Qt::Network::QNetworkAddressEntry");
+      arg00 = reinterpret_cast<QNetworkAddressEntry *>(SvIV((SV*)SvRV(ST(1))));
     QNetworkAddressEntry * ret = &THIS->operator=(*arg00);
     ST(0) = sv_newmortal();
     sv_setref_pv(ST(0), "Qt::Network::QNetworkAddressEntry", (void *)ret);
     XSRETURN(1);
+    }
 
 ## bool operator==(const QNetworkAddressEntry & other)
 void
@@ -131,24 +137,25 @@ PREINIT:
 QNetworkAddressEntry * arg00;
 PPCODE:
     if (sv_isa(ST(1), "Qt::Network::QNetworkAddressEntry")) {
-        arg00 = reinterpret_cast<QNetworkAddressEntry *>(SvIV((SV*)SvRV(ST(1))));
-    }
-    else
-        Perl_croak(aTHX_ "arg00 is not of type Qt::Network::QNetworkAddressEntry");
+      arg00 = reinterpret_cast<QNetworkAddressEntry *>(SvIV((SV*)SvRV(ST(1))));
     bool ret = THIS->operator==(*arg00);
     ST(0) = sv_newmortal();
     ST(0) = boolSV(ret);
     XSRETURN(1);
+    }
 
 ## int prefixLength()
 void
 QNetworkAddressEntry::prefixLength(...)
 PREINIT:
 PPCODE:
+    if (1) {
+      
     int ret = THIS->prefixLength();
     ST(0) = sv_newmortal();
     sv_setiv(ST(0), (IV)ret);
     XSRETURN(1);
+    }
 
 ## void setBroadcast(const QHostAddress & newBroadcast)
 void
@@ -157,12 +164,10 @@ PREINIT:
 QHostAddress * arg00;
 PPCODE:
     if (sv_isa(ST(1), "Qt::Network::QHostAddress")) {
-        arg00 = reinterpret_cast<QHostAddress *>(SvIV((SV*)SvRV(ST(1))));
-    }
-    else
-        Perl_croak(aTHX_ "arg00 is not of type Qt::Network::QHostAddress");
+      arg00 = reinterpret_cast<QHostAddress *>(SvIV((SV*)SvRV(ST(1))));
     (void)THIS->setBroadcast(*arg00);
     XSRETURN(0);
+    }
 
 ## void setIp(const QHostAddress & newIp)
 void
@@ -171,12 +176,10 @@ PREINIT:
 QHostAddress * arg00;
 PPCODE:
     if (sv_isa(ST(1), "Qt::Network::QHostAddress")) {
-        arg00 = reinterpret_cast<QHostAddress *>(SvIV((SV*)SvRV(ST(1))));
-    }
-    else
-        Perl_croak(aTHX_ "arg00 is not of type Qt::Network::QHostAddress");
+      arg00 = reinterpret_cast<QHostAddress *>(SvIV((SV*)SvRV(ST(1))));
     (void)THIS->setIp(*arg00);
     XSRETURN(0);
+    }
 
 ## void setNetmask(const QHostAddress & newNetmask)
 void
@@ -185,12 +188,10 @@ PREINIT:
 QHostAddress * arg00;
 PPCODE:
     if (sv_isa(ST(1), "Qt::Network::QHostAddress")) {
-        arg00 = reinterpret_cast<QHostAddress *>(SvIV((SV*)SvRV(ST(1))));
-    }
-    else
-        Perl_croak(aTHX_ "arg00 is not of type Qt::Network::QHostAddress");
+      arg00 = reinterpret_cast<QHostAddress *>(SvIV((SV*)SvRV(ST(1))));
     (void)THIS->setNetmask(*arg00);
     XSRETURN(0);
+    }
 
 ## void setPrefixLength(int length)
 void
@@ -198,6 +199,8 @@ QNetworkAddressEntry::setPrefixLength(...)
 PREINIT:
 int arg00;
 PPCODE:
-    arg00 = (int)SvIV(ST(1));
+    if (SvIOK(ST(1))) {
+      arg00 = (int)SvIV(ST(1));
     (void)THIS->setPrefixLength(arg00);
     XSRETURN(0);
+    }

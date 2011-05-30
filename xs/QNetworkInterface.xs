@@ -27,32 +27,33 @@ QNetworkInterface *ret;
 QNetworkInterface * arg10;
 PPCODE:
     switch(items) {
-    case 1:
+      case 1:
       {
-        ret = new QNetworkInterface();
+        if (1) {
+      
+    ret = new QNetworkInterface();
     ST(0) = sv_newmortal();
     sv_setref_pv(ST(0), "Qt::Network::QNetworkInterface", (void *)ret);
     XSRETURN(1);
+    }
         break;
       }
-    case 2:
+      case 2:
       {
         if (sv_isa(ST(1), "Qt::Network::QNetworkInterface")) {
-        arg10 = reinterpret_cast<QNetworkInterface *>(SvIV((SV*)SvRV(ST(1))));
-    }
-    else
-        Perl_croak(aTHX_ "arg10 is not of type Qt::Network::QNetworkInterface");
+      arg10 = reinterpret_cast<QNetworkInterface *>(SvIV((SV*)SvRV(ST(1))));
     ret = new QNetworkInterface(*arg10);
     ST(0) = sv_newmortal();
     sv_setref_pv(ST(0), "Qt::Network::QNetworkInterface", (void *)ret);
     XSRETURN(1);
+    }
+	else
+            Perl_croak(aTHX_ "wrong number/type of arguments passed in");
         break;
       }
-    default:
-      {
+      default:
         Perl_croak(aTHX_ "wrong number/type of arguments passed in");
         break;
-      }
     }
 
 ##  ~QNetworkInterface()
@@ -62,35 +63,57 @@ CODE:
     if(THIS != 0 && !SvREADONLY(SvRV(ST(0))))
         delete THIS;
 
+## QFlags<QNetworkInterface::InterfaceFlag> flags()
+void
+QNetworkInterface::flags(...)
+PREINIT:
+PPCODE:
+    if (1) {
+      
+    QFlags<QNetworkInterface::InterfaceFlag> ret = THIS->flags();
+    ST(0) = sv_newmortal();
+    sv_setiv(ST(0), (IV)ret);
+    XSRETURN(1);
+    }
+
 ## QString hardwareAddress()
 void
 QNetworkInterface::hardwareAddress(...)
 PREINIT:
 PPCODE:
+    if (1) {
+      
     QString ret = THIS->hardwareAddress();
     ST(0) = sv_newmortal();
-    sv_setref_pv(ST(0), "", (void *)new QString(ret));
+    sv_setref_pv(ST(0), "Qt::Core::QString", (void *)new QString(ret));
     XSRETURN(1);
+    }
 
 ## QString humanReadableName()
 void
 QNetworkInterface::humanReadableName(...)
 PREINIT:
 PPCODE:
+    if (1) {
+      
     QString ret = THIS->humanReadableName();
     ST(0) = sv_newmortal();
-    sv_setref_pv(ST(0), "", (void *)new QString(ret));
+    sv_setref_pv(ST(0), "Qt::Core::QString", (void *)new QString(ret));
     XSRETURN(1);
+    }
 
 ## int index()
 void
 QNetworkInterface::index(...)
 PREINIT:
 PPCODE:
+    if (1) {
+      
     int ret = THIS->index();
     ST(0) = sv_newmortal();
     sv_setiv(ST(0), (IV)ret);
     XSRETURN(1);
+    }
 
 ## static QNetworkInterface interfaceFromIndex(int index)
 void
@@ -98,11 +121,13 @@ QNetworkInterface::interfaceFromIndex(...)
 PREINIT:
 int arg00;
 PPCODE:
-    arg00 = (int)SvIV(ST(1));
+    if (SvIOK(ST(1))) {
+      arg00 = (int)SvIV(ST(1));
     QNetworkInterface ret = THIS->interfaceFromIndex(arg00);
     ST(0) = sv_newmortal();
     sv_setref_pv(ST(0), "Qt::Network::QNetworkInterface", (void *)new QNetworkInterface(ret));
     XSRETURN(1);
+    }
 
 ## static QNetworkInterface interfaceFromName(const QString & name)
 void
@@ -110,35 +135,39 @@ QNetworkInterface::interfaceFromName(...)
 PREINIT:
 QString * arg00;
 PPCODE:
-    if (sv_isa(ST(1), "")) {
-        arg00 = reinterpret_cast<QString *>(SvIV((SV*)SvRV(ST(1))));
-    }
-    else
-        Perl_croak(aTHX_ "arg00 is not of type ");
+    if (sv_isa(ST(1), "Qt::Core::QString")) {
+      arg00 = reinterpret_cast<QString *>(SvIV((SV*)SvRV(ST(1))));
     QNetworkInterface ret = THIS->interfaceFromName(*arg00);
     ST(0) = sv_newmortal();
     sv_setref_pv(ST(0), "Qt::Network::QNetworkInterface", (void *)new QNetworkInterface(ret));
     XSRETURN(1);
+    }
 
 ## bool isValid()
 void
 QNetworkInterface::isValid(...)
 PREINIT:
 PPCODE:
+    if (1) {
+      
     bool ret = THIS->isValid();
     ST(0) = sv_newmortal();
     ST(0) = boolSV(ret);
     XSRETURN(1);
+    }
 
 ## QString name()
 void
 QNetworkInterface::name(...)
 PREINIT:
 PPCODE:
+    if (1) {
+      
     QString ret = THIS->name();
     ST(0) = sv_newmortal();
-    sv_setref_pv(ST(0), "", (void *)new QString(ret));
+    sv_setref_pv(ST(0), "Qt::Core::QString", (void *)new QString(ret));
     XSRETURN(1);
+    }
 
 ## QNetworkInterface & operator=(const QNetworkInterface & other)
 void
@@ -147,11 +176,70 @@ PREINIT:
 QNetworkInterface * arg00;
 PPCODE:
     if (sv_isa(ST(1), "Qt::Network::QNetworkInterface")) {
-        arg00 = reinterpret_cast<QNetworkInterface *>(SvIV((SV*)SvRV(ST(1))));
-    }
-    else
-        Perl_croak(aTHX_ "arg00 is not of type Qt::Network::QNetworkInterface");
+      arg00 = reinterpret_cast<QNetworkInterface *>(SvIV((SV*)SvRV(ST(1))));
     QNetworkInterface * ret = &THIS->operator=(*arg00);
     ST(0) = sv_newmortal();
     sv_setref_pv(ST(0), "Qt::Network::QNetworkInterface", (void *)ret);
+    XSRETURN(1);
+    }
+
+
+
+
+################################################################
+#### 
+#### ENUMS
+#### 
+################################################################
+# InterfaceFlag::IsUp
+void
+IsUp()
+PPCODE:
+    ST(0) = sv_newmortal();
+    sv_setiv(ST(0), (IV)QNetworkInterface::IsUp);
+    XSRETURN(1);
+
+
+# InterfaceFlag::IsRunning
+void
+IsRunning()
+PPCODE:
+    ST(0) = sv_newmortal();
+    sv_setiv(ST(0), (IV)QNetworkInterface::IsRunning);
+    XSRETURN(1);
+
+
+# InterfaceFlag::CanBroadcast
+void
+CanBroadcast()
+PPCODE:
+    ST(0) = sv_newmortal();
+    sv_setiv(ST(0), (IV)QNetworkInterface::CanBroadcast);
+    XSRETURN(1);
+
+
+# InterfaceFlag::IsLoopBack
+void
+IsLoopBack()
+PPCODE:
+    ST(0) = sv_newmortal();
+    sv_setiv(ST(0), (IV)QNetworkInterface::IsLoopBack);
+    XSRETURN(1);
+
+
+# InterfaceFlag::IsPointToPoint
+void
+IsPointToPoint()
+PPCODE:
+    ST(0) = sv_newmortal();
+    sv_setiv(ST(0), (IV)QNetworkInterface::IsPointToPoint);
+    XSRETURN(1);
+
+
+# InterfaceFlag::CanMulticast
+void
+CanMulticast()
+PPCODE:
+    ST(0) = sv_newmortal();
+    sv_setiv(ST(0), (IV)QNetworkInterface::CanMulticast);
     XSRETURN(1);

@@ -7,12 +7,11 @@ use strict;
 use warnings;
 #use Carp;
 
-our $VERSION = '0.01_01';
-our $ISA     = qw/QHttpHeader/;
+our $VERSION = '0.01_02';
+our $ISA     = qw/Qt::Network::QHttpHeader/;
 
 
 # FIXME: operator overload
-
 
 
 1;
@@ -25,47 +24,46 @@ Qt::Network::QHttpResponseHeader
 
 =over
 
-=item    QHttpResponseHeader()
+=item   QHttpResponseHeader()
 
-=item    QHttpResponseHeader(const QHttpResponseHeader & header)
+=item   QHttpResponseHeader(const QHttpResponseHeader & header)
 
-=item    QHttpResponseHeader(const QString & str)
+=item   QHttpResponseHeader(const QString & str)
 
-=item    QHttpResponseHeader(int code, const QString & text, int majorVer, int minorVer = 1)
+=item   QHttpResponseHeader(int code, const QString & text, int majorVer, int minorVer)
 
-=item    QHttpResponseHeader(int code, const QString & text, int majorVer, int minorVer)
+=item   QHttpResponseHeader(int code, const QString & text, int majorVer, int minorVer = 1)
 
-=item    QHttpResponseHeader(int code, const QString & text, int majorVer = 1, int minorVer = 1)
+=item   QHttpResponseHeader(int code, const QString & text, int majorVer = 1, int minorVer = 1)
 
-=item    QHttpResponseHeader(int code, const QString & text, int majorVer, int minorVer = 1)
+=item   QHttpResponseHeader(int code, const QString & text = QString(), int majorVer = 1, int minorVer = 1)
 
-=item    QHttpResponseHeader(int code, const QString & text = QString(), int majorVer = 1, int minorVer = 1)
+=item  int majorVersion()
 
-=item    QHttpResponseHeader(int code, const QString & text, int majorVer = 1, int minorVer = 1)
+=item  int minorVersion()
 
-=item   int majorVersion()
+=item  QHttpResponseHeader & operator=(const QHttpResponseHeader & header)
 
-=item   int minorVersion()
+=item  QString reasonPhrase()
 
-=item   QHttpResponseHeader & operator=(const QHttpResponseHeader & header)
+=item  void setStatusLine(int code, const QString & text, int majorVer, int minorVer)
 
-=item   QString reasonPhrase()
+=item  void setStatusLine(int code, const QString & text, int majorVer, int minorVer = 1)
 
-=item   void setStatusLine(int code, const QString & text, int majorVer, int minorVer = 1)
+=item  void setStatusLine(int code, const QString & text, int majorVer = 1, int minorVer = 1)
 
-=item   void setStatusLine(int code, const QString & text, int majorVer, int minorVer)
+=item  void setStatusLine(int code, const QString & text = QString(), int majorVer = 1, int minorVer = 1)
 
-=item   void setStatusLine(int code, const QString & text, int majorVer = 1, int minorVer = 1)
+=item  int statusCode()
 
-=item   void setStatusLine(int code, const QString & text, int majorVer, int minorVer = 1)
+=item  QString toString()
 
-=item   void setStatusLine(int code, const QString & text = QString(), int majorVer = 1, int minorVer = 1)
 
-=item   void setStatusLine(int code, const QString & text, int majorVer = 1, int minorVer = 1)
+=back
 
-=item   int statusCode()
+=head1 ENUM VALUES
 
-=item   QString toString()
+=over
 
 
 =back

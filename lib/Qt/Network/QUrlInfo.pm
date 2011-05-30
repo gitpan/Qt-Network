@@ -7,22 +7,10 @@ use strict;
 use warnings;
 #use Carp;
 
-our $VERSION = '0.01_01';
+our $VERSION = '0.01_02';
 
 
 # FIXME: operator overload
-
-# enums
-# enum value in perl is enum item index number
-sub ReadOwner() { 0 }
-sub WriteOwner() { 1 }
-sub ExeOwner() { 2 }
-sub ReadGroup() { 3 }
-sub WriteGroup() { 4 }
-sub ExeGroup() { 5 }
-sub ReadOther() { 6 }
-sub WriteOther() { 7 }
-sub ExeOther() { 8 }
 
 
 1;
@@ -35,79 +23,104 @@ Qt::Network::QUrlInfo
 
 =over
 
-=item    QUrlInfo()
+=item   QUrlInfo()
 
-=item    QUrlInfo(const QUrlInfo & ui)
+=item   QUrlInfo(const QUrlInfo & ui)
 
-=item    QUrlInfo(const QString & name, int permissions, const QString & owner, const QString & group, qint64 size, const QDateTime & lastModified, const QDateTime & lastRead, bool isDir, bool isFile, bool isSymLink, bool isWritable, bool isReadable, bool isExecutable)
+=item   QUrlInfo(const QString & name, int permissions, const QString & owner, const QString & group, qint64 size, const QDateTime & lastModified, const QDateTime & lastRead, bool isDir, bool isFile, bool isSymLink, bool isWritable, bool isReadable, bool isExecutable)
 
-=item    QUrlInfo(const QUrl & url, int permissions, const QString & owner, const QString & group, qint64 size, const QDateTime & lastModified, const QDateTime & lastRead, bool isDir, bool isFile, bool isSymLink, bool isWritable, bool isReadable, bool isExecutable)
+=item   QUrlInfo(const QUrl & url, int permissions, const QString & owner, const QString & group, qint64 size, const QDateTime & lastModified, const QDateTime & lastRead, bool isDir, bool isFile, bool isSymLink, bool isWritable, bool isReadable, bool isExecutable)
 
-=item    ~QUrlInfo()
+=item   ~QUrlInfo()
 
-=item   static bool equal(const QUrlInfo & i1, const QUrlInfo & i2, int sortBy)
+=item  static bool equal(const QUrlInfo & i1, const QUrlInfo & i2, int sortBy)
 
-=item   static bool greaterThan(const QUrlInfo & i1, const QUrlInfo & i2, int sortBy)
+=item  static bool greaterThan(const QUrlInfo & i1, const QUrlInfo & i2, int sortBy)
 
-=item   QString group()
+=item  QString group()
 
-=item   bool isDir()
+=item  bool isDir()
 
-=item   bool isExecutable()
+=item  bool isExecutable()
 
-=item   bool isFile()
+=item  bool isFile()
 
-=item   bool isReadable()
+=item  bool isReadable()
 
-=item   bool isSymLink()
+=item  bool isSymLink()
 
-=item   bool isValid()
+=item  bool isValid()
 
-=item   bool isWritable()
+=item  bool isWritable()
 
-=item   QDateTime lastModified()
+=item  QDateTime lastModified()
 
-=item   QDateTime lastRead()
+=item  QDateTime lastRead()
 
-=item   static bool lessThan(const QUrlInfo & i1, const QUrlInfo & i2, int sortBy)
+=item  static bool lessThan(const QUrlInfo & i1, const QUrlInfo & i2, int sortBy)
 
-=item   QString name()
+=item  QString name()
 
-=item   bool operator!=(const QUrlInfo & i)
+=item  bool operator!=(const QUrlInfo & i)
 
-=item   QUrlInfo & operator=(const QUrlInfo & ui)
+=item  QUrlInfo & operator=(const QUrlInfo & ui)
 
-=item   bool operator==(const QUrlInfo & i)
+=item  bool operator==(const QUrlInfo & i)
 
-=item   QString owner()
+=item  QString owner()
 
-=item   int permissions()
+=item  int permissions()
 
-=item   void setDir(bool b)
+=item  void setDir(bool b)
 
-=item   void setFile(bool b)
+=item  void setFile(bool b)
 
-=item   void setGroup(const QString & s)
+=item  void setGroup(const QString & s)
 
-=item   void setLastModified(const QDateTime & dt)
+=item  void setLastModified(const QDateTime & dt)
 
-=item   void setLastRead(const QDateTime & dt)
+=item  void setLastRead(const QDateTime & dt)
 
-=item   void setName(const QString & name)
+=item  void setName(const QString & name)
 
-=item   void setOwner(const QString & s)
+=item  void setOwner(const QString & s)
 
-=item   void setPermissions(int p)
+=item  void setPermissions(int p)
 
-=item   void setReadable(bool b)
+=item  void setReadable(bool b)
 
-=item   void setSize(qint64 size)
+=item  void setSize(qint64 size)
 
-=item   void setSymLink(bool b)
+=item  void setSymLink(bool b)
 
-=item   void setWritable(bool b)
+=item  void setWritable(bool b)
 
-=item   qint64 size()
+=item  qint64 size()
+
+
+=back
+
+=head1 ENUM VALUES
+
+=over
+
+=item ReadOwner
+
+=item WriteOwner
+
+=item ExeOwner
+
+=item ReadGroup
+
+=item WriteGroup
+
+=item ExeGroup
+
+=item ReadOther
+
+=item WriteOther
+
+=item ExeOther
 
 
 =back

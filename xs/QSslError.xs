@@ -32,198 +32,54 @@ QSslError::SslError arg30;
 QSslCertificate * arg31;
 PPCODE:
     switch(items) {
-    case 1:
+      case 1:
       {
-        ret = new QSslError();
+        if (1) {
+      
+    ret = new QSslError();
     ST(0) = sv_newmortal();
     sv_setref_pv(ST(0), "Qt::Network::QSslError", (void *)ret);
     XSRETURN(1);
+    }
         break;
       }
-    case 2:
+      case 2:
       {
-        switch(SvIV(ST(1))) {
-    case 0:
-      arg10 = QSslError::NoError;
-      break;
-    case 1:
-      arg10 = QSslError::UnableToGetIssuerCertificate;
-      break;
-    case 2:
-      arg10 = QSslError::UnableToDecryptCertificateSignature;
-      break;
-    case 3:
-      arg10 = QSslError::UnableToDecodeIssuerPublicKey;
-      break;
-    case 4:
-      arg10 = QSslError::CertificateSignatureFailed;
-      break;
-    case 5:
-      arg10 = QSslError::CertificateNotYetValid;
-      break;
-    case 6:
-      arg10 = QSslError::CertificateExpired;
-      break;
-    case 7:
-      arg10 = QSslError::InvalidNotBeforeField;
-      break;
-    case 8:
-      arg10 = QSslError::InvalidNotAfterField;
-      break;
-    case 9:
-      arg10 = QSslError::SelfSignedCertificate;
-      break;
-    case 10:
-      arg10 = QSslError::SelfSignedCertificateInChain;
-      break;
-    case 11:
-      arg10 = QSslError::UnableToGetLocalIssuerCertificate;
-      break;
-    case 12:
-      arg10 = QSslError::UnableToVerifyFirstCertificate;
-      break;
-    case 13:
-      arg10 = QSslError::CertificateRevoked;
-      break;
-    case 14:
-      arg10 = QSslError::InvalidCaCertificate;
-      break;
-    case 15:
-      arg10 = QSslError::PathLengthExceeded;
-      break;
-    case 16:
-      arg10 = QSslError::InvalidPurpose;
-      break;
-    case 17:
-      arg10 = QSslError::CertificateUntrusted;
-      break;
-    case 18:
-      arg10 = QSslError::CertificateRejected;
-      break;
-    case 19:
-      arg10 = QSslError::SubjectIssuerMismatch;
-      break;
-    case 20:
-      arg10 = QSslError::AuthorityIssuerSerialNumberMismatch;
-      break;
-    case 21:
-      arg10 = QSslError::NoPeerCertificate;
-      break;
-    case 22:
-      arg10 = QSslError::HostNameMismatch;
-      break;
-    case 23:
-      arg10 = QSslError::NoSslSupport;
-      break;
-    case 24:
-      arg10 = QSslError::UnspecifiedError;
-      break;
-    default:
-      Perl_croak(aTHX_ "wrong enum value for type QSslError::SslError passed in");
-    }
+        if (SvIOK(ST(1))) {
+      arg10 = (QSslError::SslError)SvIV(ST(1));
     ret = new QSslError(arg10);
     ST(0) = sv_newmortal();
     sv_setref_pv(ST(0), "Qt::Network::QSslError", (void *)ret);
     XSRETURN(1);
+    }
+        else if (sv_isa(ST(1), "Qt::Network::QSslError")) {
+      arg20 = reinterpret_cast<QSslError *>(SvIV((SV*)SvRV(ST(1))));
+    ret = new QSslError(*arg20);
+    ST(0) = sv_newmortal();
+    sv_setref_pv(ST(0), "Qt::Network::QSslError", (void *)ret);
+    XSRETURN(1);
+    }
+	else
+            Perl_croak(aTHX_ "wrong number/type of arguments passed in");
         break;
       }
-    case 3:
+      case 3:
       {
-        switch(SvIV(ST(1))) {
-    case 0:
-      arg30 = QSslError::NoError;
-      break;
-    case 1:
-      arg30 = QSslError::UnableToGetIssuerCertificate;
-      break;
-    case 2:
-      arg30 = QSslError::UnableToDecryptCertificateSignature;
-      break;
-    case 3:
-      arg30 = QSslError::UnableToDecodeIssuerPublicKey;
-      break;
-    case 4:
-      arg30 = QSslError::CertificateSignatureFailed;
-      break;
-    case 5:
-      arg30 = QSslError::CertificateNotYetValid;
-      break;
-    case 6:
-      arg30 = QSslError::CertificateExpired;
-      break;
-    case 7:
-      arg30 = QSslError::InvalidNotBeforeField;
-      break;
-    case 8:
-      arg30 = QSslError::InvalidNotAfterField;
-      break;
-    case 9:
-      arg30 = QSslError::SelfSignedCertificate;
-      break;
-    case 10:
-      arg30 = QSslError::SelfSignedCertificateInChain;
-      break;
-    case 11:
-      arg30 = QSslError::UnableToGetLocalIssuerCertificate;
-      break;
-    case 12:
-      arg30 = QSslError::UnableToVerifyFirstCertificate;
-      break;
-    case 13:
-      arg30 = QSslError::CertificateRevoked;
-      break;
-    case 14:
-      arg30 = QSslError::InvalidCaCertificate;
-      break;
-    case 15:
-      arg30 = QSslError::PathLengthExceeded;
-      break;
-    case 16:
-      arg30 = QSslError::InvalidPurpose;
-      break;
-    case 17:
-      arg30 = QSslError::CertificateUntrusted;
-      break;
-    case 18:
-      arg30 = QSslError::CertificateRejected;
-      break;
-    case 19:
-      arg30 = QSslError::SubjectIssuerMismatch;
-      break;
-    case 20:
-      arg30 = QSslError::AuthorityIssuerSerialNumberMismatch;
-      break;
-    case 21:
-      arg30 = QSslError::NoPeerCertificate;
-      break;
-    case 22:
-      arg30 = QSslError::HostNameMismatch;
-      break;
-    case 23:
-      arg30 = QSslError::NoSslSupport;
-      break;
-    case 24:
-      arg30 = QSslError::UnspecifiedError;
-      break;
-    default:
-      Perl_croak(aTHX_ "wrong enum value for type QSslError::SslError passed in");
-    }
-    if (sv_isa(ST(2), "Qt::Network::QSslCertificate")) {
-        arg31 = reinterpret_cast<QSslCertificate *>(SvIV((SV*)SvRV(ST(2))));
-    }
-    else
-        Perl_croak(aTHX_ "arg31 is not of type Qt::Network::QSslCertificate");
+        if (SvIOK(ST(1)) && sv_isa(ST(2), "Qt::Network::QSslCertificate")) {
+      arg30 = (QSslError::SslError)SvIV(ST(1));
+      arg31 = reinterpret_cast<QSslCertificate *>(SvIV((SV*)SvRV(ST(2))));
     ret = new QSslError(arg30, *arg31);
     ST(0) = sv_newmortal();
     sv_setref_pv(ST(0), "Qt::Network::QSslError", (void *)ret);
     XSRETURN(1);
+    }
+	else
+            Perl_croak(aTHX_ "wrong number/type of arguments passed in");
         break;
       }
-    default:
-      {
+      default:
         Perl_croak(aTHX_ "wrong number/type of arguments passed in");
         break;
-      }
     }
 
 ##  ~QSslError()
@@ -238,30 +94,39 @@ void
 QSslError::certificate(...)
 PREINIT:
 PPCODE:
+    if (1) {
+      
     QSslCertificate ret = THIS->certificate();
     ST(0) = sv_newmortal();
     sv_setref_pv(ST(0), "Qt::Network::QSslCertificate", (void *)new QSslCertificate(ret));
     XSRETURN(1);
+    }
 
 ## QSslError::SslError error()
 void
 QSslError::error(...)
 PREINIT:
 PPCODE:
+    if (1) {
+      
     QSslError::SslError ret = THIS->error();
     ST(0) = sv_newmortal();
     sv_setiv(ST(0), (IV)ret);
     XSRETURN(1);
+    }
 
 ## QString errorString()
 void
 QSslError::errorString(...)
 PREINIT:
 PPCODE:
+    if (1) {
+      
     QString ret = THIS->errorString();
     ST(0) = sv_newmortal();
-    sv_setref_pv(ST(0), "", (void *)new QString(ret));
+    sv_setref_pv(ST(0), "Qt::Core::QString", (void *)new QString(ret));
     XSRETURN(1);
+    }
 
 ## bool operator!=(const QSslError & other)
 void
@@ -270,14 +135,12 @@ PREINIT:
 QSslError * arg00;
 PPCODE:
     if (sv_isa(ST(1), "Qt::Network::QSslError")) {
-        arg00 = reinterpret_cast<QSslError *>(SvIV((SV*)SvRV(ST(1))));
-    }
-    else
-        Perl_croak(aTHX_ "arg00 is not of type Qt::Network::QSslError");
+      arg00 = reinterpret_cast<QSslError *>(SvIV((SV*)SvRV(ST(1))));
     bool ret = THIS->operator!=(*arg00);
     ST(0) = sv_newmortal();
     ST(0) = boolSV(ret);
     XSRETURN(1);
+    }
 
 ## QSslError & operator=(const QSslError & other)
 void
@@ -286,14 +149,12 @@ PREINIT:
 QSslError * arg00;
 PPCODE:
     if (sv_isa(ST(1), "Qt::Network::QSslError")) {
-        arg00 = reinterpret_cast<QSslError *>(SvIV((SV*)SvRV(ST(1))));
-    }
-    else
-        Perl_croak(aTHX_ "arg00 is not of type Qt::Network::QSslError");
+      arg00 = reinterpret_cast<QSslError *>(SvIV((SV*)SvRV(ST(1))));
     QSslError * ret = &THIS->operator=(*arg00);
     ST(0) = sv_newmortal();
     sv_setref_pv(ST(0), "Qt::Network::QSslError", (void *)ret);
     XSRETURN(1);
+    }
 
 ## bool operator==(const QSslError & other)
 void
@@ -302,11 +163,241 @@ PREINIT:
 QSslError * arg00;
 PPCODE:
     if (sv_isa(ST(1), "Qt::Network::QSslError")) {
-        arg00 = reinterpret_cast<QSslError *>(SvIV((SV*)SvRV(ST(1))));
-    }
-    else
-        Perl_croak(aTHX_ "arg00 is not of type Qt::Network::QSslError");
+      arg00 = reinterpret_cast<QSslError *>(SvIV((SV*)SvRV(ST(1))));
     bool ret = THIS->operator==(*arg00);
     ST(0) = sv_newmortal();
     ST(0) = boolSV(ret);
+    XSRETURN(1);
+    }
+
+
+
+
+################################################################
+#### 
+#### ENUMS
+#### 
+################################################################
+# SslError::NoError
+void
+NoError()
+PPCODE:
+    ST(0) = sv_newmortal();
+    sv_setiv(ST(0), (IV)QSslError::NoError);
+    XSRETURN(1);
+
+
+# SslError::UnableToGetIssuerCertificate
+void
+UnableToGetIssuerCertificate()
+PPCODE:
+    ST(0) = sv_newmortal();
+    sv_setiv(ST(0), (IV)QSslError::UnableToGetIssuerCertificate);
+    XSRETURN(1);
+
+
+# SslError::UnableToDecryptCertificateSignature
+void
+UnableToDecryptCertificateSignature()
+PPCODE:
+    ST(0) = sv_newmortal();
+    sv_setiv(ST(0), (IV)QSslError::UnableToDecryptCertificateSignature);
+    XSRETURN(1);
+
+
+# SslError::UnableToDecodeIssuerPublicKey
+void
+UnableToDecodeIssuerPublicKey()
+PPCODE:
+    ST(0) = sv_newmortal();
+    sv_setiv(ST(0), (IV)QSslError::UnableToDecodeIssuerPublicKey);
+    XSRETURN(1);
+
+
+# SslError::CertificateSignatureFailed
+void
+CertificateSignatureFailed()
+PPCODE:
+    ST(0) = sv_newmortal();
+    sv_setiv(ST(0), (IV)QSslError::CertificateSignatureFailed);
+    XSRETURN(1);
+
+
+# SslError::CertificateNotYetValid
+void
+CertificateNotYetValid()
+PPCODE:
+    ST(0) = sv_newmortal();
+    sv_setiv(ST(0), (IV)QSslError::CertificateNotYetValid);
+    XSRETURN(1);
+
+
+# SslError::CertificateExpired
+void
+CertificateExpired()
+PPCODE:
+    ST(0) = sv_newmortal();
+    sv_setiv(ST(0), (IV)QSslError::CertificateExpired);
+    XSRETURN(1);
+
+
+# SslError::InvalidNotBeforeField
+void
+InvalidNotBeforeField()
+PPCODE:
+    ST(0) = sv_newmortal();
+    sv_setiv(ST(0), (IV)QSslError::InvalidNotBeforeField);
+    XSRETURN(1);
+
+
+# SslError::InvalidNotAfterField
+void
+InvalidNotAfterField()
+PPCODE:
+    ST(0) = sv_newmortal();
+    sv_setiv(ST(0), (IV)QSslError::InvalidNotAfterField);
+    XSRETURN(1);
+
+
+# SslError::SelfSignedCertificate
+void
+SelfSignedCertificate()
+PPCODE:
+    ST(0) = sv_newmortal();
+    sv_setiv(ST(0), (IV)QSslError::SelfSignedCertificate);
+    XSRETURN(1);
+
+
+# SslError::SelfSignedCertificateInChain
+void
+SelfSignedCertificateInChain()
+PPCODE:
+    ST(0) = sv_newmortal();
+    sv_setiv(ST(0), (IV)QSslError::SelfSignedCertificateInChain);
+    XSRETURN(1);
+
+
+# SslError::UnableToGetLocalIssuerCertificate
+void
+UnableToGetLocalIssuerCertificate()
+PPCODE:
+    ST(0) = sv_newmortal();
+    sv_setiv(ST(0), (IV)QSslError::UnableToGetLocalIssuerCertificate);
+    XSRETURN(1);
+
+
+# SslError::UnableToVerifyFirstCertificate
+void
+UnableToVerifyFirstCertificate()
+PPCODE:
+    ST(0) = sv_newmortal();
+    sv_setiv(ST(0), (IV)QSslError::UnableToVerifyFirstCertificate);
+    XSRETURN(1);
+
+
+# SslError::CertificateRevoked
+void
+CertificateRevoked()
+PPCODE:
+    ST(0) = sv_newmortal();
+    sv_setiv(ST(0), (IV)QSslError::CertificateRevoked);
+    XSRETURN(1);
+
+
+# SslError::InvalidCaCertificate
+void
+InvalidCaCertificate()
+PPCODE:
+    ST(0) = sv_newmortal();
+    sv_setiv(ST(0), (IV)QSslError::InvalidCaCertificate);
+    XSRETURN(1);
+
+
+# SslError::PathLengthExceeded
+void
+PathLengthExceeded()
+PPCODE:
+    ST(0) = sv_newmortal();
+    sv_setiv(ST(0), (IV)QSslError::PathLengthExceeded);
+    XSRETURN(1);
+
+
+# SslError::InvalidPurpose
+void
+InvalidPurpose()
+PPCODE:
+    ST(0) = sv_newmortal();
+    sv_setiv(ST(0), (IV)QSslError::InvalidPurpose);
+    XSRETURN(1);
+
+
+# SslError::CertificateUntrusted
+void
+CertificateUntrusted()
+PPCODE:
+    ST(0) = sv_newmortal();
+    sv_setiv(ST(0), (IV)QSslError::CertificateUntrusted);
+    XSRETURN(1);
+
+
+# SslError::CertificateRejected
+void
+CertificateRejected()
+PPCODE:
+    ST(0) = sv_newmortal();
+    sv_setiv(ST(0), (IV)QSslError::CertificateRejected);
+    XSRETURN(1);
+
+
+# SslError::SubjectIssuerMismatch
+void
+SubjectIssuerMismatch()
+PPCODE:
+    ST(0) = sv_newmortal();
+    sv_setiv(ST(0), (IV)QSslError::SubjectIssuerMismatch);
+    XSRETURN(1);
+
+
+# SslError::AuthorityIssuerSerialNumberMismatch
+void
+AuthorityIssuerSerialNumberMismatch()
+PPCODE:
+    ST(0) = sv_newmortal();
+    sv_setiv(ST(0), (IV)QSslError::AuthorityIssuerSerialNumberMismatch);
+    XSRETURN(1);
+
+
+# SslError::NoPeerCertificate
+void
+NoPeerCertificate()
+PPCODE:
+    ST(0) = sv_newmortal();
+    sv_setiv(ST(0), (IV)QSslError::NoPeerCertificate);
+    XSRETURN(1);
+
+
+# SslError::HostNameMismatch
+void
+HostNameMismatch()
+PPCODE:
+    ST(0) = sv_newmortal();
+    sv_setiv(ST(0), (IV)QSslError::HostNameMismatch);
+    XSRETURN(1);
+
+
+# SslError::NoSslSupport
+void
+NoSslSupport()
+PPCODE:
+    ST(0) = sv_newmortal();
+    sv_setiv(ST(0), (IV)QSslError::NoSslSupport);
+    XSRETURN(1);
+
+
+# SslError::UnspecifiedError
+void
+UnspecifiedError()
+PPCODE:
+    ST(0) = sv_newmortal();
+    sv_setiv(ST(0), (IV)QSslError::UnspecifiedError);
     XSRETURN(1);

@@ -7,35 +7,10 @@ use strict;
 use warnings;
 #use Carp;
 
-our $VERSION = '0.01_01';
+our $VERSION = '0.01_02';
 
 
 # FIXME: operator overload
-
-# enums
-# enum value in perl is enum item index number
-sub ContentTypeHeader() { 0 }
-sub ContentLengthHeader() { 1 }
-sub LocationHeader() { 2 }
-sub LastModifiedHeader() { 3 }
-sub CookieHeader() { 4 }
-sub SetCookieHeader() { 5 }
-sub HttpStatusCodeAttribute() { 0 }
-sub HttpReasonPhraseAttribute() { 1 }
-sub RedirectionTargetAttribute() { 2 }
-sub ConnectionEncryptedAttribute() { 3 }
-sub CacheLoadControlAttribute() { 4 }
-sub CacheSaveControlAttribute() { 5 }
-sub SourceIsFromCacheAttribute() { 6 }
-sub DoNotBufferUploadDataAttribute() { 7 }
-sub HttpPipeliningAllowedAttribute() { 8 }
-sub HttpPipeliningWasUsedAttribute() { 9 }
-sub User() { 10 }
-sub UserMax() { 11 }
-sub AlwaysNetwork() { 0 }
-sub PreferNetwork() { 1 }
-sub PreferCache() { 2 }
-sub AlwaysCache() { 3 }
 
 
 1;
@@ -48,47 +23,124 @@ Qt::Network::QNetworkRequest
 
 =over
 
-=item    QNetworkRequest(const QUrl & url = QUrl())
+=item   QNetworkRequest(const QUrl & url)
 
-=item    QNetworkRequest(const QUrl & url)
+=item   QNetworkRequest(const QUrl & url = QUrl())
 
-=item    QNetworkRequest(const QNetworkRequest & other)
+=item   QNetworkRequest(const QNetworkRequest & other)
 
-=item    ~QNetworkRequest()
+=item   ~QNetworkRequest()
 
-=item   QVariant attribute(QNetworkRequest::Attribute code, const QVariant & defaultValue = QVariant())
+=item  QVariant attribute(QNetworkRequest::Attribute code, const QVariant & defaultValue)
 
-=item   QVariant attribute(QNetworkRequest::Attribute code, const QVariant & defaultValue)
+=item  QVariant attribute(QNetworkRequest::Attribute code, const QVariant & defaultValue = QVariant())
 
-=item   bool hasRawHeader(const QByteArray & headerName)
+=item  bool hasRawHeader(const QByteArray & headerName)
 
-=item   QVariant header(QNetworkRequest::KnownHeaders header)
+=item  QVariant header(QNetworkRequest::KnownHeaders header)
 
-=item   bool operator!=(const QNetworkRequest & other)
+=item  bool operator!=(const QNetworkRequest & other)
 
-=item   QNetworkRequest & operator=(const QNetworkRequest & other)
+=item  QNetworkRequest & operator=(const QNetworkRequest & other)
 
-=item   bool operator==(const QNetworkRequest & other)
+=item  bool operator==(const QNetworkRequest & other)
 
-=item   QObject * originatingObject()
+=item  QObject * originatingObject()
 
-=item   QByteArray rawHeader(const QByteArray & headerName)
+=item  QNetworkRequest::Priority priority()
 
-=item   void setAttribute(QNetworkRequest::Attribute code, const QVariant & value)
+=item  QByteArray rawHeader(const QByteArray & headerName)
 
-=item   void setHeader(QNetworkRequest::KnownHeaders header, const QVariant & value)
+=item  void setAttribute(QNetworkRequest::Attribute code, const QVariant & value)
 
-=item   void setOriginatingObject(QObject * object)
+=item  void setHeader(QNetworkRequest::KnownHeaders header, const QVariant & value)
 
-=item   void setRawHeader(const QByteArray & headerName, const QByteArray & value)
+=item  void setOriginatingObject(QObject * object)
 
-=item   void setSslConfiguration(const QSslConfiguration & configuration)
+=item  void setPriority(QNetworkRequest::Priority priority)
 
-=item   void setUrl(const QUrl & url)
+=item  void setRawHeader(const QByteArray & headerName, const QByteArray & value)
 
-=item   QSslConfiguration sslConfiguration()
+=item  void setSslConfiguration(const QSslConfiguration & configuration)
 
-=item   QUrl url()
+=item  void setUrl(const QUrl & url)
+
+=item  QSslConfiguration sslConfiguration()
+
+=item  QUrl url()
+
+
+=back
+
+=head1 ENUM VALUES
+
+=over
+
+=item ContentTypeHeader
+
+=item ContentLengthHeader
+
+=item LocationHeader
+
+=item LastModifiedHeader
+
+=item CookieHeader
+
+=item SetCookieHeader
+
+=item HttpStatusCodeAttribute
+
+=item HttpReasonPhraseAttribute
+
+=item RedirectionTargetAttribute
+
+=item ConnectionEncryptedAttribute
+
+=item CacheLoadControlAttribute
+
+=item CacheSaveControlAttribute
+
+=item SourceIsFromCacheAttribute
+
+=item DoNotBufferUploadDataAttribute
+
+=item HttpPipeliningAllowedAttribute
+
+=item HttpPipeliningWasUsedAttribute
+
+=item CustomVerbAttribute
+
+=item CookieLoadControlAttribute
+
+=item AuthenticationReuseAttribute
+
+=item CookieSaveControlAttribute
+
+=item MaximumDownloadBufferSizeAttribute
+
+=item DownloadBufferAttribute
+
+=item User
+
+=item UserMax
+
+=item AlwaysNetwork
+
+=item PreferNetwork
+
+=item PreferCache
+
+=item AlwaysCache
+
+=item Automatic
+
+=item Manual
+
+=item HighPriority
+
+=item NormalPriority
+
+=item LowPriority
 
 
 =back

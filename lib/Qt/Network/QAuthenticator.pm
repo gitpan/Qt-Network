@@ -7,11 +7,10 @@ use strict;
 use warnings;
 #use Carp;
 
-our $VERSION = '0.01_01';
+our $VERSION = '0.01_02';
 
 
 # FIXME: operator overload
-
 
 
 1;
@@ -24,31 +23,42 @@ Qt::Network::QAuthenticator
 
 =over
 
-=item    QAuthenticator()
+=item   QAuthenticator()
 
-=item    QAuthenticator(const QAuthenticator & other)
+=item   QAuthenticator(const QAuthenticator & other)
 
-=item    ~QAuthenticator()
+=item   ~QAuthenticator()
 
-=item   void detach()
+=item  void detach()
 
-=item   bool isNull()
+=item  bool isNull()
 
-=item   bool operator!=(const QAuthenticator & other)
+=item  bool operator!=(const QAuthenticator & other)
 
-=item   QAuthenticator & operator=(const QAuthenticator & other)
+=item  QAuthenticator & operator=(const QAuthenticator & other)
 
-=item   bool operator==(const QAuthenticator & other)
+=item  bool operator==(const QAuthenticator & other)
 
-=item   QString password()
+=item  QVariant option(const QString & opt)
 
-=item   QString realm()
+=item  QString password()
 
-=item   void setPassword(const QString & password)
+=item  QString realm()
 
-=item   void setUser(const QString & user)
+=item  void setOption(const QString & opt, const QVariant & value)
 
-=item   QString user()
+=item  void setPassword(const QString & password)
+
+=item  void setUser(const QString & user)
+
+=item  QString user()
+
+
+=back
+
+=head1 ENUM VALUES
+
+=over
 
 
 =back

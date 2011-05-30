@@ -7,19 +7,10 @@ use strict;
 use warnings;
 #use Carp;
 
-our $VERSION = '0.01_01';
+our $VERSION = '0.01_02';
 
 
 # FIXME: operator overload
-
-# enums
-# enum value in perl is enum item index number
-sub Organization() { 0 }
-sub CommonName() { 1 }
-sub LocalityName() { 2 }
-sub OrganizationalUnitName() { 3 }
-sub CountryName() { 4 }
-sub StateOrProvinceName() { 5 }
 
 
 1;
@@ -32,61 +23,78 @@ Qt::Network::QSslCertificate
 
 =over
 
-=item    QSslCertificate(const QSslCertificate & other)
+=item   QSslCertificate(const QSslCertificate & other)
 
-=item    QSslCertificate(QIODevice * device, QSsl::EncodingFormat format = QSsl::Pem)
+=item   QSslCertificate(QIODevice * device, QSsl::EncodingFormat format)
 
-=item    QSslCertificate(QIODevice * device, QSsl::EncodingFormat format)
+=item   QSslCertificate(QIODevice * device, QSsl::EncodingFormat format = QSsl::Pem)
 
-=item    QSslCertificate(const QByteArray & encoded, QSsl::EncodingFormat format = QSsl::Pem)
+=item   QSslCertificate(const QByteArray & encoded, QSsl::EncodingFormat format)
 
-=item    QSslCertificate(const QByteArray & encoded, QSsl::EncodingFormat format)
+=item   QSslCertificate(const QByteArray & encoded, QSsl::EncodingFormat format = QSsl::Pem)
 
-=item    QSslCertificate(const QByteArray & encoded = QByteArray(), QSsl::EncodingFormat format = QSsl::Pem)
+=item   QSslCertificate(const QByteArray & encoded = QByteArray(), QSsl::EncodingFormat format = QSsl::Pem)
 
-=item    QSslCertificate(const QByteArray & encoded, QSsl::EncodingFormat format = QSsl::Pem)
+=item   ~QSslCertificate()
 
-=item    ~QSslCertificate()
+=item  void clear()
 
-=item   void clear()
+=item  QByteArray digest(QCryptographicHash::Algorithm algorithm)
 
-=item   QByteArray digest(QCryptographicHash::Algorithm algorithm = QCryptographicHash::Md5)
+=item  QByteArray digest(QCryptographicHash::Algorithm algorithm = QCryptographicHash::Md5)
 
-=item   QByteArray digest(QCryptographicHash::Algorithm algorithm)
+=item  QDateTime effectiveDate()
 
-=item   QDateTime effectiveDate()
+=item  QDateTime expiryDate()
 
-=item   QDateTime expiryDate()
+=item  unsigned long handle()
 
-=item   unsigned long handle()
+=item  bool isNull()
 
-=item   bool isNull()
+=item  bool isValid()
 
-=item   bool isValid()
+=item  QString issuerInfo(QSslCertificate::SubjectInfo info)
 
-=item   QString issuerInfo(QSslCertificate::SubjectInfo info)
+=item  QString issuerInfo(const QByteArray & tag)
 
-=item   QString issuerInfo(const QByteArray & tag)
+=item  bool operator!=(const QSslCertificate & other)
 
-=item   bool operator!=(const QSslCertificate & other)
+=item  QSslCertificate & operator=(const QSslCertificate & other)
 
-=item   QSslCertificate & operator=(const QSslCertificate & other)
+=item  bool operator==(const QSslCertificate & other)
 
-=item   bool operator==(const QSslCertificate & other)
+=item  QSslKey publicKey()
 
-=item   QSslKey publicKey()
+=item  QByteArray serialNumber()
 
-=item   QByteArray serialNumber()
+=item  QString subjectInfo(QSslCertificate::SubjectInfo info)
 
-=item   QString subjectInfo(QSslCertificate::SubjectInfo info)
+=item  QString subjectInfo(const QByteArray & tag)
 
-=item   QString subjectInfo(const QByteArray & tag)
+=item  QByteArray toDer()
 
-=item   QByteArray toDer()
+=item  QByteArray toPem()
 
-=item   QByteArray toPem()
+=item  QByteArray version()
 
-=item   QByteArray version()
+
+=back
+
+=head1 ENUM VALUES
+
+=over
+
+=item Organization
+
+=item CommonName
+
+=item LocalityName
+
+=item OrganizationalUnitName
+
+=item CountryName
+
+=item StateOrProvinceName
 
 
 =back

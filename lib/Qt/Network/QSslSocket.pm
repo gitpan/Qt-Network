@@ -7,21 +7,11 @@ use strict;
 use warnings;
 #use Carp;
 
-our $VERSION = '0.01_01';
-our $ISA     = qw/QTcpSocket/;
+our $VERSION = '0.01_02';
+our $ISA     = qw/Qt::Network::QTcpSocket/;
 
 
 # FIXME: operator overload
-
-# enums
-# enum value in perl is enum item index number
-sub UnencryptedMode() { 0 }
-sub SslClientMode() { 1 }
-sub SslServerMode() { 2 }
-sub VerifyNone() { 0 }
-sub QueryPeer() { 1 }
-sub VerifyPeer() { 2 }
-sub AutoVerifyPeer() { 3 }
 
 
 1;
@@ -34,133 +24,160 @@ Qt::Network::QSslSocket
 
 =over
 
-=item    QSslSocket(QObject * parent = 0)
+=item   QSslSocket(QObject * parent)
 
-=item    QSslSocket(QObject * parent)
+=item   QSslSocket(QObject * parent = 0)
 
-=item    ~QSslSocket()
+=item   ~QSslSocket()
 
-=item   void abort()
+=item  void abort()
 
-=item   void addCaCertificate(const QSslCertificate & certificate)
+=item  void addCaCertificate(const QSslCertificate & certificate)
 
-=item   bool addCaCertificates(const QString & path, QSsl::EncodingFormat format, QRegExp::PatternSyntax syntax = QRegExp::FixedString)
+=item  bool addCaCertificates(const QString & path, QSsl::EncodingFormat format, QRegExp::PatternSyntax syntax)
 
-=item   bool addCaCertificates(const QString & path, QSsl::EncodingFormat format, QRegExp::PatternSyntax syntax)
+=item  bool addCaCertificates(const QString & path, QSsl::EncodingFormat format, QRegExp::PatternSyntax syntax = QRegExp::FixedString)
 
-=item   bool addCaCertificates(const QString & path, QSsl::EncodingFormat format = QSsl::Pem, QRegExp::PatternSyntax syntax = QRegExp::FixedString)
+=item  bool addCaCertificates(const QString & path, QSsl::EncodingFormat format = QSsl::Pem, QRegExp::PatternSyntax syntax = QRegExp::FixedString)
 
-=item   bool addCaCertificates(const QString & path, QSsl::EncodingFormat format, QRegExp::PatternSyntax syntax = QRegExp::FixedString)
+=item  static void addDefaultCaCertificate(const QSslCertificate & certificate)
 
-=item   static void addDefaultCaCertificate(const QSslCertificate & certificate)
+=item  static bool addDefaultCaCertificates(const QString & path, QSsl::EncodingFormat format, QRegExp::PatternSyntax syntax)
 
-=item   static bool addDefaultCaCertificates(const QString & path, QSsl::EncodingFormat format, QRegExp::PatternSyntax syntax = QRegExp::FixedString)
+=item  static bool addDefaultCaCertificates(const QString & path, QSsl::EncodingFormat format, QRegExp::PatternSyntax syntax = QRegExp::FixedString)
 
-=item   static bool addDefaultCaCertificates(const QString & path, QSsl::EncodingFormat format, QRegExp::PatternSyntax syntax)
+=item  static bool addDefaultCaCertificates(const QString & path, QSsl::EncodingFormat format = QSsl::Pem, QRegExp::PatternSyntax syntax = QRegExp::FixedString)
 
-=item   static bool addDefaultCaCertificates(const QString & path, QSsl::EncodingFormat format = QSsl::Pem, QRegExp::PatternSyntax syntax = QRegExp::FixedString)
+=item  bool atEnd()
 
-=item   static bool addDefaultCaCertificates(const QString & path, QSsl::EncodingFormat format, QRegExp::PatternSyntax syntax = QRegExp::FixedString)
+=item  qint64 bytesAvailable()
 
-=item   bool atEnd()
+=item  qint64 bytesToWrite()
 
-=item   qint64 bytesAvailable()
+=item  bool canReadLine()
 
-=item   qint64 bytesToWrite()
+=item  void close()
 
-=item   bool canReadLine()
+=item  void connectToHostEncrypted(const QString & hostName, quint16 port, QFlags<QIODevice::OpenModeFlag> mode)
 
-=item   void close()
+=item  void connectToHostEncrypted(const QString & hostName, quint16 port, QFlags<QIODevice::OpenModeFlag> mode = QIODevice::ReadWrite)
 
-=item   qint64 encryptedBytesAvailable()
+=item  void connectToHostEncrypted(const QString & hostName, quint16 port, const QString & sslPeerName, QFlags<QIODevice::OpenModeFlag> mode)
 
-=item   qint64 encryptedBytesToWrite()
+=item  void connectToHostEncrypted(const QString & hostName, quint16 port, const QString & sslPeerName, QFlags<QIODevice::OpenModeFlag> mode = QIODevice::ReadWrite)
 
-=item   bool flush()
+=item  qint64 encryptedBytesAvailable()
 
-=item   void ignoreSslErrors()
+=item  qint64 encryptedBytesToWrite()
 
-=item   bool isEncrypted()
+=item  bool flush()
 
-=item   QSslCertificate localCertificate()
+=item  void ignoreSslErrors()
 
-=item   QSslSocket::SslMode mode()
+=item  bool isEncrypted()
 
-=item   QSslCertificate peerCertificate()
+=item  QSslCertificate localCertificate()
 
-=item   int peerVerifyDepth()
+=item  QSslSocket::SslMode mode()
 
-=item   QSslSocket::PeerVerifyMode peerVerifyMode()
+=item  QSslCertificate peerCertificate()
 
-=item   QSslKey privateKey()
+=item  int peerVerifyDepth()
 
-=item   QSsl::SslProtocol protocol()
+=item  QSslSocket::PeerVerifyMode peerVerifyMode()
 
-=item   QSslCipher sessionCipher()
+=item  QSslKey privateKey()
 
-=item   void setCiphers(const QString & ciphers)
+=item  QSsl::SslProtocol protocol()
 
-=item   void setLocalCertificate(const QSslCertificate & certificate)
+=item  QSslCipher sessionCipher()
 
-=item   void setLocalCertificate(const QString & fileName, QSsl::EncodingFormat format = QSsl::Pem)
+=item  void setCiphers(const QString & ciphers)
 
-=item   void setLocalCertificate(const QString & fileName, QSsl::EncodingFormat format)
+=item  void setLocalCertificate(const QSslCertificate & certificate)
 
-=item   void setPeerVerifyDepth(int depth)
+=item  void setLocalCertificate(const QString & fileName, QSsl::EncodingFormat format)
 
-=item   void setPeerVerifyMode(QSslSocket::PeerVerifyMode mode)
+=item  void setLocalCertificate(const QString & fileName, QSsl::EncodingFormat format = QSsl::Pem)
 
-=item   void setPrivateKey(const QSslKey & key)
+=item  void setPeerVerifyDepth(int depth)
 
-=item   void setPrivateKey(const QString & fileName, QSsl::KeyAlgorithm algorithm, QSsl::EncodingFormat format, const QByteArray & passPhrase = QByteArray())
+=item  void setPeerVerifyMode(QSslSocket::PeerVerifyMode mode)
 
-=item   void setPrivateKey(const QString & fileName, QSsl::KeyAlgorithm algorithm, QSsl::EncodingFormat format, const QByteArray & passPhrase)
+=item  void setPrivateKey(const QSslKey & key)
 
-=item   void setPrivateKey(const QString & fileName, QSsl::KeyAlgorithm algorithm, QSsl::EncodingFormat format = QSsl::Pem, const QByteArray & passPhrase = QByteArray())
+=item  void setPrivateKey(const QString & fileName, QSsl::KeyAlgorithm algorithm, QSsl::EncodingFormat format, const QByteArray & passPhrase)
 
-=item   void setPrivateKey(const QString & fileName, QSsl::KeyAlgorithm algorithm, QSsl::EncodingFormat format, const QByteArray & passPhrase = QByteArray())
+=item  void setPrivateKey(const QString & fileName, QSsl::KeyAlgorithm algorithm, QSsl::EncodingFormat format, const QByteArray & passPhrase = QByteArray())
 
-=item   void setPrivateKey(const QString & fileName, QSsl::KeyAlgorithm algorithm = QSsl::Rsa, QSsl::EncodingFormat format = QSsl::Pem, const QByteArray & passPhrase = QByteArray())
+=item  void setPrivateKey(const QString & fileName, QSsl::KeyAlgorithm algorithm, QSsl::EncodingFormat format = QSsl::Pem, const QByteArray & passPhrase = QByteArray())
 
-=item   void setPrivateKey(const QString & fileName, QSsl::KeyAlgorithm algorithm, QSsl::EncodingFormat format = QSsl::Pem, const QByteArray & passPhrase = QByteArray())
+=item  void setPrivateKey(const QString & fileName, QSsl::KeyAlgorithm algorithm = QSsl::Rsa, QSsl::EncodingFormat format = QSsl::Pem, const QByteArray & passPhrase = QByteArray())
 
-=item   void setProtocol(QSsl::SslProtocol protocol)
+=item  void setProtocol(QSsl::SslProtocol protocol)
 
-=item   void setReadBufferSize(qint64 size)
+=item  void setReadBufferSize(qint64 size)
 
-=item   void setSocketOption(QAbstractSocket::SocketOption option, const QVariant & value)
+=item  bool setSocketDescriptor(int socketDescriptor, QAbstractSocket::SocketState state, QFlags<QIODevice::OpenModeFlag> openMode)
 
-=item   void setSslConfiguration(const QSslConfiguration & config)
+=item  bool setSocketDescriptor(int socketDescriptor, QAbstractSocket::SocketState state, QFlags<QIODevice::OpenModeFlag> openMode = QIODevice::ReadWrite)
 
-=item   QVariant socketOption(QAbstractSocket::SocketOption option)
+=item  bool setSocketDescriptor(int socketDescriptor, QAbstractSocket::SocketState state = QAbstractSocket::ConnectedState, QFlags<QIODevice::OpenModeFlag> openMode = QIODevice::ReadWrite)
 
-=item   QSslConfiguration sslConfiguration()
+=item  void setSocketOption(QAbstractSocket::SocketOption option, const QVariant & value)
 
-=item   void startClientEncryption()
+=item  void setSslConfiguration(const QSslConfiguration & config)
 
-=item   void startServerEncryption()
+=item  QVariant socketOption(QAbstractSocket::SocketOption option)
 
-=item   static bool supportsSsl()
+=item  QSslConfiguration sslConfiguration()
 
-=item   bool waitForBytesWritten(int msecs = 30000)
+=item  void startClientEncryption()
 
-=item   bool waitForBytesWritten(int msecs)
+=item  void startServerEncryption()
 
-=item   bool waitForConnected(int msecs = 30000)
+=item  static bool supportsSsl()
 
-=item   bool waitForConnected(int msecs)
+=item  bool waitForBytesWritten(int msecs)
 
-=item   bool waitForDisconnected(int msecs = 30000)
+=item  bool waitForBytesWritten(int msecs = 30000)
 
-=item   bool waitForDisconnected(int msecs)
+=item  bool waitForConnected(int msecs)
 
-=item   bool waitForEncrypted(int msecs = 30000)
+=item  bool waitForConnected(int msecs = 30000)
 
-=item   bool waitForEncrypted(int msecs)
+=item  bool waitForDisconnected(int msecs)
 
-=item   bool waitForReadyRead(int msecs = 30000)
+=item  bool waitForDisconnected(int msecs = 30000)
 
-=item   bool waitForReadyRead(int msecs)
+=item  bool waitForEncrypted(int msecs)
+
+=item  bool waitForEncrypted(int msecs = 30000)
+
+=item  bool waitForReadyRead(int msecs)
+
+=item  bool waitForReadyRead(int msecs = 30000)
+
+
+=back
+
+=head1 ENUM VALUES
+
+=over
+
+=item UnencryptedMode
+
+=item SslClientMode
+
+=item SslServerMode
+
+=item VerifyNone
+
+=item QueryPeer
+
+=item VerifyPeer
+
+=item AutoVerifyPeer
 
 
 =back

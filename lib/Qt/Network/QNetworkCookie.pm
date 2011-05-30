@@ -7,15 +7,10 @@ use strict;
 use warnings;
 #use Carp;
 
-our $VERSION = '0.01_01';
+our $VERSION = '0.01_02';
 
 
 # FIXME: operator overload
-
-# enums
-# enum value in perl is enum item index number
-sub NameAndValueOnly() { 0 }
-sub Full() { 1 }
 
 
 1;
@@ -28,57 +23,66 @@ Qt::Network::QNetworkCookie
 
 =over
 
-=item    QNetworkCookie(const QNetworkCookie & other)
+=item   QNetworkCookie(const QNetworkCookie & other)
 
-=item    QNetworkCookie(const QByteArray & name, const QByteArray & value = QByteArray())
+=item   QNetworkCookie(const QByteArray & name, const QByteArray & value)
 
-=item    QNetworkCookie(const QByteArray & name, const QByteArray & value)
+=item   QNetworkCookie(const QByteArray & name, const QByteArray & value = QByteArray())
 
-=item    QNetworkCookie(const QByteArray & name = QByteArray(), const QByteArray & value = QByteArray())
+=item   QNetworkCookie(const QByteArray & name = QByteArray(), const QByteArray & value = QByteArray())
 
-=item    QNetworkCookie(const QByteArray & name, const QByteArray & value = QByteArray())
+=item   ~QNetworkCookie()
 
-=item    ~QNetworkCookie()
+=item  QString domain()
 
-=item   QString domain()
+=item  QDateTime expirationDate()
 
-=item   QDateTime expirationDate()
+=item  bool isHttpOnly()
 
-=item   bool isHttpOnly()
+=item  bool isSecure()
 
-=item   bool isSecure()
+=item  bool isSessionCookie()
 
-=item   bool isSessionCookie()
+=item  QByteArray name()
 
-=item   QByteArray name()
+=item  bool operator!=(const QNetworkCookie & other)
 
-=item   bool operator!=(const QNetworkCookie & other)
+=item  QNetworkCookie & operator=(const QNetworkCookie & other)
 
-=item   QNetworkCookie & operator=(const QNetworkCookie & other)
+=item  bool operator==(const QNetworkCookie & other)
 
-=item   bool operator==(const QNetworkCookie & other)
+=item  QString path()
 
-=item   QString path()
+=item  void setDomain(const QString & domain)
 
-=item   void setDomain(const QString & domain)
+=item  void setExpirationDate(const QDateTime & date)
 
-=item   void setExpirationDate(const QDateTime & date)
+=item  void setHttpOnly(bool enable)
 
-=item   void setHttpOnly(bool enable)
+=item  void setName(const QByteArray & cookieName)
 
-=item   void setName(const QByteArray & cookieName)
+=item  void setPath(const QString & path)
 
-=item   void setPath(const QString & path)
+=item  void setSecure(bool enable)
 
-=item   void setSecure(bool enable)
+=item  void setValue(const QByteArray & value)
 
-=item   void setValue(const QByteArray & value)
+=item  QByteArray toRawForm(QNetworkCookie::RawForm form)
 
-=item   QByteArray toRawForm(QNetworkCookie::RawForm form = QNetworkCookie::Full)
+=item  QByteArray toRawForm(QNetworkCookie::RawForm form = QNetworkCookie::Full)
 
-=item   QByteArray toRawForm(QNetworkCookie::RawForm form)
+=item  QByteArray value()
 
-=item   QByteArray value()
+
+=back
+
+=head1 ENUM VALUES
+
+=over
+
+=item NameAndValueOnly
+
+=item Full
 
 
 =back

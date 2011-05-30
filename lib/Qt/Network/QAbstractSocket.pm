@@ -7,49 +7,11 @@ use strict;
 use warnings;
 #use Carp;
 
-our $VERSION = '0.01_01';
-our $ISA     = qw/QIODevice/;
+our $VERSION = '0.01_02';
+our $ISA     = qw/Qt::Core::QIODevice/;
 
 
 # FIXME: operator overload
-
-# enums
-# enum value in perl is enum item index number
-sub TcpSocket() { 0 }
-sub UdpSocket() { 1 }
-sub UnknownSocketType() { 2 }
-sub IPv4Protocol() { 0 }
-sub IPv6Protocol() { 1 }
-sub UnknownNetworkLayerProtocol() { 2 }
-sub ConnectionRefusedError() { 0 }
-sub RemoteHostClosedError() { 1 }
-sub HostNotFoundError() { 2 }
-sub SocketAccessError() { 3 }
-sub SocketResourceError() { 4 }
-sub SocketTimeoutError() { 5 }
-sub DatagramTooLargeError() { 6 }
-sub NetworkError() { 7 }
-sub AddressInUseError() { 8 }
-sub SocketAddressNotAvailableError() { 9 }
-sub UnsupportedSocketOperationError() { 10 }
-sub UnfinishedSocketOperationError() { 11 }
-sub ProxyAuthenticationRequiredError() { 12 }
-sub SslHandshakeFailedError() { 13 }
-sub ProxyConnectionRefusedError() { 14 }
-sub ProxyConnectionClosedError() { 15 }
-sub ProxyConnectionTimeoutError() { 16 }
-sub ProxyNotFoundError() { 17 }
-sub ProxyProtocolError() { 18 }
-sub UnknownSocketError() { 19 }
-sub UnconnectedState() { 0 }
-sub HostLookupState() { 1 }
-sub ConnectingState() { 2 }
-sub ConnectedState() { 3 }
-sub BoundState() { 4 }
-sub ListeningState() { 5 }
-sub ClosingState() { 6 }
-sub LowDelayOption() { 0 }
-sub KeepAliveOption() { 1 }
 
 
 1;
@@ -62,75 +24,166 @@ Qt::Network::QAbstractSocket
 
 =over
 
-=item    QAbstractSocket(QAbstractSocket::SocketType socketType, QObject * parent)
+=item   QAbstractSocket(QAbstractSocket::SocketType socketType, QObject * parent)
 
-=item    ~QAbstractSocket()
+=item   ~QAbstractSocket()
 
-=item   void abort()
+=item  void abort()
 
-=item   bool atEnd()
+=item  bool atEnd()
 
-=item   qint64 bytesAvailable()
+=item  qint64 bytesAvailable()
 
-=item   qint64 bytesToWrite()
+=item  qint64 bytesToWrite()
 
-=item   bool canReadLine()
+=item  bool canReadLine()
 
-=item   void close()
+=item  void close()
 
-=item   void disconnectFromHost()
+=item  void connectToHost(const QString & hostName, quint16 port, QFlags<QIODevice::OpenModeFlag> mode)
 
-=item   QAbstractSocket::SocketError error()
+=item  void connectToHost(const QString & hostName, quint16 port, QFlags<QIODevice::OpenModeFlag> mode = QIODevice::ReadWrite)
 
-=item   bool flush()
+=item  void connectToHost(const QHostAddress & address, quint16 port, QFlags<QIODevice::OpenModeFlag> mode)
 
-=item   bool isSequential()
+=item  void connectToHost(const QHostAddress & address, quint16 port, QFlags<QIODevice::OpenModeFlag> mode = QIODevice::ReadWrite)
 
-=item   bool isValid()
+=item  void disconnectFromHost()
 
-=item   QHostAddress localAddress()
+=item  QAbstractSocket::SocketError error()
 
-=item   quint16 localPort()
+=item  bool flush()
 
-=item   QHostAddress peerAddress()
+=item  bool isSequential()
 
-=item   QString peerName()
+=item  bool isValid()
 
-=item   quint16 peerPort()
+=item  QHostAddress localAddress()
 
-=item   QNetworkProxy proxy()
+=item  quint16 localPort()
 
-=item   qint64 readBufferSize()
+=item  QHostAddress peerAddress()
 
-=item   void setProxy(const QNetworkProxy & networkProxy)
+=item  QString peerName()
 
-=item   void setReadBufferSize(qint64 size)
+=item  quint16 peerPort()
 
-=item   void setSocketOption(QAbstractSocket::SocketOption option, const QVariant & value)
+=item  QNetworkProxy proxy()
 
-=item   int socketDescriptor()
+=item  qint64 readBufferSize()
 
-=item   QVariant socketOption(QAbstractSocket::SocketOption option)
+=item  void setProxy(const QNetworkProxy & networkProxy)
 
-=item   QAbstractSocket::SocketType socketType()
+=item  void setReadBufferSize(qint64 size)
 
-=item   QAbstractSocket::SocketState state()
+=item  bool setSocketDescriptor(int socketDescriptor, QAbstractSocket::SocketState state, QFlags<QIODevice::OpenModeFlag> openMode)
 
-=item   bool waitForBytesWritten(int msecs = 30000)
+=item  bool setSocketDescriptor(int socketDescriptor, QAbstractSocket::SocketState state, QFlags<QIODevice::OpenModeFlag> openMode = QIODevice::ReadWrite)
 
-=item   bool waitForBytesWritten(int msecs)
+=item  bool setSocketDescriptor(int socketDescriptor, QAbstractSocket::SocketState state = QAbstractSocket::ConnectedState, QFlags<QIODevice::OpenModeFlag> openMode = QIODevice::ReadWrite)
 
-=item   bool waitForConnected(int msecs = 30000)
+=item  void setSocketOption(QAbstractSocket::SocketOption option, const QVariant & value)
 
-=item   bool waitForConnected(int msecs)
+=item  int socketDescriptor()
 
-=item   bool waitForDisconnected(int msecs = 30000)
+=item  QVariant socketOption(QAbstractSocket::SocketOption option)
 
-=item   bool waitForDisconnected(int msecs)
+=item  QAbstractSocket::SocketType socketType()
 
-=item   bool waitForReadyRead(int msecs = 30000)
+=item  QAbstractSocket::SocketState state()
 
-=item   bool waitForReadyRead(int msecs)
+=item  bool waitForBytesWritten(int msecs)
+
+=item  bool waitForBytesWritten(int msecs = 30000)
+
+=item  bool waitForConnected(int msecs)
+
+=item  bool waitForConnected(int msecs = 30000)
+
+=item  bool waitForDisconnected(int msecs)
+
+=item  bool waitForDisconnected(int msecs = 30000)
+
+=item  bool waitForReadyRead(int msecs)
+
+=item  bool waitForReadyRead(int msecs = 30000)
+
+
+=back
+
+=head1 ENUM VALUES
+
+=over
+
+=item TcpSocket
+
+=item UdpSocket
+
+=item UnknownSocketType
+
+=item IPv4Protocol
+
+=item IPv6Protocol
+
+=item UnknownNetworkLayerProtocol
+
+=item ConnectionRefusedError
+
+=item RemoteHostClosedError
+
+=item HostNotFoundError
+
+=item SocketAccessError
+
+=item SocketResourceError
+
+=item SocketTimeoutError
+
+=item DatagramTooLargeError
+
+=item NetworkError
+
+=item AddressInUseError
+
+=item SocketAddressNotAvailableError
+
+=item UnsupportedSocketOperationError
+
+=item UnfinishedSocketOperationError
+
+=item ProxyAuthenticationRequiredError
+
+=item SslHandshakeFailedError
+
+=item ProxyConnectionRefusedError
+
+=item ProxyConnectionClosedError
+
+=item ProxyConnectionTimeoutError
+
+=item ProxyNotFoundError
+
+=item ProxyProtocolError
+
+=item UnknownSocketError
+
+=item UnconnectedState
+
+=item HostLookupState
+
+=item ConnectingState
+
+=item ConnectedState
+
+=item BoundState
+
+=item ListeningState
+
+=item ClosingState
+
+=item LowDelayOption
+
+=item KeepAliveOption
 
 
 =back

@@ -7,11 +7,10 @@ use strict;
 use warnings;
 #use Carp;
 
-our $VERSION = '0.01_01';
+our $VERSION = '0.01_02';
 
 
 # FIXME: operator overload
-
 
 
 1;
@@ -24,51 +23,58 @@ Qt::Network::QHttpHeader
 
 =over
 
-=item    QHttpHeader()
+=item   QHttpHeader()
 
-=item    QHttpHeader(const QHttpHeader & header)
+=item   QHttpHeader(const QHttpHeader & header)
 
-=item    QHttpHeader(const QString & str)
+=item   QHttpHeader(const QString & str)
 
-=item    ~QHttpHeader()
+=item   ~QHttpHeader()
 
-=item   void addValue(const QString & key, const QString & value)
+=item  void addValue(const QString & key, const QString & value)
 
-=item   QStringList allValues(const QString & key)
+=item  QStringList allValues(const QString & key)
 
-=item   uint contentLength()
+=item  uint contentLength()
 
-=item   QString contentType()
+=item  QString contentType()
 
-=item   bool hasContentLength()
+=item  bool hasContentLength()
 
-=item   bool hasContentType()
+=item  bool hasContentType()
 
-=item   bool hasKey(const QString & key)
+=item  bool hasKey(const QString & key)
 
-=item   bool isValid()
+=item  bool isValid()
 
-=item   QStringList keys()
+=item  QStringList keys()
 
-=item   int majorVersion()
+=item  int majorVersion()
 
-=item   int minorVersion()
+=item  int minorVersion()
 
-=item   QHttpHeader & operator=(const QHttpHeader & h)
+=item  QHttpHeader & operator=(const QHttpHeader & h)
 
-=item   void removeAllValues(const QString & key)
+=item  void removeAllValues(const QString & key)
 
-=item   void removeValue(const QString & key)
+=item  void removeValue(const QString & key)
 
-=item   void setContentLength(int len)
+=item  void setContentLength(int len)
 
-=item   void setContentType(const QString & type)
+=item  void setContentType(const QString & type)
 
-=item   void setValue(const QString & key, const QString & value)
+=item  void setValue(const QString & key, const QString & value)
 
-=item   QString toString()
+=item  QString toString()
 
-=item   QString value(const QString & key)
+=item  QString value(const QString & key)
+
+
+=back
+
+=head1 ENUM VALUES
+
+=over
 
 
 =back

@@ -7,17 +7,10 @@ use strict;
 use warnings;
 #use Carp;
 
-our $VERSION = '0.01_01';
+our $VERSION = '0.01_02';
 
 
 # FIXME: operator overload
-
-# enums
-# enum value in perl is enum item index number
-sub TcpSocket() { 0 }
-sub UdpSocket() { 1 }
-sub TcpServer() { 2 }
-sub UrlRequest() { 3 }
 
 
 1;
@@ -30,61 +23,72 @@ Qt::Network::QNetworkProxyQuery
 
 =over
 
-=item    QNetworkProxyQuery()
+=item   QNetworkProxyQuery()
 
-=item    QNetworkProxyQuery(const QNetworkProxyQuery & other)
+=item   QNetworkProxyQuery(const QNetworkProxyQuery & other)
 
-=item    QNetworkProxyQuery(const QUrl & requestUrl, QNetworkProxyQuery::QueryType queryType = QNetworkProxyQuery::UrlRequest)
+=item   QNetworkProxyQuery(const QUrl & requestUrl, QNetworkProxyQuery::QueryType queryType)
 
-=item    QNetworkProxyQuery(const QUrl & requestUrl, QNetworkProxyQuery::QueryType queryType)
+=item   QNetworkProxyQuery(const QUrl & requestUrl, QNetworkProxyQuery::QueryType queryType = QNetworkProxyQuery::UrlRequest)
 
-=item    QNetworkProxyQuery(quint16 bindPort, const QString & protocolTag, QNetworkProxyQuery::QueryType queryType = QNetworkProxyQuery::TcpServer)
+=item   QNetworkProxyQuery(quint16 bindPort, const QString & protocolTag, QNetworkProxyQuery::QueryType queryType)
 
-=item    QNetworkProxyQuery(quint16 bindPort, const QString & protocolTag, QNetworkProxyQuery::QueryType queryType)
+=item   QNetworkProxyQuery(quint16 bindPort, const QString & protocolTag, QNetworkProxyQuery::QueryType queryType = QNetworkProxyQuery::TcpServer)
 
-=item    QNetworkProxyQuery(quint16 bindPort, const QString & protocolTag = QString(), QNetworkProxyQuery::QueryType queryType = QNetworkProxyQuery::TcpServer)
+=item   QNetworkProxyQuery(quint16 bindPort, const QString & protocolTag = QString(), QNetworkProxyQuery::QueryType queryType = QNetworkProxyQuery::TcpServer)
 
-=item    QNetworkProxyQuery(quint16 bindPort, const QString & protocolTag, QNetworkProxyQuery::QueryType queryType = QNetworkProxyQuery::TcpServer)
+=item   QNetworkProxyQuery(const QString & hostname, int port, const QString & protocolTag, QNetworkProxyQuery::QueryType queryType)
 
-=item    QNetworkProxyQuery(const QString & hostname, int port, const QString & protocolTag, QNetworkProxyQuery::QueryType queryType = QNetworkProxyQuery::TcpSocket)
+=item   QNetworkProxyQuery(const QString & hostname, int port, const QString & protocolTag, QNetworkProxyQuery::QueryType queryType = QNetworkProxyQuery::TcpSocket)
 
-=item    QNetworkProxyQuery(const QString & hostname, int port, const QString & protocolTag, QNetworkProxyQuery::QueryType queryType)
+=item   QNetworkProxyQuery(const QString & hostname, int port, const QString & protocolTag = QString(), QNetworkProxyQuery::QueryType queryType = QNetworkProxyQuery::TcpSocket)
 
-=item    QNetworkProxyQuery(const QString & hostname, int port, const QString & protocolTag = QString(), QNetworkProxyQuery::QueryType queryType = QNetworkProxyQuery::TcpSocket)
+=item   ~QNetworkProxyQuery()
 
-=item    QNetworkProxyQuery(const QString & hostname, int port, const QString & protocolTag, QNetworkProxyQuery::QueryType queryType = QNetworkProxyQuery::TcpSocket)
+=item  int localPort()
 
-=item    ~QNetworkProxyQuery()
+=item  bool operator!=(const QNetworkProxyQuery & other)
 
-=item   int localPort()
+=item  QNetworkProxyQuery & operator=(const QNetworkProxyQuery & other)
 
-=item   bool operator!=(const QNetworkProxyQuery & other)
+=item  bool operator==(const QNetworkProxyQuery & other)
 
-=item   QNetworkProxyQuery & operator=(const QNetworkProxyQuery & other)
+=item  QString peerHostName()
 
-=item   bool operator==(const QNetworkProxyQuery & other)
+=item  int peerPort()
 
-=item   QString peerHostName()
+=item  QString protocolTag()
 
-=item   int peerPort()
+=item  QNetworkProxyQuery::QueryType queryType()
 
-=item   QString protocolTag()
+=item  void setLocalPort(int port)
 
-=item   QNetworkProxyQuery::QueryType queryType()
+=item  void setPeerHostName(const QString & hostname)
 
-=item   void setLocalPort(int port)
+=item  void setPeerPort(int port)
 
-=item   void setPeerHostName(const QString & hostname)
+=item  void setProtocolTag(const QString & protocolTag)
 
-=item   void setPeerPort(int port)
+=item  void setQueryType(QNetworkProxyQuery::QueryType type)
 
-=item   void setProtocolTag(const QString & protocolTag)
+=item  void setUrl(const QUrl & url)
 
-=item   void setQueryType(QNetworkProxyQuery::QueryType type)
+=item  QUrl url()
 
-=item   void setUrl(const QUrl & url)
 
-=item   QUrl url()
+=back
+
+=head1 ENUM VALUES
+
+=over
+
+=item TcpSocket
+
+=item UdpSocket
+
+=item TcpServer
+
+=item UrlRequest
 
 
 =back

@@ -24,7 +24,10 @@ QNetworkProxyFactory::new(...)
 PREINIT:
 QNetworkProxyFactory *ret;
 PPCODE:
+    if (1) {
+      
     Perl_croak(aTHX_ "Trying to create abstract class object");
+    }
 
 ##  ~QNetworkProxyFactory()
 void
@@ -39,13 +42,18 @@ QNetworkProxyFactory::setApplicationProxyFactory(...)
 PREINIT:
 QNetworkProxyFactory * arg00;
 PPCODE:
-    if (sv_derived_from(ST(1), "Qt::Network::QNetworkProxyFactory")) {
+    if ((sv_derived_from(ST(1), "Qt::Network::QNetworkProxyFactory") || ST(1) == &PL_sv_undef)) {
+      if (sv_derived_from(ST(1), "Qt::Network::QNetworkProxyFactory")) {
         arg00 = reinterpret_cast<QNetworkProxyFactory *>(SvIV((SV*)SvRV(ST(1))));
+    }
+    else if (ST(1) == &PL_sv_undef) {
+        arg00 = 0;
     }
     else
         Perl_croak(aTHX_ "arg00 is not of type Qt::Network::QNetworkProxyFactory");
     (void)THIS->setApplicationProxyFactory(arg00);
     XSRETURN(0);
+    }
 
 ## static void setUseSystemConfiguration(bool enable)
 void
@@ -53,6 +61,8 @@ QNetworkProxyFactory::setUseSystemConfiguration(...)
 PREINIT:
 bool arg00;
 PPCODE:
-    arg00 = (bool)SvTRUE(ST(1));
+    if (1) {
+      arg00 = (bool)SvTRUE(ST(1));
     (void)THIS->setUseSystemConfiguration(arg00);
     XSRETURN(0);
+    }

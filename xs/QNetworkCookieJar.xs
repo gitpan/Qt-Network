@@ -18,42 +18,50 @@ PROTOTYPES: DISABLE
 #### 
 ################################################################
 
-##  QNetworkCookieJar(QObject * parent = 0)
 ##  QNetworkCookieJar(QObject * parent)
+##  QNetworkCookieJar(QObject * parent = 0)
   void
 QNetworkCookieJar::new(...)
 PREINIT:
 QNetworkCookieJar *ret;
-QObject * arg00 = 0;
-QObject * arg10;
+QObject * arg00;
+QObject * arg10 = 0;
 PPCODE:
     switch(items) {
-    case 1:
+      case 1:
       {
-        ret = new QNetworkCookieJar(arg00);
-    ST(0) = sv_newmortal();
-    sv_setref_pv(ST(0), "Qt::Network::QNetworkCookieJar", (void *)ret);
-    XSRETURN(1);
-        break;
-      }
-    case 2:
-      {
-        if (sv_derived_from(ST(1), "")) {
-        arg10 = reinterpret_cast<QObject *>(SvIV((SV*)SvRV(ST(1))));
-    }
-    else
-        Perl_croak(aTHX_ "arg10 is not of type ");
+        if (1) {
+      
     ret = new QNetworkCookieJar(arg10);
     ST(0) = sv_newmortal();
     sv_setref_pv(ST(0), "Qt::Network::QNetworkCookieJar", (void *)ret);
     XSRETURN(1);
+    }
         break;
       }
-    default:
+      case 2:
       {
+        if ((sv_derived_from(ST(1), "Qt::Core::QObject") || ST(1) == &PL_sv_undef)) {
+      if (sv_derived_from(ST(1), "Qt::Core::QObject")) {
+        arg00 = reinterpret_cast<QObject *>(SvIV((SV*)SvRV(ST(1))));
+    }
+    else if (ST(1) == &PL_sv_undef) {
+        arg00 = 0;
+    }
+    else
+        Perl_croak(aTHX_ "arg00 is not of type Qt::Core::QObject");
+    ret = new QNetworkCookieJar(arg00);
+    ST(0) = sv_newmortal();
+    sv_setref_pv(ST(0), "Qt::Network::QNetworkCookieJar", (void *)ret);
+    XSRETURN(1);
+    }
+	else
+            Perl_croak(aTHX_ "wrong number/type of arguments passed in");
+        break;
+      }
+      default:
         Perl_croak(aTHX_ "wrong number/type of arguments passed in");
         break;
-      }
     }
 
 ##  ~QNetworkCookieJar()

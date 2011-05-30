@@ -7,38 +7,10 @@ use strict;
 use warnings;
 #use Carp;
 
-our $VERSION = '0.01_01';
+our $VERSION = '0.01_02';
 
 
 # FIXME: operator overload
-
-# enums
-# enum value in perl is enum item index number
-sub NoError() { 0 }
-sub UnableToGetIssuerCertificate() { 1 }
-sub UnableToDecryptCertificateSignature() { 2 }
-sub UnableToDecodeIssuerPublicKey() { 3 }
-sub CertificateSignatureFailed() { 4 }
-sub CertificateNotYetValid() { 5 }
-sub CertificateExpired() { 6 }
-sub InvalidNotBeforeField() { 7 }
-sub InvalidNotAfterField() { 8 }
-sub SelfSignedCertificate() { 9 }
-sub SelfSignedCertificateInChain() { 10 }
-sub UnableToGetLocalIssuerCertificate() { 11 }
-sub UnableToVerifyFirstCertificate() { 12 }
-sub CertificateRevoked() { 13 }
-sub InvalidCaCertificate() { 14 }
-sub PathLengthExceeded() { 15 }
-sub InvalidPurpose() { 16 }
-sub CertificateUntrusted() { 17 }
-sub CertificateRejected() { 18 }
-sub SubjectIssuerMismatch() { 19 }
-sub AuthorityIssuerSerialNumberMismatch() { 20 }
-sub NoPeerCertificate() { 21 }
-sub HostNameMismatch() { 22 }
-sub NoSslSupport() { 23 }
-sub UnspecifiedError() { 24 }
 
 
 1;
@@ -51,27 +23,84 @@ Qt::Network::QSslError
 
 =over
 
-=item    QSslError()
+=item   QSslError()
 
-=item    QSslError(QSslError::SslError error)
+=item   QSslError(QSslError::SslError error)
 
-=item    QSslError(const QSslError & other)
+=item   QSslError(const QSslError & other)
 
-=item    QSslError(QSslError::SslError error, const QSslCertificate & certificate)
+=item   QSslError(QSslError::SslError error, const QSslCertificate & certificate)
 
-=item    ~QSslError()
+=item   ~QSslError()
 
-=item   QSslCertificate certificate()
+=item  QSslCertificate certificate()
 
-=item   QSslError::SslError error()
+=item  QSslError::SslError error()
 
-=item   QString errorString()
+=item  QString errorString()
 
-=item   bool operator!=(const QSslError & other)
+=item  bool operator!=(const QSslError & other)
 
-=item   QSslError & operator=(const QSslError & other)
+=item  QSslError & operator=(const QSslError & other)
 
-=item   bool operator==(const QSslError & other)
+=item  bool operator==(const QSslError & other)
+
+
+=back
+
+=head1 ENUM VALUES
+
+=over
+
+=item NoError
+
+=item UnableToGetIssuerCertificate
+
+=item UnableToDecryptCertificateSignature
+
+=item UnableToDecodeIssuerPublicKey
+
+=item CertificateSignatureFailed
+
+=item CertificateNotYetValid
+
+=item CertificateExpired
+
+=item InvalidNotBeforeField
+
+=item InvalidNotAfterField
+
+=item SelfSignedCertificate
+
+=item SelfSignedCertificateInChain
+
+=item UnableToGetLocalIssuerCertificate
+
+=item UnableToVerifyFirstCertificate
+
+=item CertificateRevoked
+
+=item InvalidCaCertificate
+
+=item PathLengthExceeded
+
+=item InvalidPurpose
+
+=item CertificateUntrusted
+
+=item CertificateRejected
+
+=item SubjectIssuerMismatch
+
+=item AuthorityIssuerSerialNumberMismatch
+
+=item NoPeerCertificate
+
+=item HostNameMismatch
+
+=item NoSslSupport
+
+=item UnspecifiedError
 
 
 =back

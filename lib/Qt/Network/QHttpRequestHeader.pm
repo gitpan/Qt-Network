@@ -7,12 +7,11 @@ use strict;
 use warnings;
 #use Carp;
 
-our $VERSION = '0.01_01';
-our $ISA     = qw/QHttpHeader/;
+our $VERSION = '0.01_02';
+our $ISA     = qw/Qt::Network::QHttpHeader/;
 
 
 # FIXME: operator overload
-
 
 
 1;
@@ -25,39 +24,42 @@ Qt::Network::QHttpRequestHeader
 
 =over
 
-=item    QHttpRequestHeader()
+=item   QHttpRequestHeader()
 
-=item    QHttpRequestHeader(const QHttpRequestHeader & header)
+=item   QHttpRequestHeader(const QHttpRequestHeader & header)
 
-=item    QHttpRequestHeader(const QString & str)
+=item   QHttpRequestHeader(const QString & str)
 
-=item    QHttpRequestHeader(const QString & method, const QString & path, int majorVer, int minorVer = 1)
+=item   QHttpRequestHeader(const QString & method, const QString & path, int majorVer, int minorVer)
 
-=item    QHttpRequestHeader(const QString & method, const QString & path, int majorVer, int minorVer)
+=item   QHttpRequestHeader(const QString & method, const QString & path, int majorVer, int minorVer = 1)
 
-=item    QHttpRequestHeader(const QString & method, const QString & path, int majorVer = 1, int minorVer = 1)
+=item   QHttpRequestHeader(const QString & method, const QString & path, int majorVer = 1, int minorVer = 1)
 
-=item    QHttpRequestHeader(const QString & method, const QString & path, int majorVer, int minorVer = 1)
+=item  int majorVersion()
 
-=item   int majorVersion()
+=item  QString method()
 
-=item   QString method()
+=item  int minorVersion()
 
-=item   int minorVersion()
+=item  QHttpRequestHeader & operator=(const QHttpRequestHeader & header)
 
-=item   QHttpRequestHeader & operator=(const QHttpRequestHeader & header)
+=item  QString path()
 
-=item   QString path()
+=item  void setRequest(const QString & method, const QString & path, int majorVer, int minorVer)
 
-=item   void setRequest(const QString & method, const QString & path, int majorVer, int minorVer = 1)
+=item  void setRequest(const QString & method, const QString & path, int majorVer, int minorVer = 1)
 
-=item   void setRequest(const QString & method, const QString & path, int majorVer, int minorVer)
+=item  void setRequest(const QString & method, const QString & path, int majorVer = 1, int minorVer = 1)
 
-=item   void setRequest(const QString & method, const QString & path, int majorVer = 1, int minorVer = 1)
+=item  QString toString()
 
-=item   void setRequest(const QString & method, const QString & path, int majorVer, int minorVer = 1)
 
-=item   QString toString()
+=back
+
+=head1 ENUM VALUES
+
+=over
 
 
 =back

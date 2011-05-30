@@ -5,17 +5,19 @@
 
 # change 'tests => 1' to 'tests => last_test_to_print';
 
-use Test::More tests => 37;
+use Test::More tests => 40;
 BEGIN {
 use_ok('Qt::Network');
 use_ok('Qt::Network');
 use_ok('Qt::Network::QHttp');
 use_ok('Qt::Network::QSslCipher');
+use_ok('Qt::Network::QNetworkConfiguration');
 use_ok('Qt::Network::QNetworkReply');
 use_ok('Qt::Network::QNetworkProxyFactory');
 use_ok('Qt::Network::QLocalServer');
 use_ok('Qt::Network::QHttpRequestHeader');
 use_ok('Qt::Network::QNetworkRequest');
+use_ok('Qt::Network::QNetworkConfigurationManager');
 use_ok('Qt::Network::QHostInfo');
 use_ok('Qt::Network::QSslConfiguration');
 use_ok('Qt::Network::QNetworkProxyQuery');
@@ -25,6 +27,7 @@ use_ok('Qt::Network::QHostAddress');
 use_ok('Qt::Network::QAbstractSocket');
 use_ok('Qt::Network::QAbstractNetworkCache');
 use_ok('Qt::Network::QSslKey');
+use_ok('Qt::Network::QNetworkSession');
 use_ok('Qt::Network::QTcpSocket');
 use_ok('Qt::Network::QSslCertificate');
 use_ok('Qt::Network::QNetworkAccessManager');

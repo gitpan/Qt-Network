@@ -19,81 +19,106 @@ PROTOTYPES: DISABLE
 ################################################################
 
 ##  QSslCertificate(const QSslCertificate & other)
-##  QSslCertificate(QIODevice * device, QSsl::EncodingFormat format = QSsl::Pem)
 ##  QSslCertificate(QIODevice * device, QSsl::EncodingFormat format)
-##  QSslCertificate(const QByteArray & encoded, QSsl::EncodingFormat format = QSsl::Pem)
+##  QSslCertificate(QIODevice * device, QSsl::EncodingFormat format = QSsl::Pem)
 ##  QSslCertificate(const QByteArray & encoded, QSsl::EncodingFormat format)
-##  QSslCertificate(const QByteArray & encoded = QByteArray(), QSsl::EncodingFormat format = QSsl::Pem)
 ##  QSslCertificate(const QByteArray & encoded, QSsl::EncodingFormat format = QSsl::Pem)
+##  QSslCertificate(const QByteArray & encoded = QByteArray(), QSsl::EncodingFormat format = QSsl::Pem)
   void
 QSslCertificate::new(...)
 PREINIT:
 QSslCertificate *ret;
 QSslCertificate * arg00;
 QIODevice * arg10;
-QSsl::EncodingFormat arg11 = QSsl::Pem;
+QSsl::EncodingFormat arg11;
 QIODevice * arg20;
-QSsl::EncodingFormat arg21;
+QSsl::EncodingFormat arg21 = QSsl::Pem;
 QByteArray * arg30;
-QSsl::EncodingFormat arg31 = QSsl::Pem;
+QSsl::EncodingFormat arg31;
 QByteArray * arg40;
-QSsl::EncodingFormat arg41;
+QSsl::EncodingFormat arg41 = QSsl::Pem;
 const QByteArray & arg50_ = QByteArray();
 QByteArray * arg50 = const_cast<QByteArray *>(&arg50_);
 QSsl::EncodingFormat arg51 = QSsl::Pem;
-QByteArray * arg60;
-QSsl::EncodingFormat arg61 = QSsl::Pem;
 PPCODE:
     switch(items) {
-    case 2:
+      case 1:
+      {
+        if (1) {
+      
+    ret = new QSslCertificate(*arg50, arg51);
+    ST(0) = sv_newmortal();
+    sv_setref_pv(ST(0), "Qt::Network::QSslCertificate", (void *)ret);
+    XSRETURN(1);
+    }
+        break;
+      }
+      case 2:
       {
         if (sv_isa(ST(1), "Qt::Network::QSslCertificate")) {
-        arg00 = reinterpret_cast<QSslCertificate *>(SvIV((SV*)SvRV(ST(1))));
-    }
-    else
-        Perl_croak(aTHX_ "arg00 is not of type Qt::Network::QSslCertificate");
+      arg00 = reinterpret_cast<QSslCertificate *>(SvIV((SV*)SvRV(ST(1))));
     ret = new QSslCertificate(*arg00);
     ST(0) = sv_newmortal();
     sv_setref_pv(ST(0), "Qt::Network::QSslCertificate", (void *)ret);
     XSRETURN(1);
-        break;
-      }
-    case 3:
-      {
-        if (sv_derived_from(ST(1), "Qt::Core::QIODevice")) {
+    }
+        else if ((sv_derived_from(ST(1), "Qt::Core::QIODevice") || ST(1) == &PL_sv_undef)) {
+      if (sv_derived_from(ST(1), "Qt::Core::QIODevice")) {
         arg20 = reinterpret_cast<QIODevice *>(SvIV((SV*)SvRV(ST(1))));
+    }
+    else if (ST(1) == &PL_sv_undef) {
+        arg20 = 0;
     }
     else
         Perl_croak(aTHX_ "arg20 is not of type Qt::Core::QIODevice");
-    switch(SvIV(ST(2))) {
-    case 0:
-      arg21 = QSsl::Pem;
-      break;
-    case 1:
-      arg21 = QSsl::Der;
-      break;
-    default:
-      Perl_croak(aTHX_ "wrong enum value for type QSsl::EncodingFormat passed in");
-    }
     ret = new QSslCertificate(arg20, arg21);
     ST(0) = sv_newmortal();
     sv_setref_pv(ST(0), "Qt::Network::QSslCertificate", (void *)ret);
     XSRETURN(1);
-        break;
-      }
-    case 1:
-      {
-        ret = new QSslCertificate(*arg50, arg51);
+    }
+        else if (sv_isa(ST(1), "Qt::Core::QByteArray")) {
+      arg40 = reinterpret_cast<QByteArray *>(SvIV((SV*)SvRV(ST(1))));
+    ret = new QSslCertificate(*arg40, arg41);
     ST(0) = sv_newmortal();
     sv_setref_pv(ST(0), "Qt::Network::QSslCertificate", (void *)ret);
     XSRETURN(1);
+    }
+	else
+            Perl_croak(aTHX_ "wrong number/type of arguments passed in");
         break;
       }
-    default:
+      case 3:
       {
+        if ((sv_derived_from(ST(1), "Qt::Core::QIODevice") || ST(1) == &PL_sv_undef) && SvIOK(ST(2))) {
+      if (sv_derived_from(ST(1), "Qt::Core::QIODevice")) {
+        arg10 = reinterpret_cast<QIODevice *>(SvIV((SV*)SvRV(ST(1))));
+    }
+    else if (ST(1) == &PL_sv_undef) {
+        arg10 = 0;
+    }
+    else
+        Perl_croak(aTHX_ "arg10 is not of type Qt::Core::QIODevice");
+      arg11 = (QSsl::EncodingFormat)SvIV(ST(2));
+    ret = new QSslCertificate(arg10, arg11);
+    ST(0) = sv_newmortal();
+    sv_setref_pv(ST(0), "Qt::Network::QSslCertificate", (void *)ret);
+    XSRETURN(1);
+    }
+        else if (sv_isa(ST(1), "Qt::Core::QByteArray") && SvIOK(ST(2))) {
+      arg30 = reinterpret_cast<QByteArray *>(SvIV((SV*)SvRV(ST(1))));
+      arg31 = (QSsl::EncodingFormat)SvIV(ST(2));
+    ret = new QSslCertificate(*arg30, arg31);
+    ST(0) = sv_newmortal();
+    sv_setref_pv(ST(0), "Qt::Network::QSslCertificate", (void *)ret);
+    XSRETURN(1);
+    }
+	else
+            Perl_croak(aTHX_ "wrong number/type of arguments passed in");
+        break;
+      }
+      default:
         Perl_croak(aTHX_ "wrong number/type of arguments passed in");
         break;
-      }
     }
 
 ##  ~QSslCertificate()
@@ -108,43 +133,48 @@ void
 QSslCertificate::clear(...)
 PREINIT:
 PPCODE:
+    if (1) {
+      
     (void)THIS->clear();
     XSRETURN(0);
+    }
 
-## QByteArray digest(QCryptographicHash::Algorithm algorithm = QCryptographicHash::Md5)
 ## QByteArray digest(QCryptographicHash::Algorithm algorithm)
+## QByteArray digest(QCryptographicHash::Algorithm algorithm = QCryptographicHash::Md5)
 void
 QSslCertificate::digest(...)
 PREINIT:
-QCryptographicHash::Algorithm arg00 = QCryptographicHash::Md5;
-QCryptographicHash::Algorithm arg10;
+QCryptographicHash::Algorithm arg00;
+QCryptographicHash::Algorithm arg10 = QCryptographicHash::Md5;
 PPCODE:
     switch(items) {
-    case 1:
+      case 1:
       {
-        QByteArray ret = THIS->digest(arg00);
-    ST(0) = sv_newmortal();
-    sv_setref_pv(ST(0), "", (void *)new QByteArray(ret));
-    XSRETURN(1);
-        break;
-      }
-    case 2:
-      {
-        switch(SvIV(ST(1))) {
-    default:
-      Perl_croak(aTHX_ "wrong enum value for type QCryptographicHash::Algorithm passed in");
-    }
+        if (1) {
+      
     QByteArray ret = THIS->digest(arg10);
     ST(0) = sv_newmortal();
-    sv_setref_pv(ST(0), "", (void *)new QByteArray(ret));
+    sv_setref_pv(ST(0), "Qt::Core::QByteArray", (void *)new QByteArray(ret));
     XSRETURN(1);
+    }
         break;
       }
-    default:
+      case 2:
       {
+        if (SvIOK(ST(1))) {
+      arg00 = (QCryptographicHash::Algorithm)SvIV(ST(1));
+    QByteArray ret = THIS->digest(arg00);
+    ST(0) = sv_newmortal();
+    sv_setref_pv(ST(0), "Qt::Core::QByteArray", (void *)new QByteArray(ret));
+    XSRETURN(1);
+    }
+	else
+            Perl_croak(aTHX_ "wrong number/type of arguments passed in");
+        break;
+      }
+      default:
         Perl_croak(aTHX_ "wrong number/type of arguments passed in");
         break;
-      }
     }
 
 ## QDateTime effectiveDate()
@@ -152,50 +182,65 @@ void
 QSslCertificate::effectiveDate(...)
 PREINIT:
 PPCODE:
+    if (1) {
+      
     QDateTime ret = THIS->effectiveDate();
     ST(0) = sv_newmortal();
-    sv_setref_pv(ST(0), "", (void *)new QDateTime(ret));
+    sv_setref_pv(ST(0), "Qt::Core::QDateTime", (void *)new QDateTime(ret));
     XSRETURN(1);
+    }
 
 ## QDateTime expiryDate()
 void
 QSslCertificate::expiryDate(...)
 PREINIT:
 PPCODE:
+    if (1) {
+      
     QDateTime ret = THIS->expiryDate();
     ST(0) = sv_newmortal();
-    sv_setref_pv(ST(0), "", (void *)new QDateTime(ret));
+    sv_setref_pv(ST(0), "Qt::Core::QDateTime", (void *)new QDateTime(ret));
     XSRETURN(1);
+    }
 
 ## unsigned long handle()
 void
 QSslCertificate::handle(...)
 PREINIT:
 PPCODE:
+    if (1) {
+      
     unsigned long ret = THIS->handle();
     ST(0) = sv_newmortal();
     sv_setuv(ST(0), (UV)ret);
     XSRETURN(1);
+    }
 
 ## bool isNull()
 void
 QSslCertificate::isNull(...)
 PREINIT:
 PPCODE:
+    if (1) {
+      
     bool ret = THIS->isNull();
     ST(0) = sv_newmortal();
     ST(0) = boolSV(ret);
     XSRETURN(1);
+    }
 
 ## bool isValid()
 void
 QSslCertificate::isValid(...)
 PREINIT:
 PPCODE:
+    if (1) {
+      
     bool ret = THIS->isValid();
     ST(0) = sv_newmortal();
     ST(0) = boolSV(ret);
     XSRETURN(1);
+    }
 
 ## QString issuerInfo(QSslCertificate::SubjectInfo info)
 ## QString issuerInfo(const QByteArray & tag)
@@ -206,41 +251,29 @@ QSslCertificate::SubjectInfo arg00;
 QByteArray * arg10;
 PPCODE:
     switch(items) {
-    case 2:
+      case 2:
       {
-        switch(SvIV(ST(1))) {
-    case 0:
-      arg00 = QSslCertificate::Organization;
-      break;
-    case 1:
-      arg00 = QSslCertificate::CommonName;
-      break;
-    case 2:
-      arg00 = QSslCertificate::LocalityName;
-      break;
-    case 3:
-      arg00 = QSslCertificate::OrganizationalUnitName;
-      break;
-    case 4:
-      arg00 = QSslCertificate::CountryName;
-      break;
-    case 5:
-      arg00 = QSslCertificate::StateOrProvinceName;
-      break;
-    default:
-      Perl_croak(aTHX_ "wrong enum value for type QSslCertificate::SubjectInfo passed in");
-    }
+        if (SvIOK(ST(1))) {
+      arg00 = (QSslCertificate::SubjectInfo)SvIV(ST(1));
     QString ret = THIS->issuerInfo(arg00);
     ST(0) = sv_newmortal();
-    sv_setref_pv(ST(0), "", (void *)new QString(ret));
+    sv_setref_pv(ST(0), "Qt::Core::QString", (void *)new QString(ret));
     XSRETURN(1);
+    }
+        else if (sv_isa(ST(1), "Qt::Core::QByteArray")) {
+      arg10 = reinterpret_cast<QByteArray *>(SvIV((SV*)SvRV(ST(1))));
+    QString ret = THIS->issuerInfo(*arg10);
+    ST(0) = sv_newmortal();
+    sv_setref_pv(ST(0), "Qt::Core::QString", (void *)new QString(ret));
+    XSRETURN(1);
+    }
+	else
+            Perl_croak(aTHX_ "wrong number/type of arguments passed in");
         break;
       }
-    default:
-      {
+      default:
         Perl_croak(aTHX_ "wrong number/type of arguments passed in");
         break;
-      }
     }
 
 ## bool operator!=(const QSslCertificate & other)
@@ -250,14 +283,12 @@ PREINIT:
 QSslCertificate * arg00;
 PPCODE:
     if (sv_isa(ST(1), "Qt::Network::QSslCertificate")) {
-        arg00 = reinterpret_cast<QSslCertificate *>(SvIV((SV*)SvRV(ST(1))));
-    }
-    else
-        Perl_croak(aTHX_ "arg00 is not of type Qt::Network::QSslCertificate");
+      arg00 = reinterpret_cast<QSslCertificate *>(SvIV((SV*)SvRV(ST(1))));
     bool ret = THIS->operator!=(*arg00);
     ST(0) = sv_newmortal();
     ST(0) = boolSV(ret);
     XSRETURN(1);
+    }
 
 ## QSslCertificate & operator=(const QSslCertificate & other)
 void
@@ -266,14 +297,12 @@ PREINIT:
 QSslCertificate * arg00;
 PPCODE:
     if (sv_isa(ST(1), "Qt::Network::QSslCertificate")) {
-        arg00 = reinterpret_cast<QSslCertificate *>(SvIV((SV*)SvRV(ST(1))));
-    }
-    else
-        Perl_croak(aTHX_ "arg00 is not of type Qt::Network::QSslCertificate");
+      arg00 = reinterpret_cast<QSslCertificate *>(SvIV((SV*)SvRV(ST(1))));
     QSslCertificate * ret = &THIS->operator=(*arg00);
     ST(0) = sv_newmortal();
     sv_setref_pv(ST(0), "Qt::Network::QSslCertificate", (void *)ret);
     XSRETURN(1);
+    }
 
 ## bool operator==(const QSslCertificate & other)
 void
@@ -282,34 +311,38 @@ PREINIT:
 QSslCertificate * arg00;
 PPCODE:
     if (sv_isa(ST(1), "Qt::Network::QSslCertificate")) {
-        arg00 = reinterpret_cast<QSslCertificate *>(SvIV((SV*)SvRV(ST(1))));
-    }
-    else
-        Perl_croak(aTHX_ "arg00 is not of type Qt::Network::QSslCertificate");
+      arg00 = reinterpret_cast<QSslCertificate *>(SvIV((SV*)SvRV(ST(1))));
     bool ret = THIS->operator==(*arg00);
     ST(0) = sv_newmortal();
     ST(0) = boolSV(ret);
     XSRETURN(1);
+    }
 
 ## QSslKey publicKey()
 void
 QSslCertificate::publicKey(...)
 PREINIT:
 PPCODE:
+    if (1) {
+      
     QSslKey ret = THIS->publicKey();
     ST(0) = sv_newmortal();
     sv_setref_pv(ST(0), "Qt::Network::QSslKey", (void *)new QSslKey(ret));
     XSRETURN(1);
+    }
 
 ## QByteArray serialNumber()
 void
 QSslCertificate::serialNumber(...)
 PREINIT:
 PPCODE:
+    if (1) {
+      
     QByteArray ret = THIS->serialNumber();
     ST(0) = sv_newmortal();
-    sv_setref_pv(ST(0), "", (void *)new QByteArray(ret));
+    sv_setref_pv(ST(0), "Qt::Core::QByteArray", (void *)new QByteArray(ret));
     XSRETURN(1);
+    }
 
 ## QString subjectInfo(QSslCertificate::SubjectInfo info)
 ## QString subjectInfo(const QByteArray & tag)
@@ -320,41 +353,29 @@ QSslCertificate::SubjectInfo arg00;
 QByteArray * arg10;
 PPCODE:
     switch(items) {
-    case 2:
+      case 2:
       {
-        switch(SvIV(ST(1))) {
-    case 0:
-      arg00 = QSslCertificate::Organization;
-      break;
-    case 1:
-      arg00 = QSslCertificate::CommonName;
-      break;
-    case 2:
-      arg00 = QSslCertificate::LocalityName;
-      break;
-    case 3:
-      arg00 = QSslCertificate::OrganizationalUnitName;
-      break;
-    case 4:
-      arg00 = QSslCertificate::CountryName;
-      break;
-    case 5:
-      arg00 = QSslCertificate::StateOrProvinceName;
-      break;
-    default:
-      Perl_croak(aTHX_ "wrong enum value for type QSslCertificate::SubjectInfo passed in");
-    }
+        if (SvIOK(ST(1))) {
+      arg00 = (QSslCertificate::SubjectInfo)SvIV(ST(1));
     QString ret = THIS->subjectInfo(arg00);
     ST(0) = sv_newmortal();
-    sv_setref_pv(ST(0), "", (void *)new QString(ret));
+    sv_setref_pv(ST(0), "Qt::Core::QString", (void *)new QString(ret));
     XSRETURN(1);
+    }
+        else if (sv_isa(ST(1), "Qt::Core::QByteArray")) {
+      arg10 = reinterpret_cast<QByteArray *>(SvIV((SV*)SvRV(ST(1))));
+    QString ret = THIS->subjectInfo(*arg10);
+    ST(0) = sv_newmortal();
+    sv_setref_pv(ST(0), "Qt::Core::QString", (void *)new QString(ret));
+    XSRETURN(1);
+    }
+	else
+            Perl_croak(aTHX_ "wrong number/type of arguments passed in");
         break;
       }
-    default:
-      {
+      default:
         Perl_croak(aTHX_ "wrong number/type of arguments passed in");
         break;
-      }
     }
 
 ## QByteArray toDer()
@@ -362,27 +383,97 @@ void
 QSslCertificate::toDer(...)
 PREINIT:
 PPCODE:
+    if (1) {
+      
     QByteArray ret = THIS->toDer();
     ST(0) = sv_newmortal();
-    sv_setref_pv(ST(0), "", (void *)new QByteArray(ret));
+    sv_setref_pv(ST(0), "Qt::Core::QByteArray", (void *)new QByteArray(ret));
     XSRETURN(1);
+    }
 
 ## QByteArray toPem()
 void
 QSslCertificate::toPem(...)
 PREINIT:
 PPCODE:
+    if (1) {
+      
     QByteArray ret = THIS->toPem();
     ST(0) = sv_newmortal();
-    sv_setref_pv(ST(0), "", (void *)new QByteArray(ret));
+    sv_setref_pv(ST(0), "Qt::Core::QByteArray", (void *)new QByteArray(ret));
     XSRETURN(1);
+    }
 
 ## QByteArray version()
 void
 QSslCertificate::version(...)
 PREINIT:
 PPCODE:
+    if (1) {
+      
     QByteArray ret = THIS->version();
     ST(0) = sv_newmortal();
-    sv_setref_pv(ST(0), "", (void *)new QByteArray(ret));
+    sv_setref_pv(ST(0), "Qt::Core::QByteArray", (void *)new QByteArray(ret));
+    XSRETURN(1);
+    }
+
+
+
+
+################################################################
+#### 
+#### ENUMS
+#### 
+################################################################
+# SubjectInfo::Organization
+void
+Organization()
+PPCODE:
+    ST(0) = sv_newmortal();
+    sv_setiv(ST(0), (IV)QSslCertificate::Organization);
+    XSRETURN(1);
+
+
+# SubjectInfo::CommonName
+void
+CommonName()
+PPCODE:
+    ST(0) = sv_newmortal();
+    sv_setiv(ST(0), (IV)QSslCertificate::CommonName);
+    XSRETURN(1);
+
+
+# SubjectInfo::LocalityName
+void
+LocalityName()
+PPCODE:
+    ST(0) = sv_newmortal();
+    sv_setiv(ST(0), (IV)QSslCertificate::LocalityName);
+    XSRETURN(1);
+
+
+# SubjectInfo::OrganizationalUnitName
+void
+OrganizationalUnitName()
+PPCODE:
+    ST(0) = sv_newmortal();
+    sv_setiv(ST(0), (IV)QSslCertificate::OrganizationalUnitName);
+    XSRETURN(1);
+
+
+# SubjectInfo::CountryName
+void
+CountryName()
+PPCODE:
+    ST(0) = sv_newmortal();
+    sv_setiv(ST(0), (IV)QSslCertificate::CountryName);
+    XSRETURN(1);
+
+
+# SubjectInfo::StateOrProvinceName
+void
+StateOrProvinceName()
+PPCODE:
+    ST(0) = sv_newmortal();
+    sv_setiv(ST(0), (IV)QSslCertificate::StateOrProvinceName);
     XSRETURN(1);

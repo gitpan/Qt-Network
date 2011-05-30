@@ -7,11 +7,10 @@ use strict;
 use warnings;
 #use Carp;
 
-our $VERSION = '0.01_01';
+our $VERSION = '0.01_02';
 
 
 # FIXME: operator overload
-
 
 
 1;
@@ -24,13 +23,20 @@ Qt::Network::QNetworkProxyFactory
 
 =over
 
-=item    QNetworkProxyFactory()
+=item   QNetworkProxyFactory()
 
-=item    ~QNetworkProxyFactory()
+=item   ~QNetworkProxyFactory()
 
-=item   static void setApplicationProxyFactory(QNetworkProxyFactory * factory)
+=item  static void setApplicationProxyFactory(QNetworkProxyFactory * factory)
 
-=item   static void setUseSystemConfiguration(bool enable)
+=item  static void setUseSystemConfiguration(bool enable)
+
+
+=back
+
+=head1 ENUM VALUES
+
+=over
 
 
 =back

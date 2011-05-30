@@ -7,28 +7,11 @@ use strict;
 use warnings;
 #use Carp;
 
-our $VERSION = '0.01_01';
-our $ISA     = qw/QIODevice/;
+our $VERSION = '0.01_02';
+our $ISA     = qw/Qt::Core::QIODevice/;
 
 
 # FIXME: operator overload
-
-# enums
-# enum value in perl is enum item index number
-sub ConnectionRefusedError() { 0 }
-sub PeerClosedError() { 1 }
-sub ServerNotFoundError() { 2 }
-sub SocketAccessError() { 3 }
-sub SocketResourceError() { 4 }
-sub SocketTimeoutError() { 5 }
-sub DatagramTooLargeError() { 6 }
-sub ConnectionError() { 7 }
-sub UnsupportedSocketOperationError() { 8 }
-sub UnknownSocketError() { 9 }
-sub UnconnectedState() { 0 }
-sub ConnectingState() { 1 }
-sub ConnectedState() { 2 }
-sub ClosingState() { 3 }
 
 
 1;
@@ -41,57 +24,96 @@ Qt::Network::QLocalSocket
 
 =over
 
-=item    QLocalSocket(QObject * parent = 0)
+=item   QLocalSocket(QObject * parent)
 
-=item    QLocalSocket(QObject * parent)
+=item   QLocalSocket(QObject * parent = 0)
 
-=item    ~QLocalSocket()
+=item   ~QLocalSocket()
 
-=item   void abort()
+=item  void abort()
 
-=item   qint64 bytesAvailable()
+=item  qint64 bytesAvailable()
 
-=item   qint64 bytesToWrite()
+=item  qint64 bytesToWrite()
 
-=item   bool canReadLine()
+=item  bool canReadLine()
 
-=item   void close()
+=item  void close()
 
-=item   void disconnectFromServer()
+=item  void connectToServer(const QString & name, QFlags<QIODevice::OpenModeFlag> openMode)
 
-=item   QLocalSocket::LocalSocketError error()
+=item  void connectToServer(const QString & name, QFlags<QIODevice::OpenModeFlag> openMode = QIODevice::ReadWrite)
 
-=item   bool flush()
+=item  void disconnectFromServer()
 
-=item   QString fullServerName()
+=item  QLocalSocket::LocalSocketError error()
 
-=item   bool isSequential()
+=item  bool flush()
 
-=item   bool isValid()
+=item  QString fullServerName()
 
-=item   qint64 readBufferSize()
+=item  bool isSequential()
 
-=item   QString serverName()
+=item  bool isValid()
 
-=item   void setReadBufferSize(qint64 size)
+=item  qint64 readBufferSize()
 
-=item   QLocalSocket::LocalSocketState state()
+=item  QString serverName()
 
-=item   bool waitForBytesWritten(int msecs = 30000)
+=item  void setReadBufferSize(qint64 size)
 
-=item   bool waitForBytesWritten(int msecs)
+=item  QLocalSocket::LocalSocketState state()
 
-=item   bool waitForConnected(int msecs = 30000)
+=item  bool waitForBytesWritten(int msecs)
 
-=item   bool waitForConnected(int msecs)
+=item  bool waitForBytesWritten(int msecs = 30000)
 
-=item   bool waitForDisconnected(int msecs = 30000)
+=item  bool waitForConnected(int msecs)
 
-=item   bool waitForDisconnected(int msecs)
+=item  bool waitForConnected(int msecs = 30000)
 
-=item   bool waitForReadyRead(int msecs = 30000)
+=item  bool waitForDisconnected(int msecs)
 
-=item   bool waitForReadyRead(int msecs)
+=item  bool waitForDisconnected(int msecs = 30000)
+
+=item  bool waitForReadyRead(int msecs)
+
+=item  bool waitForReadyRead(int msecs = 30000)
+
+
+=back
+
+=head1 ENUM VALUES
+
+=over
+
+=item ConnectionRefusedError
+
+=item PeerClosedError
+
+=item ServerNotFoundError
+
+=item SocketAccessError
+
+=item SocketResourceError
+
+=item SocketTimeoutError
+
+=item DatagramTooLargeError
+
+=item ConnectionError
+
+=item UnsupportedSocketOperationError
+
+=item UnknownSocketError
+
+=item UnconnectedState
+
+=item ConnectingState
+
+=item ConnectedState
+
+=item ClosingState
 
 
 =back

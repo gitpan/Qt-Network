@@ -7,12 +7,11 @@ use strict;
 use warnings;
 #use Carp;
 
-our $VERSION = '0.01_01';
-our $ISA     = qw/QAbstractNetworkCache/;
+our $VERSION = '0.01_02';
+our $ISA     = qw/Qt::Network::QAbstractNetworkCache/;
 
 
 # FIXME: operator overload
-
 
 
 1;
@@ -25,37 +24,44 @@ Qt::Network::QNetworkDiskCache
 
 =over
 
-=item    QNetworkDiskCache(QObject * parent = 0)
+=item   QNetworkDiskCache(QObject * parent)
 
-=item    QNetworkDiskCache(QObject * parent)
+=item   QNetworkDiskCache(QObject * parent = 0)
 
-=item    ~QNetworkDiskCache()
+=item   ~QNetworkDiskCache()
 
-=item   QString cacheDirectory()
+=item  QString cacheDirectory()
 
-=item   qint64 cacheSize()
+=item  qint64 cacheSize()
 
-=item   void clear()
+=item  void clear()
 
-=item   QIODevice * data(const QUrl & url)
+=item  QIODevice * data(const QUrl & url)
 
-=item   QNetworkCacheMetaData fileMetaData(const QString & fileName)
+=item  QNetworkCacheMetaData fileMetaData(const QString & fileName)
 
-=item   void insert(QIODevice * device)
+=item  void insert(QIODevice * device)
 
-=item   qint64 maximumCacheSize()
+=item  qint64 maximumCacheSize()
 
-=item   QNetworkCacheMetaData metaData(const QUrl & url)
+=item  QNetworkCacheMetaData metaData(const QUrl & url)
 
-=item   QIODevice * prepare(const QNetworkCacheMetaData & metaData)
+=item  QIODevice * prepare(const QNetworkCacheMetaData & metaData)
 
-=item   bool remove(const QUrl & url)
+=item  bool remove(const QUrl & url)
 
-=item   void setCacheDirectory(const QString & cacheDir)
+=item  void setCacheDirectory(const QString & cacheDir)
 
-=item   void setMaximumCacheSize(qint64 size)
+=item  void setMaximumCacheSize(qint64 size)
 
-=item   void updateMetaData(const QNetworkCacheMetaData & metaData)
+=item  void updateMetaData(const QNetworkCacheMetaData & metaData)
+
+
+=back
+
+=head1 ENUM VALUES
+
+=over
 
 
 =back

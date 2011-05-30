@@ -27,32 +27,33 @@ QSslConfiguration *ret;
 QSslConfiguration * arg10;
 PPCODE:
     switch(items) {
-    case 1:
+      case 1:
       {
-        ret = new QSslConfiguration();
+        if (1) {
+      
+    ret = new QSslConfiguration();
     ST(0) = sv_newmortal();
     sv_setref_pv(ST(0), "Qt::Network::QSslConfiguration", (void *)ret);
     XSRETURN(1);
+    }
         break;
       }
-    case 2:
+      case 2:
       {
         if (sv_isa(ST(1), "Qt::Network::QSslConfiguration")) {
-        arg10 = reinterpret_cast<QSslConfiguration *>(SvIV((SV*)SvRV(ST(1))));
-    }
-    else
-        Perl_croak(aTHX_ "arg10 is not of type Qt::Network::QSslConfiguration");
+      arg10 = reinterpret_cast<QSslConfiguration *>(SvIV((SV*)SvRV(ST(1))));
     ret = new QSslConfiguration(*arg10);
     ST(0) = sv_newmortal();
     sv_setref_pv(ST(0), "Qt::Network::QSslConfiguration", (void *)ret);
     XSRETURN(1);
+    }
+	else
+            Perl_croak(aTHX_ "wrong number/type of arguments passed in");
         break;
       }
-    default:
-      {
+      default:
         Perl_croak(aTHX_ "wrong number/type of arguments passed in");
         break;
-      }
     }
 
 ##  ~QSslConfiguration()
@@ -67,30 +68,39 @@ void
 QSslConfiguration::defaultConfiguration(...)
 PREINIT:
 PPCODE:
+    if (1) {
+      
     QSslConfiguration ret = THIS->defaultConfiguration();
     ST(0) = sv_newmortal();
     sv_setref_pv(ST(0), "Qt::Network::QSslConfiguration", (void *)new QSslConfiguration(ret));
     XSRETURN(1);
+    }
 
 ## bool isNull()
 void
 QSslConfiguration::isNull(...)
 PREINIT:
 PPCODE:
+    if (1) {
+      
     bool ret = THIS->isNull();
     ST(0) = sv_newmortal();
     ST(0) = boolSV(ret);
     XSRETURN(1);
+    }
 
 ## QSslCertificate localCertificate()
 void
 QSslConfiguration::localCertificate(...)
 PREINIT:
 PPCODE:
+    if (1) {
+      
     QSslCertificate ret = THIS->localCertificate();
     ST(0) = sv_newmortal();
     sv_setref_pv(ST(0), "Qt::Network::QSslCertificate", (void *)new QSslCertificate(ret));
     XSRETURN(1);
+    }
 
 ## bool operator!=(const QSslConfiguration & other)
 void
@@ -99,14 +109,12 @@ PREINIT:
 QSslConfiguration * arg00;
 PPCODE:
     if (sv_isa(ST(1), "Qt::Network::QSslConfiguration")) {
-        arg00 = reinterpret_cast<QSslConfiguration *>(SvIV((SV*)SvRV(ST(1))));
-    }
-    else
-        Perl_croak(aTHX_ "arg00 is not of type Qt::Network::QSslConfiguration");
+      arg00 = reinterpret_cast<QSslConfiguration *>(SvIV((SV*)SvRV(ST(1))));
     bool ret = THIS->operator!=(*arg00);
     ST(0) = sv_newmortal();
     ST(0) = boolSV(ret);
     XSRETURN(1);
+    }
 
 ## QSslConfiguration & operator=(const QSslConfiguration & other)
 void
@@ -115,14 +123,12 @@ PREINIT:
 QSslConfiguration * arg00;
 PPCODE:
     if (sv_isa(ST(1), "Qt::Network::QSslConfiguration")) {
-        arg00 = reinterpret_cast<QSslConfiguration *>(SvIV((SV*)SvRV(ST(1))));
-    }
-    else
-        Perl_croak(aTHX_ "arg00 is not of type Qt::Network::QSslConfiguration");
+      arg00 = reinterpret_cast<QSslConfiguration *>(SvIV((SV*)SvRV(ST(1))));
     QSslConfiguration * ret = &THIS->operator=(*arg00);
     ST(0) = sv_newmortal();
     sv_setref_pv(ST(0), "Qt::Network::QSslConfiguration", (void *)ret);
     XSRETURN(1);
+    }
 
 ## bool operator==(const QSslConfiguration & other)
 void
@@ -131,74 +137,90 @@ PREINIT:
 QSslConfiguration * arg00;
 PPCODE:
     if (sv_isa(ST(1), "Qt::Network::QSslConfiguration")) {
-        arg00 = reinterpret_cast<QSslConfiguration *>(SvIV((SV*)SvRV(ST(1))));
-    }
-    else
-        Perl_croak(aTHX_ "arg00 is not of type Qt::Network::QSslConfiguration");
+      arg00 = reinterpret_cast<QSslConfiguration *>(SvIV((SV*)SvRV(ST(1))));
     bool ret = THIS->operator==(*arg00);
     ST(0) = sv_newmortal();
     ST(0) = boolSV(ret);
     XSRETURN(1);
+    }
 
 ## QSslCertificate peerCertificate()
 void
 QSslConfiguration::peerCertificate(...)
 PREINIT:
 PPCODE:
+    if (1) {
+      
     QSslCertificate ret = THIS->peerCertificate();
     ST(0) = sv_newmortal();
     sv_setref_pv(ST(0), "Qt::Network::QSslCertificate", (void *)new QSslCertificate(ret));
     XSRETURN(1);
+    }
 
 ## int peerVerifyDepth()
 void
 QSslConfiguration::peerVerifyDepth(...)
 PREINIT:
 PPCODE:
+    if (1) {
+      
     int ret = THIS->peerVerifyDepth();
     ST(0) = sv_newmortal();
     sv_setiv(ST(0), (IV)ret);
     XSRETURN(1);
+    }
 
 ## QSslSocket::PeerVerifyMode peerVerifyMode()
 void
 QSslConfiguration::peerVerifyMode(...)
 PREINIT:
 PPCODE:
+    if (1) {
+      
     QSslSocket::PeerVerifyMode ret = THIS->peerVerifyMode();
     ST(0) = sv_newmortal();
     sv_setiv(ST(0), (IV)ret);
     XSRETURN(1);
+    }
 
 ## QSslKey privateKey()
 void
 QSslConfiguration::privateKey(...)
 PREINIT:
 PPCODE:
+    if (1) {
+      
     QSslKey ret = THIS->privateKey();
     ST(0) = sv_newmortal();
     sv_setref_pv(ST(0), "Qt::Network::QSslKey", (void *)new QSslKey(ret));
     XSRETURN(1);
+    }
 
 ## QSsl::SslProtocol protocol()
 void
 QSslConfiguration::protocol(...)
 PREINIT:
 PPCODE:
+    if (1) {
+      
     QSsl::SslProtocol ret = THIS->protocol();
     ST(0) = sv_newmortal();
     sv_setiv(ST(0), (IV)ret);
     XSRETURN(1);
+    }
 
 ## QSslCipher sessionCipher()
 void
 QSslConfiguration::sessionCipher(...)
 PREINIT:
 PPCODE:
+    if (1) {
+      
     QSslCipher ret = THIS->sessionCipher();
     ST(0) = sv_newmortal();
     sv_setref_pv(ST(0), "Qt::Network::QSslCipher", (void *)new QSslCipher(ret));
     XSRETURN(1);
+    }
 
 ## static void setDefaultConfiguration(const QSslConfiguration & configuration)
 void
@@ -207,12 +229,10 @@ PREINIT:
 QSslConfiguration * arg00;
 PPCODE:
     if (sv_isa(ST(1), "Qt::Network::QSslConfiguration")) {
-        arg00 = reinterpret_cast<QSslConfiguration *>(SvIV((SV*)SvRV(ST(1))));
-    }
-    else
-        Perl_croak(aTHX_ "arg00 is not of type Qt::Network::QSslConfiguration");
+      arg00 = reinterpret_cast<QSslConfiguration *>(SvIV((SV*)SvRV(ST(1))));
     (void)THIS->setDefaultConfiguration(*arg00);
     XSRETURN(0);
+    }
 
 ## void setLocalCertificate(const QSslCertificate & certificate)
 void
@@ -221,12 +241,10 @@ PREINIT:
 QSslCertificate * arg00;
 PPCODE:
     if (sv_isa(ST(1), "Qt::Network::QSslCertificate")) {
-        arg00 = reinterpret_cast<QSslCertificate *>(SvIV((SV*)SvRV(ST(1))));
-    }
-    else
-        Perl_croak(aTHX_ "arg00 is not of type Qt::Network::QSslCertificate");
+      arg00 = reinterpret_cast<QSslCertificate *>(SvIV((SV*)SvRV(ST(1))));
     (void)THIS->setLocalCertificate(*arg00);
     XSRETURN(0);
+    }
 
 ## void setPeerVerifyDepth(int depth)
 void
@@ -234,9 +252,11 @@ QSslConfiguration::setPeerVerifyDepth(...)
 PREINIT:
 int arg00;
 PPCODE:
-    arg00 = (int)SvIV(ST(1));
+    if (SvIOK(ST(1))) {
+      arg00 = (int)SvIV(ST(1));
     (void)THIS->setPeerVerifyDepth(arg00);
     XSRETURN(0);
+    }
 
 ## void setPeerVerifyMode(QSslSocket::PeerVerifyMode mode)
 void
@@ -244,24 +264,11 @@ QSslConfiguration::setPeerVerifyMode(...)
 PREINIT:
 QSslSocket::PeerVerifyMode arg00;
 PPCODE:
-    switch(SvIV(ST(1))) {
-    case 0:
-      arg00 = QSslSocket::VerifyNone;
-      break;
-    case 1:
-      arg00 = QSslSocket::QueryPeer;
-      break;
-    case 2:
-      arg00 = QSslSocket::VerifyPeer;
-      break;
-    case 3:
-      arg00 = QSslSocket::AutoVerifyPeer;
-      break;
-    default:
-      Perl_croak(aTHX_ "wrong enum value for type QSslSocket::PeerVerifyMode passed in");
-    }
+    if (SvIOK(ST(1))) {
+      arg00 = (QSslSocket::PeerVerifyMode)SvIV(ST(1));
     (void)THIS->setPeerVerifyMode(arg00);
     XSRETURN(0);
+    }
 
 ## void setPrivateKey(const QSslKey & key)
 void
@@ -270,12 +277,10 @@ PREINIT:
 QSslKey * arg00;
 PPCODE:
     if (sv_isa(ST(1), "Qt::Network::QSslKey")) {
-        arg00 = reinterpret_cast<QSslKey *>(SvIV((SV*)SvRV(ST(1))));
-    }
-    else
-        Perl_croak(aTHX_ "arg00 is not of type Qt::Network::QSslKey");
+      arg00 = reinterpret_cast<QSslKey *>(SvIV((SV*)SvRV(ST(1))));
     (void)THIS->setPrivateKey(*arg00);
     XSRETURN(0);
+    }
 
 ## void setProtocol(QSsl::SslProtocol protocol)
 void
@@ -283,24 +288,8 @@ QSslConfiguration::setProtocol(...)
 PREINIT:
 QSsl::SslProtocol arg00;
 PPCODE:
-    switch(SvIV(ST(1))) {
-    case 0:
-      arg00 = QSsl::SslV3;
-      break;
-    case 1:
-      arg00 = QSsl::SslV2;
-      break;
-    case 2:
-      arg00 = QSsl::TlsV1;
-      break;
-    case 3:
-      arg00 = QSsl::AnyProtocol;
-      break;
-    case 4:
-      arg00 = QSsl::UnknownProtocol;
-      break;
-    default:
-      Perl_croak(aTHX_ "wrong enum value for type QSsl::SslProtocol passed in");
-    }
+    if (SvIOK(ST(1))) {
+      arg00 = (QSsl::SslProtocol)SvIV(ST(1));
     (void)THIS->setProtocol(arg00);
     XSRETURN(0);
+    }

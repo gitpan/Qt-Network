@@ -7,11 +7,10 @@ use strict;
 use warnings;
 #use Carp;
 
-our $VERSION = '0.01_01';
+our $VERSION = '0.01_02';
 
 
 # FIXME: operator overload
-
 
 
 1;
@@ -24,9 +23,16 @@ Qt::Network::QIPv6Address
 
 =over
 
-=item   quint8 & operator[](int index)
+=item  quint8 & operator[](int index)
 
-=item   quint8 operator[](int index)
+=item  quint8 operator[](int index)
+
+
+=back
+
+=head1 ENUM VALUES
+
+=over
 
 
 =back

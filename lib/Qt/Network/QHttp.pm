@@ -7,32 +7,11 @@ use strict;
 use warnings;
 #use Carp;
 
-our $VERSION = '0.01_01';
+our $VERSION = '0.01_02';
+our $ISA     = qw/Qt::Core::QObject/;
 
 
 # FIXME: operator overload
-
-# enums
-# enum value in perl is enum item index number
-sub ConnectionModeHttp() { 0 }
-sub ConnectionModeHttps() { 1 }
-sub Unconnected() { 0 }
-sub HostLookup() { 1 }
-sub Connecting() { 2 }
-sub Sending() { 3 }
-sub Reading() { 4 }
-sub Connected() { 5 }
-sub Closing() { 6 }
-sub NoError() { 0 }
-sub UnknownError() { 1 }
-sub HostNotFound() { 2 }
-sub ConnectionRefused() { 3 }
-sub UnexpectedClose() { 4 }
-sub InvalidResponseHeader() { 5 }
-sub WrongContentLength() { 6 }
-sub Aborted() { 7 }
-sub AuthenticationRequiredError() { 8 }
-sub ProxyAuthenticationRequiredError() { 9 }
 
 
 1;
@@ -45,111 +24,148 @@ Qt::Network::QHttp
 
 =over
 
-=item    QHttp(QObject * parent = 0)
+=item   QHttp(QObject * parent)
 
-=item    QHttp(QObject * parent)
+=item   QHttp(QObject * parent = 0)
 
-=item    QHttp(const QString & hostname, quint16 port, QObject * parent = 0)
+=item   QHttp(const QString & hostname, quint16 port, QObject * parent)
 
-=item    QHttp(const QString & hostname, quint16 port, QObject * parent)
+=item   QHttp(const QString & hostname, quint16 port, QObject * parent = 0)
 
-=item    QHttp(const QString & hostname, quint16 port = 80, QObject * parent = 0)
+=item   QHttp(const QString & hostname, quint16 port = 80, QObject * parent = 0)
 
-=item    QHttp(const QString & hostname, quint16 port, QObject * parent = 0)
+=item   QHttp(const QString & hostname, QHttp::ConnectionMode mode, quint16 port, QObject * parent)
 
-=item    QHttp(const QString & hostname, QHttp::ConnectionMode mode, quint16 port, QObject * parent = 0)
+=item   QHttp(const QString & hostname, QHttp::ConnectionMode mode, quint16 port, QObject * parent = 0)
 
-=item    QHttp(const QString & hostname, QHttp::ConnectionMode mode, quint16 port, QObject * parent)
+=item   QHttp(const QString & hostname, QHttp::ConnectionMode mode, quint16 port = 0, QObject * parent = 0)
 
-=item    QHttp(const QString & hostname, QHttp::ConnectionMode mode, quint16 port = 0, QObject * parent = 0)
+=item   ~QHttp()
 
-=item    QHttp(const QString & hostname, QHttp::ConnectionMode mode, quint16 port, QObject * parent = 0)
+=item  void abort()
 
-=item    ~QHttp()
+=item  qint64 bytesAvailable()
 
-=item   void abort()
+=item  void clearPendingRequests()
 
-=item   qint64 bytesAvailable()
+=item  int close()
 
-=item   void clearPendingRequests()
+=item  int closeConnection()
 
-=item   int close()
+=item  QIODevice * currentDestinationDevice()
 
-=item   int closeConnection()
+=item  int currentId()
 
-=item   QIODevice * currentDestinationDevice()
+=item  QHttpRequestHeader currentRequest()
 
-=item   int currentId()
+=item  QIODevice * currentSourceDevice()
 
-=item   QHttpRequestHeader currentRequest()
+=item  QHttp::Error error()
 
-=item   QIODevice * currentSourceDevice()
+=item  QString errorString()
 
-=item   QHttp::Error error()
+=item  int get(const QString & path, QIODevice * to)
 
-=item   QString errorString()
+=item  int get(const QString & path, QIODevice * to = 0)
 
-=item   int get(const QString & path, QIODevice * to = 0)
+=item  bool hasPendingRequests()
 
-=item   int get(const QString & path, QIODevice * to)
+=item  int head(const QString & path)
 
-=item   bool hasPendingRequests()
+=item  void ignoreSslErrors()
 
-=item   int head(const QString & path)
+=item  QHttpResponseHeader lastResponse()
 
-=item   void ignoreSslErrors()
+=item  int post(const QString & path, QIODevice * data, QIODevice * to)
 
-=item   QHttpResponseHeader lastResponse()
+=item  int post(const QString & path, QIODevice * data, QIODevice * to = 0)
 
-=item   int post(const QString & path, QIODevice * data, QIODevice * to = 0)
+=item  int post(const QString & path, const QByteArray & data, QIODevice * to)
 
-=item   int post(const QString & path, QIODevice * data, QIODevice * to)
+=item  int post(const QString & path, const QByteArray & data, QIODevice * to = 0)
 
-=item   int post(const QString & path, const QByteArray & data, QIODevice * to = 0)
+=item  qint64 read(char * data, qint64 maxlen)
 
-=item   int post(const QString & path, const QByteArray & data, QIODevice * to)
+=item  QByteArray readAll()
 
-=item   qint64 read(char * data, qint64 maxlen)
+=item  int request(const QHttpRequestHeader & header, QIODevice * device, QIODevice * to)
 
-=item   QByteArray readAll()
+=item  int request(const QHttpRequestHeader & header, QIODevice * device, QIODevice * to = 0)
 
-=item   int request(const QHttpRequestHeader & header, QIODevice * device, QIODevice * to = 0)
+=item  int request(const QHttpRequestHeader & header, QIODevice * device = 0, QIODevice * to = 0)
 
-=item   int request(const QHttpRequestHeader & header, QIODevice * device, QIODevice * to)
+=item  int request(const QHttpRequestHeader & header, const QByteArray & data, QIODevice * to)
 
-=item   int request(const QHttpRequestHeader & header, QIODevice * device = 0, QIODevice * to = 0)
+=item  int request(const QHttpRequestHeader & header, const QByteArray & data, QIODevice * to = 0)
 
-=item   int request(const QHttpRequestHeader & header, QIODevice * device, QIODevice * to = 0)
+=item  int setHost(const QString & hostname, quint16 port)
 
-=item   int request(const QHttpRequestHeader & header, const QByteArray & data, QIODevice * to = 0)
+=item  int setHost(const QString & hostname, quint16 port = 80)
 
-=item   int request(const QHttpRequestHeader & header, const QByteArray & data, QIODevice * to)
+=item  int setHost(const QString & hostname, QHttp::ConnectionMode mode, quint16 port)
 
-=item   int setHost(const QString & hostname, quint16 port = 80)
+=item  int setHost(const QString & hostname, QHttp::ConnectionMode mode, quint16 port = 0)
 
-=item   int setHost(const QString & hostname, quint16 port)
+=item  int setProxy(const QNetworkProxy & proxy)
 
-=item   int setHost(const QString & hostname, QHttp::ConnectionMode mode, quint16 port = 0)
+=item  int setProxy(const QString & host, int port, const QString & username, const QString & password)
 
-=item   int setHost(const QString & hostname, QHttp::ConnectionMode mode, quint16 port)
+=item  int setProxy(const QString & host, int port, const QString & username, const QString & password = QString())
 
-=item   int setProxy(const QNetworkProxy & proxy)
+=item  int setProxy(const QString & host, int port, const QString & username = QString(), const QString & password = QString())
 
-=item   int setProxy(const QString & host, int port, const QString & username, const QString & password = QString())
+=item  int setSocket(QTcpSocket * socket)
 
-=item   int setProxy(const QString & host, int port, const QString & username, const QString & password)
+=item  int setUser(const QString & username, const QString & password)
 
-=item   int setProxy(const QString & host, int port, const QString & username = QString(), const QString & password = QString())
+=item  int setUser(const QString & username, const QString & password = QString())
 
-=item   int setProxy(const QString & host, int port, const QString & username, const QString & password = QString())
+=item  QHttp::State state()
 
-=item   int setSocket(QTcpSocket * socket)
 
-=item   int setUser(const QString & username, const QString & password = QString())
+=back
 
-=item   int setUser(const QString & username, const QString & password)
+=head1 ENUM VALUES
 
-=item   QHttp::State state()
+=over
+
+=item ConnectionModeHttp
+
+=item ConnectionModeHttps
+
+=item Unconnected
+
+=item HostLookup
+
+=item Connecting
+
+=item Sending
+
+=item Reading
+
+=item Connected
+
+=item Closing
+
+=item NoError
+
+=item UnknownError
+
+=item HostNotFound
+
+=item ConnectionRefused
+
+=item UnexpectedClose
+
+=item InvalidResponseHeader
+
+=item WrongContentLength
+
+=item Aborted
+
+=item AuthenticationRequiredError
+
+=item ProxyAuthenticationRequiredError
 
 
 =back

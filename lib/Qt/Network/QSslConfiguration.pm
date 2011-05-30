@@ -7,11 +7,10 @@ use strict;
 use warnings;
 #use Carp;
 
-our $VERSION = '0.01_01';
+our $VERSION = '0.01_02';
 
 
 # FIXME: operator overload
-
 
 
 1;
@@ -24,47 +23,54 @@ Qt::Network::QSslConfiguration
 
 =over
 
-=item    QSslConfiguration()
+=item   QSslConfiguration()
 
-=item    QSslConfiguration(const QSslConfiguration & other)
+=item   QSslConfiguration(const QSslConfiguration & other)
 
-=item    ~QSslConfiguration()
+=item   ~QSslConfiguration()
 
-=item   static QSslConfiguration defaultConfiguration()
+=item  static QSslConfiguration defaultConfiguration()
 
-=item   bool isNull()
+=item  bool isNull()
 
-=item   QSslCertificate localCertificate()
+=item  QSslCertificate localCertificate()
 
-=item   bool operator!=(const QSslConfiguration & other)
+=item  bool operator!=(const QSslConfiguration & other)
 
-=item   QSslConfiguration & operator=(const QSslConfiguration & other)
+=item  QSslConfiguration & operator=(const QSslConfiguration & other)
 
-=item   bool operator==(const QSslConfiguration & other)
+=item  bool operator==(const QSslConfiguration & other)
 
-=item   QSslCertificate peerCertificate()
+=item  QSslCertificate peerCertificate()
 
-=item   int peerVerifyDepth()
+=item  int peerVerifyDepth()
 
-=item   QSslSocket::PeerVerifyMode peerVerifyMode()
+=item  QSslSocket::PeerVerifyMode peerVerifyMode()
 
-=item   QSslKey privateKey()
+=item  QSslKey privateKey()
 
-=item   QSsl::SslProtocol protocol()
+=item  QSsl::SslProtocol protocol()
 
-=item   QSslCipher sessionCipher()
+=item  QSslCipher sessionCipher()
 
-=item   static void setDefaultConfiguration(const QSslConfiguration & configuration)
+=item  static void setDefaultConfiguration(const QSslConfiguration & configuration)
 
-=item   void setLocalCertificate(const QSslCertificate & certificate)
+=item  void setLocalCertificate(const QSslCertificate & certificate)
 
-=item   void setPeerVerifyDepth(int depth)
+=item  void setPeerVerifyDepth(int depth)
 
-=item   void setPeerVerifyMode(QSslSocket::PeerVerifyMode mode)
+=item  void setPeerVerifyMode(QSslSocket::PeerVerifyMode mode)
 
-=item   void setPrivateKey(const QSslKey & key)
+=item  void setPrivateKey(const QSslKey & key)
 
-=item   void setProtocol(QSsl::SslProtocol protocol)
+=item  void setProtocol(QSsl::SslProtocol protocol)
+
+
+=back
+
+=head1 ENUM VALUES
+
+=over
 
 
 =back

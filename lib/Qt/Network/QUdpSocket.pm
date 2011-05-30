@@ -7,18 +7,11 @@ use strict;
 use warnings;
 #use Carp;
 
-our $VERSION = '0.01_01';
-our $ISA     = qw/QAbstractSocket/;
+our $VERSION = '0.01_02';
+our $ISA     = qw/Qt::Network::QAbstractSocket/;
 
 
 # FIXME: operator overload
-
-# enums
-# enum value in perl is enum item index number
-sub DefaultForPlatform() { 0 }
-sub ShareAddress() { 1 }
-sub DontShareAddress() { 2 }
-sub ReuseAddressHint() { 3 }
 
 
 1;
@@ -31,33 +24,50 @@ Qt::Network::QUdpSocket
 
 =over
 
-=item    QUdpSocket(QObject * parent = 0)
+=item   QUdpSocket(QObject * parent)
 
-=item    QUdpSocket(QObject * parent)
+=item   QUdpSocket(QObject * parent = 0)
 
-=item    ~QUdpSocket()
+=item   ~QUdpSocket()
 
-=item   bool bind(quint16 port = 0)
+=item  bool bind(quint16 port)
 
-=item   bool bind(quint16 port)
+=item  bool bind(quint16 port = 0)
 
-=item   bool bind(const QHostAddress & address, quint16 port)
+=item  bool bind(const QHostAddress & address, quint16 port)
 
-=item   bool hasPendingDatagrams()
+=item  bool bind(quint16 port, QFlags<QUdpSocket::BindFlag> mode)
 
-=item   qint64 pendingDatagramSize()
+=item  bool bind(const QHostAddress & address, quint16 port, QFlags<QUdpSocket::BindFlag> mode)
 
-=item   qint64 readDatagram(char * data, qint64 maxlen, QHostAddress * host, quint16 * port = 0)
+=item  bool hasPendingDatagrams()
 
-=item   qint64 readDatagram(char * data, qint64 maxlen, QHostAddress * host, quint16 * port)
+=item  qint64 pendingDatagramSize()
 
-=item   qint64 readDatagram(char * data, qint64 maxlen, QHostAddress * host = 0, quint16 * port = 0)
+=item  qint64 readDatagram(char * data, qint64 maxlen, QHostAddress * host, quint16 * port)
 
-=item   qint64 readDatagram(char * data, qint64 maxlen, QHostAddress * host, quint16 * port = 0)
+=item  qint64 readDatagram(char * data, qint64 maxlen, QHostAddress * host, quint16 * port = 0)
 
-=item   qint64 writeDatagram(const QByteArray & datagram, const QHostAddress & host, quint16 port)
+=item  qint64 readDatagram(char * data, qint64 maxlen, QHostAddress * host = 0, quint16 * port = 0)
 
-=item   qint64 writeDatagram(const char * data, qint64 len, const QHostAddress & host, quint16 port)
+=item  qint64 writeDatagram(const QByteArray & datagram, const QHostAddress & host, quint16 port)
+
+=item  qint64 writeDatagram(const char * data, qint64 len, const QHostAddress & host, quint16 port)
+
+
+=back
+
+=head1 ENUM VALUES
+
+=over
+
+=item DefaultForPlatform
+
+=item ShareAddress
+
+=item DontShareAddress
+
+=item ReuseAddressHint
 
 
 =back

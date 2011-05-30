@@ -7,11 +7,11 @@ use strict;
 use warnings;
 #use Carp;
 
-our $VERSION = '0.01_01';
+our $VERSION = '0.01_02';
+our $ISA     = qw/Qt::Core::QObject/;
 
 
 # FIXME: operator overload
-
 
 
 1;
@@ -24,23 +24,30 @@ Qt::Network::QAbstractNetworkCache
 
 =over
 
-=item    ~QAbstractNetworkCache()
+=item   ~QAbstractNetworkCache()
 
-=item   qint64 cacheSize()
+=item  qint64 cacheSize()
 
-=item   void clear()
+=item  void clear()
 
-=item   QIODevice * data(const QUrl & url)
+=item  QIODevice * data(const QUrl & url)
 
-=item   void insert(QIODevice * device)
+=item  void insert(QIODevice * device)
 
-=item   QNetworkCacheMetaData metaData(const QUrl & url)
+=item  QNetworkCacheMetaData metaData(const QUrl & url)
 
-=item   QIODevice * prepare(const QNetworkCacheMetaData & metaData)
+=item  QIODevice * prepare(const QNetworkCacheMetaData & metaData)
 
-=item   bool remove(const QUrl & url)
+=item  bool remove(const QUrl & url)
 
-=item   void updateMetaData(const QNetworkCacheMetaData & metaData)
+=item  void updateMetaData(const QNetworkCacheMetaData & metaData)
+
+
+=back
+
+=head1 ENUM VALUES
+
+=over
 
 
 =back

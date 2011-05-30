@@ -7,19 +7,11 @@ use strict;
 use warnings;
 #use Carp;
 
-our $VERSION = '0.01_01';
+our $VERSION = '0.01_02';
+our $ISA     = qw/Qt::Core::QObject/;
 
 
 # FIXME: operator overload
-
-# enums
-# enum value in perl is enum item index number
-sub HeadOperation() { 0 }
-sub GetOperation() { 1 }
-sub PutOperation() { 2 }
-sub PostOperation() { 3 }
-sub DeleteOperation() { 4 }
-sub UnknownOperation() { 5 }
 
 
 1;
@@ -32,41 +24,82 @@ Qt::Network::QNetworkAccessManager
 
 =over
 
-=item    QNetworkAccessManager(QObject * parent = 0)
+=item   QNetworkAccessManager(QObject * parent)
 
-=item    QNetworkAccessManager(QObject * parent)
+=item   QNetworkAccessManager(QObject * parent = 0)
 
-=item    ~QNetworkAccessManager()
+=item   ~QNetworkAccessManager()
 
-=item   QAbstractNetworkCache * cache()
+=item  QNetworkConfiguration activeConfiguration()
 
-=item   QNetworkCookieJar * cookieJar()
+=item  QAbstractNetworkCache * cache()
 
-=item   QNetworkReply * deleteResource(const QNetworkRequest & request)
+=item  QNetworkConfiguration configuration()
 
-=item   QNetworkReply * get(const QNetworkRequest & request)
+=item  QNetworkCookieJar * cookieJar()
 
-=item   QNetworkReply * head(const QNetworkRequest & request)
+=item  QNetworkReply * deleteResource(const QNetworkRequest & request)
 
-=item   QNetworkReply * post(const QNetworkRequest & request, QIODevice * data)
+=item  QNetworkReply * get(const QNetworkRequest & request)
 
-=item   QNetworkReply * post(const QNetworkRequest & request, const QByteArray & data)
+=item  QNetworkReply * head(const QNetworkRequest & request)
 
-=item   QNetworkProxy proxy()
+=item  QNetworkAccessManager::NetworkAccessibility networkAccessible()
 
-=item   QNetworkProxyFactory * proxyFactory()
+=item  QNetworkReply * post(const QNetworkRequest & request, QIODevice * data)
 
-=item   QNetworkReply * put(const QNetworkRequest & request, QIODevice * data)
+=item  QNetworkReply * post(const QNetworkRequest & request, const QByteArray & data)
 
-=item   QNetworkReply * put(const QNetworkRequest & request, const QByteArray & data)
+=item  QNetworkProxy proxy()
 
-=item   void setCache(QAbstractNetworkCache * cache)
+=item  QNetworkProxyFactory * proxyFactory()
 
-=item   void setCookieJar(QNetworkCookieJar * cookieJar)
+=item  QNetworkReply * put(const QNetworkRequest & request, QIODevice * data)
 
-=item   void setProxy(const QNetworkProxy & proxy)
+=item  QNetworkReply * put(const QNetworkRequest & request, const QByteArray & data)
 
-=item   void setProxyFactory(QNetworkProxyFactory * factory)
+=item  QNetworkReply * sendCustomRequest(const QNetworkRequest & request, const QByteArray & verb, QIODevice * data)
+
+=item  QNetworkReply * sendCustomRequest(const QNetworkRequest & request, const QByteArray & verb, QIODevice * data = 0)
+
+=item  void setCache(QAbstractNetworkCache * cache)
+
+=item  void setConfiguration(const QNetworkConfiguration & config)
+
+=item  void setCookieJar(QNetworkCookieJar * cookieJar)
+
+=item  void setNetworkAccessible(QNetworkAccessManager::NetworkAccessibility accessible)
+
+=item  void setProxy(const QNetworkProxy & proxy)
+
+=item  void setProxyFactory(QNetworkProxyFactory * factory)
+
+
+=back
+
+=head1 ENUM VALUES
+
+=over
+
+=item HeadOperation
+
+=item GetOperation
+
+=item PutOperation
+
+=item PostOperation
+
+=item DeleteOperation
+
+=item CustomOperation
+
+=item UnknownOperation
+
+=item UnknownAccessibility
+
+=item NotAccessible
+
+=item Accessible
 
 
 =back

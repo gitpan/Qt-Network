@@ -31,18 +31,27 @@ int arg00;
 int arg10;
 PPCODE:
     switch(items) {
-    case 2:
+      case 2:
       {
-        arg00 = (int)SvIV(ST(1));
+        if (SvIOK(ST(1))) {
+      arg00 = (int)SvIV(ST(1));
     quint8 & ret = THIS->operator[](arg00);
     ST(0) = sv_newmortal();
     sv_setuv(ST(0), (UV)ret);
     XSRETURN(1);
+    }
+        else if (SvIOK(ST(1))) {
+      arg10 = (int)SvIV(ST(1));
+    quint8 ret = THIS->operator[](arg10);
+    ST(0) = sv_newmortal();
+    sv_setuv(ST(0), (UV)ret);
+    XSRETURN(1);
+    }
+	else
+            Perl_croak(aTHX_ "wrong number/type of arguments passed in");
         break;
       }
-    default:
-      {
+      default:
         Perl_croak(aTHX_ "wrong number/type of arguments passed in");
         break;
-      }
     }

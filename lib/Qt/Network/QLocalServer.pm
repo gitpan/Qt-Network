@@ -7,11 +7,11 @@ use strict;
 use warnings;
 #use Carp;
 
-our $VERSION = '0.01_01';
+our $VERSION = '0.01_02';
+our $ISA     = qw/Qt::Core::QObject/;
 
 
 # FIXME: operator overload
-
 
 
 1;
@@ -24,43 +24,48 @@ Qt::Network::QLocalServer
 
 =over
 
-=item    QLocalServer(QObject * parent = 0)
+=item   QLocalServer(QObject * parent)
 
-=item    QLocalServer(QObject * parent)
+=item   QLocalServer(QObject * parent = 0)
 
-=item    ~QLocalServer()
+=item   ~QLocalServer()
 
-=item   void close()
+=item  void close()
 
-=item   QString errorString()
+=item  QString errorString()
 
-=item   QString fullServerName()
+=item  QString fullServerName()
 
-=item   bool hasPendingConnections()
+=item  bool hasPendingConnections()
 
-=item   bool isListening()
+=item  bool isListening()
 
-=item   bool listen(const QString & name)
+=item  bool listen(const QString & name)
 
-=item   int maxPendingConnections()
+=item  int maxPendingConnections()
 
-=item   QLocalSocket * nextPendingConnection()
+=item  QLocalSocket * nextPendingConnection()
 
-=item   static bool removeServer(const QString & name)
+=item  static bool removeServer(const QString & name)
 
-=item   QAbstractSocket::SocketError serverError()
+=item  QAbstractSocket::SocketError serverError()
 
-=item   QString serverName()
+=item  QString serverName()
 
-=item   void setMaxPendingConnections(int numConnections)
+=item  void setMaxPendingConnections(int numConnections)
 
-=item   bool waitForNewConnection(int msec, bool * timedOut = 0)
+=item  bool waitForNewConnection(int msec, bool * timedOut)
 
-=item   bool waitForNewConnection(int msec, bool * timedOut)
+=item  bool waitForNewConnection(int msec, bool * timedOut = 0)
 
-=item   bool waitForNewConnection(int msec = 0, bool * timedOut = 0)
+=item  bool waitForNewConnection(int msec = 0, bool * timedOut = 0)
 
-=item   bool waitForNewConnection(int msec, bool * timedOut = 0)
+
+=back
+
+=head1 ENUM VALUES
+
+=over
 
 
 =back

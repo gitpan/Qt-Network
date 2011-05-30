@@ -7,24 +7,10 @@ use strict;
 use warnings;
 #use Carp;
 
-our $VERSION = '0.01_01';
+our $VERSION = '0.01_02';
 
 
 # FIXME: operator overload
-
-# enums
-# enum value in perl is enum item index number
-sub DefaultProxy() { 0 }
-sub Socks5Proxy() { 1 }
-sub NoProxy() { 2 }
-sub HttpProxy() { 3 }
-sub HttpCachingProxy() { 4 }
-sub FtpCachingProxy() { 5 }
-sub TunnelingCapability() { 0 }
-sub ListeningCapability() { 1 }
-sub UdpTunnelingCapability() { 2 }
-sub CachingCapability() { 3 }
-sub HostNameLookupCapability() { 4 }
 
 
 1;
@@ -37,61 +23,88 @@ Qt::Network::QNetworkProxy
 
 =over
 
-=item    QNetworkProxy()
+=item   QNetworkProxy()
 
-=item    QNetworkProxy(const QNetworkProxy & other)
+=item   QNetworkProxy(const QNetworkProxy & other)
 
-=item    QNetworkProxy(QNetworkProxy::ProxyType type, const QString & hostName, quint16 port, const QString & user, const QString & password = QString())
+=item   QNetworkProxy(QNetworkProxy::ProxyType type, const QString & hostName, quint16 port, const QString & user, const QString & password)
 
-=item    QNetworkProxy(QNetworkProxy::ProxyType type, const QString & hostName, quint16 port, const QString & user, const QString & password)
+=item   QNetworkProxy(QNetworkProxy::ProxyType type, const QString & hostName, quint16 port, const QString & user, const QString & password = QString())
 
-=item    QNetworkProxy(QNetworkProxy::ProxyType type, const QString & hostName, quint16 port, const QString & user = QString(), const QString & password = QString())
+=item   QNetworkProxy(QNetworkProxy::ProxyType type, const QString & hostName, quint16 port, const QString & user = QString(), const QString & password = QString())
 
-=item    QNetworkProxy(QNetworkProxy::ProxyType type, const QString & hostName, quint16 port, const QString & user, const QString & password = QString())
+=item   QNetworkProxy(QNetworkProxy::ProxyType type, const QString & hostName, quint16 port = 0, const QString & user = QString(), const QString & password = QString())
 
-=item    QNetworkProxy(QNetworkProxy::ProxyType type, const QString & hostName, quint16 port = 0, const QString & user = QString(), const QString & password = QString())
+=item   QNetworkProxy(QNetworkProxy::ProxyType type, const QString & hostName = QString(), quint16 port = 0, const QString & user = QString(), const QString & password = QString())
 
-=item    QNetworkProxy(QNetworkProxy::ProxyType type, const QString & hostName, quint16 port, const QString & user = QString(), const QString & password = QString())
+=item   ~QNetworkProxy()
 
-=item    QNetworkProxy(QNetworkProxy::ProxyType type, const QString & hostName = QString(), quint16 port = 0, const QString & user = QString(), const QString & password = QString())
+=item  static QNetworkProxy applicationProxy()
 
-=item    QNetworkProxy(QNetworkProxy::ProxyType type, const QString & hostName, quint16 port = 0, const QString & user = QString(), const QString & password = QString())
+=item  QFlags<QNetworkProxy::Capability> capabilities()
 
-=item    ~QNetworkProxy()
+=item  QString hostName()
 
-=item   static QNetworkProxy applicationProxy()
+=item  bool isCachingProxy()
 
-=item   QString hostName()
+=item  bool isTransparentProxy()
 
-=item   bool isCachingProxy()
+=item  bool operator!=(const QNetworkProxy & other)
 
-=item   bool isTransparentProxy()
+=item  QNetworkProxy & operator=(const QNetworkProxy & other)
 
-=item   bool operator!=(const QNetworkProxy & other)
+=item  bool operator==(const QNetworkProxy & other)
 
-=item   QNetworkProxy & operator=(const QNetworkProxy & other)
+=item  QString password()
 
-=item   bool operator==(const QNetworkProxy & other)
+=item  quint16 port()
 
-=item   QString password()
+=item  static void setApplicationProxy(const QNetworkProxy & proxy)
 
-=item   quint16 port()
+=item  void setCapabilities(QFlags<QNetworkProxy::Capability> capab)
 
-=item   static void setApplicationProxy(const QNetworkProxy & proxy)
+=item  void setHostName(const QString & hostName)
 
-=item   void setHostName(const QString & hostName)
+=item  void setPassword(const QString & password)
 
-=item   void setPassword(const QString & password)
+=item  void setPort(quint16 port)
 
-=item   void setPort(quint16 port)
+=item  void setType(QNetworkProxy::ProxyType type)
 
-=item   void setType(QNetworkProxy::ProxyType type)
+=item  void setUser(const QString & userName)
 
-=item   void setUser(const QString & userName)
+=item  QNetworkProxy::ProxyType type()
 
-=item   QNetworkProxy::ProxyType type()
+=item  QString user()
 
-=item   QString user()
+
+=back
+
+=head1 ENUM VALUES
+
+=over
+
+=item DefaultProxy
+
+=item Socks5Proxy
+
+=item NoProxy
+
+=item HttpProxy
+
+=item HttpCachingProxy
+
+=item FtpCachingProxy
+
+=item TunnelingCapability
+
+=item ListeningCapability
+
+=item UdpTunnelingCapability
+
+=item CachingCapability
+
+=item HostNameLookupCapability
 
 
 =back

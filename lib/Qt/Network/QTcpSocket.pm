@@ -7,12 +7,11 @@ use strict;
 use warnings;
 #use Carp;
 
-our $VERSION = '0.01_01';
-our $ISA     = qw/QAbstractSocket/;
+our $VERSION = '0.01_02';
+our $ISA     = qw/Qt::Network::QAbstractSocket/;
 
 
 # FIXME: operator overload
-
 
 
 1;
@@ -25,11 +24,18 @@ Qt::Network::QTcpSocket
 
 =over
 
-=item    QTcpSocket(QObject * parent = 0)
+=item   QTcpSocket(QObject * parent)
 
-=item    QTcpSocket(QObject * parent)
+=item   QTcpSocket(QObject * parent = 0)
 
-=item    ~QTcpSocket()
+=item   ~QTcpSocket()
+
+
+=back
+
+=head1 ENUM VALUES
+
+=over
 
 
 =back

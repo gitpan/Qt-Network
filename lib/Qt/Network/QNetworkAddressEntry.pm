@@ -7,11 +7,10 @@ use strict;
 use warnings;
 #use Carp;
 
-our $VERSION = '0.01_01';
+our $VERSION = '0.01_02';
 
 
 # FIXME: operator overload
-
 
 
 1;
@@ -24,33 +23,40 @@ Qt::Network::QNetworkAddressEntry
 
 =over
 
-=item    QNetworkAddressEntry()
+=item   QNetworkAddressEntry()
 
-=item    QNetworkAddressEntry(const QNetworkAddressEntry & other)
+=item   QNetworkAddressEntry(const QNetworkAddressEntry & other)
 
-=item    ~QNetworkAddressEntry()
+=item   ~QNetworkAddressEntry()
 
-=item   QHostAddress broadcast()
+=item  QHostAddress broadcast()
 
-=item   QHostAddress ip()
+=item  QHostAddress ip()
 
-=item   QHostAddress netmask()
+=item  QHostAddress netmask()
 
-=item   bool operator!=(const QNetworkAddressEntry & other)
+=item  bool operator!=(const QNetworkAddressEntry & other)
 
-=item   QNetworkAddressEntry & operator=(const QNetworkAddressEntry & other)
+=item  QNetworkAddressEntry & operator=(const QNetworkAddressEntry & other)
 
-=item   bool operator==(const QNetworkAddressEntry & other)
+=item  bool operator==(const QNetworkAddressEntry & other)
 
-=item   int prefixLength()
+=item  int prefixLength()
 
-=item   void setBroadcast(const QHostAddress & newBroadcast)
+=item  void setBroadcast(const QHostAddress & newBroadcast)
 
-=item   void setIp(const QHostAddress & newIp)
+=item  void setIp(const QHostAddress & newIp)
 
-=item   void setNetmask(const QHostAddress & newNetmask)
+=item  void setNetmask(const QHostAddress & newNetmask)
 
-=item   void setPrefixLength(int length)
+=item  void setPrefixLength(int length)
+
+
+=back
+
+=head1 ENUM VALUES
+
+=over
 
 
 =back

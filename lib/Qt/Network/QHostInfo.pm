@@ -7,16 +7,10 @@ use strict;
 use warnings;
 #use Carp;
 
-our $VERSION = '0.01_01';
+our $VERSION = '0.01_02';
 
 
 # FIXME: operator overload
-
-# enums
-# enum value in perl is enum item index number
-sub NoError() { 0 }
-sub HostNotFound() { 1 }
-sub UnknownError() { 2 }
 
 
 1;
@@ -29,41 +23,54 @@ Qt::Network::QHostInfo
 
 =over
 
-=item    QHostInfo(int lookupId = -1)
+=item   QHostInfo(int lookupId)
 
-=item    QHostInfo(int lookupId)
+=item   QHostInfo(int lookupId = -1)
 
-=item    QHostInfo(const QHostInfo & d)
+=item   QHostInfo(const QHostInfo & d)
 
-=item    ~QHostInfo()
+=item   ~QHostInfo()
 
-=item   static void abortHostLookup(int lookupId)
+=item  static void abortHostLookup(int lookupId)
 
-=item   QHostInfo::HostInfoError error()
+=item  QHostInfo::HostInfoError error()
 
-=item   QString errorString()
+=item  QString errorString()
 
-=item   static QHostInfo fromName(const QString & name)
+=item  static QHostInfo fromName(const QString & name)
 
-=item   QString hostName()
+=item  QString hostName()
 
-=item   static QString localDomainName()
+=item  static QString localDomainName()
 
-=item   static QString localHostName()
+=item  static QString localHostName()
 
-=item   static int lookupHost(const QString & name, QObject * receiver, const char * member)
+=item  static int lookupHost(const QString & name, QObject * receiver, const char * member)
 
-=item   int lookupId()
+=item  int lookupId()
 
-=item   QHostInfo & operator=(const QHostInfo & d)
+=item  QHostInfo & operator=(const QHostInfo & d)
 
-=item   void setError(QHostInfo::HostInfoError error)
+=item  void setError(QHostInfo::HostInfoError error)
 
-=item   void setErrorString(const QString & errorString)
+=item  void setErrorString(const QString & errorString)
 
-=item   void setHostName(const QString & name)
+=item  void setHostName(const QString & name)
 
-=item   void setLookupId(int id)
+=item  void setLookupId(int id)
+
+
+=back
+
+=head1 ENUM VALUES
+
+=over
+
+=item NoError
+
+=item HostNotFound
+
+=item UnknownError
 
 
 =back

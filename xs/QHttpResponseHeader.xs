@@ -21,12 +21,10 @@ PROTOTYPES: DISABLE
 ##  QHttpResponseHeader()
 ##  QHttpResponseHeader(const QHttpResponseHeader & header)
 ##  QHttpResponseHeader(const QString & str)
-##  QHttpResponseHeader(int code, const QString & text, int majorVer, int minorVer = 1)
 ##  QHttpResponseHeader(int code, const QString & text, int majorVer, int minorVer)
-##  QHttpResponseHeader(int code, const QString & text, int majorVer = 1, int minorVer = 1)
 ##  QHttpResponseHeader(int code, const QString & text, int majorVer, int minorVer = 1)
-##  QHttpResponseHeader(int code, const QString & text = QString(), int majorVer = 1, int minorVer = 1)
 ##  QHttpResponseHeader(int code, const QString & text, int majorVer = 1, int minorVer = 1)
+##  QHttpResponseHeader(int code, const QString & text = QString(), int majorVer = 1, int minorVer = 1)
   void
 QHttpResponseHeader::new(...)
 PREINIT:
@@ -36,86 +34,87 @@ QString * arg20;
 int arg30;
 QString * arg31;
 int arg32;
-int arg33 = 1;
+int arg33;
 int arg40;
 QString * arg41;
 int arg42;
-int arg43;
+int arg43 = 1;
 int arg50;
 QString * arg51;
 int arg52 = 1;
 int arg53 = 1;
 int arg60;
-QString * arg61;
-int arg62;
+const QString & arg61_ = QString();
+QString * arg61 = const_cast<QString *>(&arg61_);
+int arg62 = 1;
 int arg63 = 1;
-int arg70;
-const QString & arg71_ = QString();
-QString * arg71 = const_cast<QString *>(&arg71_);
-int arg72 = 1;
-int arg73 = 1;
-int arg80;
-QString * arg81;
-int arg82 = 1;
-int arg83 = 1;
 PPCODE:
     switch(items) {
-    case 1:
+      case 1:
       {
-        Perl_croak(aTHX_ "Trying to create abstract class object");
+        if (1) {
+      
+    Perl_croak(aTHX_ "Trying to create abstract class object");
+    }
         break;
       }
-    case 2:
+      case 2:
       {
         if (sv_isa(ST(1), "Qt::Network::QHttpResponseHeader")) {
-        arg10 = reinterpret_cast<QHttpResponseHeader *>(SvIV((SV*)SvRV(ST(1))));
-    }
-    else
-        Perl_croak(aTHX_ "arg10 is not of type Qt::Network::QHttpResponseHeader");
+      arg10 = reinterpret_cast<QHttpResponseHeader *>(SvIV((SV*)SvRV(ST(1))));
     Perl_croak(aTHX_ "Trying to create abstract class object");
+    }
+        else if (sv_isa(ST(1), "Qt::Core::QString")) {
+      arg20 = reinterpret_cast<QString *>(SvIV((SV*)SvRV(ST(1))));
+    Perl_croak(aTHX_ "Trying to create abstract class object");
+    }
+        else if (SvIOK(ST(1))) {
+      arg60 = (int)SvIV(ST(1));
+    Perl_croak(aTHX_ "Trying to create abstract class object");
+    }
+	else
+            Perl_croak(aTHX_ "wrong number/type of arguments passed in");
         break;
       }
-    case 4:
+      case 3:
       {
-        arg30 = (int)SvIV(ST(1));
-    if (sv_isa(ST(2), "")) {
-        arg31 = reinterpret_cast<QString *>(SvIV((SV*)SvRV(ST(2))));
-    }
-    else
-        Perl_croak(aTHX_ "arg31 is not of type ");
-    arg32 = (int)SvIV(ST(3));
+        if (SvIOK(ST(1)) && sv_isa(ST(2), "Qt::Core::QString")) {
+      arg50 = (int)SvIV(ST(1));
+      arg51 = reinterpret_cast<QString *>(SvIV((SV*)SvRV(ST(2))));
     Perl_croak(aTHX_ "Trying to create abstract class object");
+    }
+	else
+            Perl_croak(aTHX_ "wrong number/type of arguments passed in");
         break;
       }
-    case 5:
+      case 4:
       {
-        arg40 = (int)SvIV(ST(1));
-    if (sv_isa(ST(2), "")) {
-        arg41 = reinterpret_cast<QString *>(SvIV((SV*)SvRV(ST(2))));
-    }
-    else
-        Perl_croak(aTHX_ "arg41 is not of type ");
-    arg42 = (int)SvIV(ST(3));
-    arg43 = (int)SvIV(ST(4));
+        if (SvIOK(ST(1)) && sv_isa(ST(2), "Qt::Core::QString") && SvIOK(ST(3))) {
+      arg40 = (int)SvIV(ST(1));
+      arg41 = reinterpret_cast<QString *>(SvIV((SV*)SvRV(ST(2))));
+      arg42 = (int)SvIV(ST(3));
     Perl_croak(aTHX_ "Trying to create abstract class object");
+    }
+	else
+            Perl_croak(aTHX_ "wrong number/type of arguments passed in");
         break;
       }
-    case 3:
+      case 5:
       {
-        arg50 = (int)SvIV(ST(1));
-    if (sv_isa(ST(2), "")) {
-        arg51 = reinterpret_cast<QString *>(SvIV((SV*)SvRV(ST(2))));
-    }
-    else
-        Perl_croak(aTHX_ "arg51 is not of type ");
+        if (SvIOK(ST(1)) && sv_isa(ST(2), "Qt::Core::QString") && SvIOK(ST(3)) && SvIOK(ST(4))) {
+      arg30 = (int)SvIV(ST(1));
+      arg31 = reinterpret_cast<QString *>(SvIV((SV*)SvRV(ST(2))));
+      arg32 = (int)SvIV(ST(3));
+      arg33 = (int)SvIV(ST(4));
     Perl_croak(aTHX_ "Trying to create abstract class object");
+    }
+	else
+            Perl_croak(aTHX_ "wrong number/type of arguments passed in");
         break;
       }
-    default:
-      {
+      default:
         Perl_croak(aTHX_ "wrong number/type of arguments passed in");
         break;
-      }
     }
 
 
@@ -125,20 +124,26 @@ void
 QHttpResponseHeader::majorVersion(...)
 PREINIT:
 PPCODE:
+    if (1) {
+      
     int ret = THIS->majorVersion();
     ST(0) = sv_newmortal();
     sv_setiv(ST(0), (IV)ret);
     XSRETURN(1);
+    }
 
 ## int minorVersion()
 void
 QHttpResponseHeader::minorVersion(...)
 PREINIT:
 PPCODE:
+    if (1) {
+      
     int ret = THIS->minorVersion();
     ST(0) = sv_newmortal();
     sv_setiv(ST(0), (IV)ret);
     XSRETURN(1);
+    }
 
 ## QHttpResponseHeader & operator=(const QHttpResponseHeader & header)
 void
@@ -147,112 +152,105 @@ PREINIT:
 QHttpResponseHeader * arg00;
 PPCODE:
     if (sv_isa(ST(1), "Qt::Network::QHttpResponseHeader")) {
-        arg00 = reinterpret_cast<QHttpResponseHeader *>(SvIV((SV*)SvRV(ST(1))));
-    }
-    else
-        Perl_croak(aTHX_ "arg00 is not of type Qt::Network::QHttpResponseHeader");
+      arg00 = reinterpret_cast<QHttpResponseHeader *>(SvIV((SV*)SvRV(ST(1))));
     QHttpResponseHeader * ret = &THIS->operator=(*arg00);
     ST(0) = sv_newmortal();
     sv_setref_pv(ST(0), "Qt::Network::QHttpResponseHeader", (void *)ret);
     XSRETURN(1);
+    }
 
 ## QString reasonPhrase()
 void
 QHttpResponseHeader::reasonPhrase(...)
 PREINIT:
 PPCODE:
+    if (1) {
+      
     QString ret = THIS->reasonPhrase();
     ST(0) = sv_newmortal();
-    sv_setref_pv(ST(0), "", (void *)new QString(ret));
+    sv_setref_pv(ST(0), "Qt::Core::QString", (void *)new QString(ret));
     XSRETURN(1);
+    }
 
-## void setStatusLine(int code, const QString & text, int majorVer, int minorVer = 1)
 ## void setStatusLine(int code, const QString & text, int majorVer, int minorVer)
-## void setStatusLine(int code, const QString & text, int majorVer = 1, int minorVer = 1)
 ## void setStatusLine(int code, const QString & text, int majorVer, int minorVer = 1)
-## void setStatusLine(int code, const QString & text = QString(), int majorVer = 1, int minorVer = 1)
 ## void setStatusLine(int code, const QString & text, int majorVer = 1, int minorVer = 1)
+## void setStatusLine(int code, const QString & text = QString(), int majorVer = 1, int minorVer = 1)
 void
 QHttpResponseHeader::setStatusLine(...)
 PREINIT:
 int arg00;
 QString * arg01;
 int arg02;
-int arg03 = 1;
+int arg03;
 int arg10;
 QString * arg11;
 int arg12;
-int arg13;
+int arg13 = 1;
 int arg20;
 QString * arg21;
 int arg22 = 1;
 int arg23 = 1;
 int arg30;
-QString * arg31;
-int arg32;
+const QString & arg31_ = QString();
+QString * arg31 = const_cast<QString *>(&arg31_);
+int arg32 = 1;
 int arg33 = 1;
-int arg40;
-const QString & arg41_ = QString();
-QString * arg41 = const_cast<QString *>(&arg41_);
-int arg42 = 1;
-int arg43 = 1;
-int arg50;
-QString * arg51;
-int arg52 = 1;
-int arg53 = 1;
 PPCODE:
     switch(items) {
-    case 4:
+      case 2:
       {
-        arg00 = (int)SvIV(ST(1));
-    if (sv_isa(ST(2), "")) {
-        arg01 = reinterpret_cast<QString *>(SvIV((SV*)SvRV(ST(2))));
-    }
-    else
-        Perl_croak(aTHX_ "arg01 is not of type ");
-    arg02 = (int)SvIV(ST(3));
-    (void)THIS->setStatusLine(arg00, *arg01, arg02, arg03);
+        if (SvIOK(ST(1))) {
+      arg30 = (int)SvIV(ST(1));
+    (void)THIS->setStatusLine(arg30, *arg31, arg32, arg33);
     XSRETURN(0);
+    }
+	else
+            Perl_croak(aTHX_ "wrong number/type of arguments passed in");
         break;
       }
-    case 5:
+      case 3:
       {
-        arg10 = (int)SvIV(ST(1));
-    if (sv_isa(ST(2), "")) {
-        arg11 = reinterpret_cast<QString *>(SvIV((SV*)SvRV(ST(2))));
-    }
-    else
-        Perl_croak(aTHX_ "arg11 is not of type ");
-    arg12 = (int)SvIV(ST(3));
-    arg13 = (int)SvIV(ST(4));
-    (void)THIS->setStatusLine(arg10, *arg11, arg12, arg13);
-    XSRETURN(0);
-        break;
-      }
-    case 3:
-      {
-        arg20 = (int)SvIV(ST(1));
-    if (sv_isa(ST(2), "")) {
-        arg21 = reinterpret_cast<QString *>(SvIV((SV*)SvRV(ST(2))));
-    }
-    else
-        Perl_croak(aTHX_ "arg21 is not of type ");
+        if (SvIOK(ST(1)) && sv_isa(ST(2), "Qt::Core::QString")) {
+      arg20 = (int)SvIV(ST(1));
+      arg21 = reinterpret_cast<QString *>(SvIV((SV*)SvRV(ST(2))));
     (void)THIS->setStatusLine(arg20, *arg21, arg22, arg23);
     XSRETURN(0);
+    }
+	else
+            Perl_croak(aTHX_ "wrong number/type of arguments passed in");
         break;
       }
-    case 2:
+      case 4:
       {
-        arg40 = (int)SvIV(ST(1));
-    (void)THIS->setStatusLine(arg40, *arg41, arg42, arg43);
+        if (SvIOK(ST(1)) && sv_isa(ST(2), "Qt::Core::QString") && SvIOK(ST(3))) {
+      arg10 = (int)SvIV(ST(1));
+      arg11 = reinterpret_cast<QString *>(SvIV((SV*)SvRV(ST(2))));
+      arg12 = (int)SvIV(ST(3));
+    (void)THIS->setStatusLine(arg10, *arg11, arg12, arg13);
     XSRETURN(0);
+    }
+	else
+            Perl_croak(aTHX_ "wrong number/type of arguments passed in");
         break;
       }
-    default:
+      case 5:
       {
+        if (SvIOK(ST(1)) && sv_isa(ST(2), "Qt::Core::QString") && SvIOK(ST(3)) && SvIOK(ST(4))) {
+      arg00 = (int)SvIV(ST(1));
+      arg01 = reinterpret_cast<QString *>(SvIV((SV*)SvRV(ST(2))));
+      arg02 = (int)SvIV(ST(3));
+      arg03 = (int)SvIV(ST(4));
+    (void)THIS->setStatusLine(arg00, *arg01, arg02, arg03);
+    XSRETURN(0);
+    }
+	else
+            Perl_croak(aTHX_ "wrong number/type of arguments passed in");
+        break;
+      }
+      default:
         Perl_croak(aTHX_ "wrong number/type of arguments passed in");
         break;
-      }
     }
 
 ## int statusCode()
@@ -260,17 +258,23 @@ void
 QHttpResponseHeader::statusCode(...)
 PREINIT:
 PPCODE:
+    if (1) {
+      
     int ret = THIS->statusCode();
     ST(0) = sv_newmortal();
     sv_setiv(ST(0), (IV)ret);
     XSRETURN(1);
+    }
 
 ## QString toString()
 void
 QHttpResponseHeader::toString(...)
 PREINIT:
 PPCODE:
+    if (1) {
+      
     QString ret = THIS->toString();
     ST(0) = sv_newmortal();
-    sv_setref_pv(ST(0), "", (void *)new QString(ret));
+    sv_setref_pv(ST(0), "Qt::Core::QString", (void *)new QString(ret));
     XSRETURN(1);
+    }

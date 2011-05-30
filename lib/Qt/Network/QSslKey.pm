@@ -7,11 +7,10 @@ use strict;
 use warnings;
 #use Carp;
 
-our $VERSION = '0.01_01';
+our $VERSION = '0.01_02';
 
 
 # FIXME: operator overload
-
 
 
 1;
@@ -24,61 +23,60 @@ Qt::Network::QSslKey
 
 =over
 
-=item    QSslKey()
+=item   QSslKey()
 
-=item    QSslKey(const QSslKey & other)
+=item   QSslKey(const QSslKey & other)
 
-=item    QSslKey(const QByteArray & encoded, QSsl::KeyAlgorithm algorithm, QSsl::EncodingFormat format, QSsl::KeyType type, const QByteArray & passPhrase = QByteArray())
+=item   QSslKey(const QByteArray & encoded, QSsl::KeyAlgorithm algorithm, QSsl::EncodingFormat format, QSsl::KeyType type, const QByteArray & passPhrase)
 
-=item    QSslKey(const QByteArray & encoded, QSsl::KeyAlgorithm algorithm, QSsl::EncodingFormat format, QSsl::KeyType type, const QByteArray & passPhrase)
+=item   QSslKey(const QByteArray & encoded, QSsl::KeyAlgorithm algorithm, QSsl::EncodingFormat format, QSsl::KeyType type, const QByteArray & passPhrase = QByteArray())
 
-=item    QSslKey(const QByteArray & encoded, QSsl::KeyAlgorithm algorithm, QSsl::EncodingFormat format, QSsl::KeyType type = QSsl::PrivateKey, const QByteArray & passPhrase = QByteArray())
+=item   QSslKey(const QByteArray & encoded, QSsl::KeyAlgorithm algorithm, QSsl::EncodingFormat format, QSsl::KeyType type = QSsl::PrivateKey, const QByteArray & passPhrase = QByteArray())
 
-=item    QSslKey(const QByteArray & encoded, QSsl::KeyAlgorithm algorithm, QSsl::EncodingFormat format, QSsl::KeyType type, const QByteArray & passPhrase = QByteArray())
+=item   QSslKey(const QByteArray & encoded, QSsl::KeyAlgorithm algorithm, QSsl::EncodingFormat format = QSsl::Pem, QSsl::KeyType type = QSsl::PrivateKey, const QByteArray & passPhrase = QByteArray())
 
-=item    QSslKey(const QByteArray & encoded, QSsl::KeyAlgorithm algorithm, QSsl::EncodingFormat format = QSsl::Pem, QSsl::KeyType type = QSsl::PrivateKey, const QByteArray & passPhrase = QByteArray())
+=item   QSslKey(QIODevice * device, QSsl::KeyAlgorithm algorithm, QSsl::EncodingFormat format, QSsl::KeyType type, const QByteArray & passPhrase)
 
-=item    QSslKey(const QByteArray & encoded, QSsl::KeyAlgorithm algorithm, QSsl::EncodingFormat format, QSsl::KeyType type = QSsl::PrivateKey, const QByteArray & passPhrase = QByteArray())
+=item   QSslKey(QIODevice * device, QSsl::KeyAlgorithm algorithm, QSsl::EncodingFormat format, QSsl::KeyType type, const QByteArray & passPhrase = QByteArray())
 
-=item    QSslKey(QIODevice * device, QSsl::KeyAlgorithm algorithm, QSsl::EncodingFormat format, QSsl::KeyType type, const QByteArray & passPhrase = QByteArray())
+=item   QSslKey(QIODevice * device, QSsl::KeyAlgorithm algorithm, QSsl::EncodingFormat format, QSsl::KeyType type = QSsl::PrivateKey, const QByteArray & passPhrase = QByteArray())
 
-=item    QSslKey(QIODevice * device, QSsl::KeyAlgorithm algorithm, QSsl::EncodingFormat format, QSsl::KeyType type, const QByteArray & passPhrase)
+=item   QSslKey(QIODevice * device, QSsl::KeyAlgorithm algorithm, QSsl::EncodingFormat format = QSsl::Pem, QSsl::KeyType type = QSsl::PrivateKey, const QByteArray & passPhrase = QByteArray())
 
-=item    QSslKey(QIODevice * device, QSsl::KeyAlgorithm algorithm, QSsl::EncodingFormat format, QSsl::KeyType type = QSsl::PrivateKey, const QByteArray & passPhrase = QByteArray())
+=item   ~QSslKey()
 
-=item    QSslKey(QIODevice * device, QSsl::KeyAlgorithm algorithm, QSsl::EncodingFormat format, QSsl::KeyType type, const QByteArray & passPhrase = QByteArray())
+=item  QSsl::KeyAlgorithm algorithm()
 
-=item    QSslKey(QIODevice * device, QSsl::KeyAlgorithm algorithm, QSsl::EncodingFormat format = QSsl::Pem, QSsl::KeyType type = QSsl::PrivateKey, const QByteArray & passPhrase = QByteArray())
+=item  void clear()
 
-=item    QSslKey(QIODevice * device, QSsl::KeyAlgorithm algorithm, QSsl::EncodingFormat format, QSsl::KeyType type = QSsl::PrivateKey, const QByteArray & passPhrase = QByteArray())
+=item  unsigned long handle()
 
-=item    ~QSslKey()
+=item  bool isNull()
 
-=item   QSsl::KeyAlgorithm algorithm()
+=item  int length()
 
-=item   void clear()
+=item  bool operator!=(const QSslKey & key)
 
-=item   unsigned long handle()
+=item  QSslKey & operator=(const QSslKey & other)
 
-=item   bool isNull()
+=item  bool operator==(const QSslKey & key)
 
-=item   int length()
+=item  QByteArray toDer(const QByteArray & passPhrase)
 
-=item   bool operator!=(const QSslKey & key)
+=item  QByteArray toDer(const QByteArray & passPhrase = QByteArray())
 
-=item   QSslKey & operator=(const QSslKey & other)
+=item  QByteArray toPem(const QByteArray & passPhrase)
 
-=item   bool operator==(const QSslKey & key)
+=item  QByteArray toPem(const QByteArray & passPhrase = QByteArray())
 
-=item   QByteArray toDer(const QByteArray & passPhrase = QByteArray())
+=item  QSsl::KeyType type()
 
-=item   QByteArray toDer(const QByteArray & passPhrase)
 
-=item   QByteArray toPem(const QByteArray & passPhrase = QByteArray())
+=back
 
-=item   QByteArray toPem(const QByteArray & passPhrase)
+=head1 ENUM VALUES
 
-=item   QSsl::KeyType type()
+=over
 
 
 =back
