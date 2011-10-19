@@ -32,7 +32,10 @@ PPCODE:
       {
         if (1) {
       
-    Perl_croak(aTHX_ "Trying to create abstract class object");
+    ret = new QSslSocket(arg10);
+    ST(0) = sv_newmortal();
+    sv_setref_pv(ST(0), "Qt::Network::QSslSocket", (void *)ret);
+    XSRETURN(1);
     }
         break;
       }
@@ -47,7 +50,10 @@ PPCODE:
     }
     else
         Perl_croak(aTHX_ "arg00 is not of type Qt::Core::QObject");
-    Perl_croak(aTHX_ "Trying to create abstract class object");
+    ret = new QSslSocket(arg00);
+    ST(0) = sv_newmortal();
+    sv_setref_pv(ST(0), "Qt::Network::QSslSocket", (void *)ret);
+    XSRETURN(1);
     }
 	else
             Perl_croak(aTHX_ "wrong number/type of arguments passed in");
@@ -316,7 +322,7 @@ PPCODE:
     switch(items) {
       case 3:
       {
-        if (sv_isa(ST(1), "Qt::Core::QString") && SvUOK(ST(2))) {
+        if (sv_isa(ST(1), "Qt::Core::QString") && (SvIOK(ST(2)) || SvUOK(ST(2)))) {
       arg10 = reinterpret_cast<QString *>(SvIV((SV*)SvRV(ST(1))));
       arg11 = (quint16)SvUV(ST(2));
     (void)THIS->connectToHostEncrypted(*arg10, arg11, arg12);
@@ -328,14 +334,14 @@ PPCODE:
       }
       case 4:
       {
-        if (sv_isa(ST(1), "Qt::Core::QString") && SvUOK(ST(2)) && SvIOK(ST(3))) {
+        if (sv_isa(ST(1), "Qt::Core::QString") && (SvIOK(ST(2)) || SvUOK(ST(2))) && SvIOK(ST(3))) {
       arg00 = reinterpret_cast<QString *>(SvIV((SV*)SvRV(ST(1))));
       arg01 = (quint16)SvUV(ST(2));
       arg02 = QFlags<QIODevice::OpenModeFlag>((int)SvIV(ST(3)));
     (void)THIS->connectToHostEncrypted(*arg00, arg01, arg02);
     XSRETURN(0);
     }
-        else if (sv_isa(ST(1), "Qt::Core::QString") && SvUOK(ST(2)) && sv_isa(ST(3), "Qt::Core::QString")) {
+        else if (sv_isa(ST(1), "Qt::Core::QString") && (SvIOK(ST(2)) || SvUOK(ST(2))) && sv_isa(ST(3), "Qt::Core::QString")) {
       arg30 = reinterpret_cast<QString *>(SvIV((SV*)SvRV(ST(1))));
       arg31 = (quint16)SvUV(ST(2));
       arg32 = reinterpret_cast<QString *>(SvIV((SV*)SvRV(ST(3))));
@@ -348,7 +354,7 @@ PPCODE:
       }
       case 5:
       {
-        if (sv_isa(ST(1), "Qt::Core::QString") && SvUOK(ST(2)) && sv_isa(ST(3), "Qt::Core::QString") && SvIOK(ST(4))) {
+        if (sv_isa(ST(1), "Qt::Core::QString") && (SvIOK(ST(2)) || SvUOK(ST(2))) && sv_isa(ST(3), "Qt::Core::QString") && SvIOK(ST(4))) {
       arg20 = reinterpret_cast<QString *>(SvIV((SV*)SvRV(ST(1))));
       arg21 = (quint16)SvUV(ST(2));
       arg22 = reinterpret_cast<QString *>(SvIV((SV*)SvRV(ST(3))));

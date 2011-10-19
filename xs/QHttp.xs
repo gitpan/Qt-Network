@@ -95,7 +95,7 @@ PPCODE:
       }
       case 3:
       {
-        if (sv_isa(ST(1), "Qt::Core::QString") && SvUOK(ST(2))) {
+        if (sv_isa(ST(1), "Qt::Core::QString") && (SvIOK(ST(2)) || SvUOK(ST(2)))) {
       arg30 = reinterpret_cast<QString *>(SvIV((SV*)SvRV(ST(1))));
       arg31 = (quint16)SvUV(ST(2));
     ret = new QHttp(*arg30, arg31, arg32);
@@ -117,7 +117,7 @@ PPCODE:
       }
       case 4:
       {
-        if (sv_isa(ST(1), "Qt::Core::QString") && SvUOK(ST(2)) && (sv_derived_from(ST(3), "Qt::Core::QObject") || ST(3) == &PL_sv_undef)) {
+        if (sv_isa(ST(1), "Qt::Core::QString") && (SvIOK(ST(2)) || SvUOK(ST(2))) && (sv_derived_from(ST(3), "Qt::Core::QObject") || ST(3) == &PL_sv_undef)) {
       arg20 = reinterpret_cast<QString *>(SvIV((SV*)SvRV(ST(1))));
       arg21 = (quint16)SvUV(ST(2));
       if (sv_derived_from(ST(3), "Qt::Core::QObject")) {
@@ -133,7 +133,7 @@ PPCODE:
     sv_setref_pv(ST(0), "Qt::Network::QHttp", (void *)ret);
     XSRETURN(1);
     }
-        else if (sv_isa(ST(1), "Qt::Core::QString") && SvIOK(ST(2)) && SvUOK(ST(3))) {
+        else if (sv_isa(ST(1), "Qt::Core::QString") && SvIOK(ST(2)) && (SvIOK(ST(3)) || SvUOK(ST(3)))) {
       arg60 = reinterpret_cast<QString *>(SvIV((SV*)SvRV(ST(1))));
       arg61 = (QHttp::ConnectionMode)SvIV(ST(2));
       arg62 = (quint16)SvUV(ST(3));
@@ -148,7 +148,7 @@ PPCODE:
       }
       case 5:
       {
-        if (sv_isa(ST(1), "Qt::Core::QString") && SvIOK(ST(2)) && SvUOK(ST(3)) && (sv_derived_from(ST(4), "Qt::Core::QObject") || ST(4) == &PL_sv_undef)) {
+        if (sv_isa(ST(1), "Qt::Core::QString") && SvIOK(ST(2)) && (SvIOK(ST(3)) || SvUOK(ST(3))) && (sv_derived_from(ST(4), "Qt::Core::QObject") || ST(4) == &PL_sv_undef)) {
       arg50 = reinterpret_cast<QString *>(SvIV((SV*)SvRV(ST(1))));
       arg51 = (QHttp::ConnectionMode)SvIV(ST(2));
       arg52 = (quint16)SvUV(ST(3));
@@ -701,7 +701,7 @@ PPCODE:
       }
       case 3:
       {
-        if (sv_isa(ST(1), "Qt::Core::QString") && SvUOK(ST(2))) {
+        if (sv_isa(ST(1), "Qt::Core::QString") && (SvIOK(ST(2)) || SvUOK(ST(2)))) {
       arg00 = reinterpret_cast<QString *>(SvIV((SV*)SvRV(ST(1))));
       arg01 = (quint16)SvUV(ST(2));
     int ret = THIS->setHost(*arg00, arg01);
@@ -723,7 +723,7 @@ PPCODE:
       }
       case 4:
       {
-        if (sv_isa(ST(1), "Qt::Core::QString") && SvIOK(ST(2)) && SvUOK(ST(3))) {
+        if (sv_isa(ST(1), "Qt::Core::QString") && SvIOK(ST(2)) && (SvIOK(ST(3)) || SvUOK(ST(3)))) {
       arg20 = reinterpret_cast<QString *>(SvIV((SV*)SvRV(ST(1))));
       arg21 = (QHttp::ConnectionMode)SvIV(ST(2));
       arg22 = (quint16)SvUV(ST(3));

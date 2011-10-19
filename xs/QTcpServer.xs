@@ -162,7 +162,7 @@ PPCODE:
       }
       case 3:
       {
-        if (sv_isa(ST(1), "Qt::Network::QHostAddress") && SvUOK(ST(2))) {
+        if (sv_isa(ST(1), "Qt::Network::QHostAddress") && (SvIOK(ST(2)) || SvUOK(ST(2)))) {
       arg00 = reinterpret_cast<QHostAddress *>(SvIV((SV*)SvRV(ST(1))));
       arg01 = (quint16)SvUV(ST(2));
     bool ret = THIS->listen(*arg00, arg01);

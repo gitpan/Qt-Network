@@ -42,6 +42,7 @@
 #include "ppport.h"
 #undef do_open
 #undef do_close
+#undef RETURN
 
 typedef bool (*T_FPOINTER_QINTERNALCALLBACK_QNAMESPACE)(void **);
 typedef void (*T_FPOINTER_QTMSGHANDLER_QGLOBAL)(QtMsgType,const char *);

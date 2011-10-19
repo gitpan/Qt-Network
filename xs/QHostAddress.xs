@@ -52,14 +52,14 @@ PPCODE:
       }
       case 2:
       {
-        if (SvUOK(ST(1))) {
+        if ((SvIOK(ST(1)) || SvUOK(ST(1)))) {
       arg10 = (quint32)SvUV(ST(1));
     ret = new QHostAddress(arg10);
     ST(0) = sv_newmortal();
     sv_setref_pv(ST(0), "Qt::Network::QHostAddress", (void *)ret);
     XSRETURN(1);
     }
-        else if (SvUOK(ST(1))) {
+        else if ((SvIOK(ST(1)) || SvUOK(ST(1)))) {
       {
         quint8 tmp = static_cast<quint8>(SvUV(ST(1)));
         arg20 = &tmp;
@@ -312,12 +312,12 @@ PPCODE:
     switch(items) {
       case 2:
       {
-        if (SvUOK(ST(1))) {
+        if ((SvIOK(ST(1)) || SvUOK(ST(1)))) {
       arg00 = (quint32)SvUV(ST(1));
     (void)THIS->setAddress(arg00);
     XSRETURN(0);
     }
-        else if (SvUOK(ST(1))) {
+        else if ((SvIOK(ST(1)) || SvUOK(ST(1)))) {
       {
         quint8 tmp = static_cast<quint8>(SvUV(ST(1)));
         arg10 = &tmp;

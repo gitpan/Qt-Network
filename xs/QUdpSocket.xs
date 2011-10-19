@@ -32,7 +32,10 @@ PPCODE:
       {
         if (1) {
       
-    Perl_croak(aTHX_ "Trying to create abstract class object");
+    ret = new QUdpSocket(arg10);
+    ST(0) = sv_newmortal();
+    sv_setref_pv(ST(0), "Qt::Network::QUdpSocket", (void *)ret);
+    XSRETURN(1);
     }
         break;
       }
@@ -47,7 +50,10 @@ PPCODE:
     }
     else
         Perl_croak(aTHX_ "arg00 is not of type Qt::Core::QObject");
-    Perl_croak(aTHX_ "Trying to create abstract class object");
+    ret = new QUdpSocket(arg00);
+    ST(0) = sv_newmortal();
+    sv_setref_pv(ST(0), "Qt::Network::QUdpSocket", (void *)ret);
+    XSRETURN(1);
     }
 	else
             Perl_croak(aTHX_ "wrong number/type of arguments passed in");
@@ -97,7 +103,7 @@ PPCODE:
       }
       case 2:
       {
-        if (SvUOK(ST(1))) {
+        if ((SvIOK(ST(1)) || SvUOK(ST(1)))) {
       arg00 = (quint16)SvUV(ST(1));
     bool ret = THIS->bind(arg00);
     ST(0) = sv_newmortal();
@@ -110,7 +116,7 @@ PPCODE:
       }
       case 3:
       {
-        if (sv_isa(ST(1), "Qt::Network::QHostAddress") && SvUOK(ST(2))) {
+        if (sv_isa(ST(1), "Qt::Network::QHostAddress") && (SvIOK(ST(2)) || SvUOK(ST(2)))) {
       arg20 = reinterpret_cast<QHostAddress *>(SvIV((SV*)SvRV(ST(1))));
       arg21 = (quint16)SvUV(ST(2));
     bool ret = THIS->bind(*arg20, arg21);
@@ -118,7 +124,7 @@ PPCODE:
     ST(0) = boolSV(ret);
     XSRETURN(1);
     }
-        else if (SvUOK(ST(1)) && SvIOK(ST(2))) {
+        else if ((SvIOK(ST(1)) || SvUOK(ST(1))) && SvIOK(ST(2))) {
       arg30 = (quint16)SvUV(ST(1));
       arg31 = QFlags<QUdpSocket::BindFlag>((int)SvIV(ST(2)));
     bool ret = THIS->bind(arg30, arg31);
@@ -132,7 +138,7 @@ PPCODE:
       }
       case 4:
       {
-        if (sv_isa(ST(1), "Qt::Network::QHostAddress") && SvUOK(ST(2)) && SvIOK(ST(3))) {
+        if (sv_isa(ST(1), "Qt::Network::QHostAddress") && (SvIOK(ST(2)) || SvUOK(ST(2))) && SvIOK(ST(3))) {
       arg40 = reinterpret_cast<QHostAddress *>(SvIV((SV*)SvRV(ST(1))));
       arg41 = (quint16)SvUV(ST(2));
       arg42 = QFlags<QUdpSocket::BindFlag>((int)SvIV(ST(3)));
@@ -234,7 +240,7 @@ PPCODE:
       }
       case 5:
       {
-        if (SvPOK(ST(1)) && SvIOK(ST(2)) && (sv_derived_from(ST(3), "Qt::Network::QHostAddress") || ST(3) == &PL_sv_undef) && SvUOK(ST(4))) {
+        if (SvPOK(ST(1)) && SvIOK(ST(2)) && (sv_derived_from(ST(3), "Qt::Network::QHostAddress") || ST(3) == &PL_sv_undef) && (SvIOK(ST(4)) || SvUOK(ST(4)))) {
       arg00 = (char *)SvPV_nolen(ST(1));
       arg01 = (qint64)SvIV(ST(2));
       if (sv_derived_from(ST(3), "Qt::Network::QHostAddress")) {
@@ -279,7 +285,7 @@ PPCODE:
     switch(items) {
       case 4:
       {
-        if (sv_isa(ST(1), "Qt::Core::QByteArray") && sv_isa(ST(2), "Qt::Network::QHostAddress") && SvUOK(ST(3))) {
+        if (sv_isa(ST(1), "Qt::Core::QByteArray") && sv_isa(ST(2), "Qt::Network::QHostAddress") && (SvIOK(ST(3)) || SvUOK(ST(3)))) {
       arg00 = reinterpret_cast<QByteArray *>(SvIV((SV*)SvRV(ST(1))));
       arg01 = reinterpret_cast<QHostAddress *>(SvIV((SV*)SvRV(ST(2))));
       arg02 = (quint16)SvUV(ST(3));
@@ -294,7 +300,7 @@ PPCODE:
       }
       case 5:
       {
-        if (SvPOK(ST(1)) && SvIOK(ST(2)) && sv_isa(ST(3), "Qt::Network::QHostAddress") && SvUOK(ST(4))) {
+        if (SvPOK(ST(1)) && SvIOK(ST(2)) && sv_isa(ST(3), "Qt::Network::QHostAddress") && (SvIOK(ST(4)) || SvUOK(ST(4)))) {
       arg10 = (const char *)SvPV_nolen(ST(1));
       arg11 = (qint64)SvIV(ST(2));
       arg12 = reinterpret_cast<QHostAddress *>(SvIV((SV*)SvRV(ST(3))));

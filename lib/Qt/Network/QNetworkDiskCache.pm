@@ -7,8 +7,9 @@ use strict;
 use warnings;
 #use Carp;
 
-our $VERSION = '0.01_02';
-our $ISA     = qw/Qt::Network::QAbstractNetworkCache/;
+our $VERSION = '0.01_03';
+use base qw/Qt::Network::QAbstractNetworkCache/;
+#our @ISA = qw/Qt::Network::QAbstractNetworkCache/;
 
 
 # FIXME: operator overload

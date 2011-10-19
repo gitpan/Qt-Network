@@ -7,8 +7,9 @@ use strict;
 use warnings;
 #use Carp;
 
-our $VERSION = '0.01_02';
-our $ISA     = qw/Qt::Network::QTcpSocket/;
+our $VERSION = '0.01_03';
+use base qw/Qt::Network::QTcpSocket/;
+#our @ISA = qw/Qt::Network::QTcpSocket/;
 
 
 # FIXME: operator overload

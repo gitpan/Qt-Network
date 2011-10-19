@@ -89,7 +89,7 @@ PPCODE:
     sv_setref_pv(ST(0), "Qt::Network::QNetworkProxyQuery", (void *)ret);
     XSRETURN(1);
     }
-        else if (SvUOK(ST(1))) {
+        else if ((SvIOK(ST(1)) || SvUOK(ST(1)))) {
       arg60 = (quint16)SvUV(ST(1));
     ret = new QNetworkProxyQuery(arg60, *arg61, arg62);
     ST(0) = sv_newmortal();
@@ -110,7 +110,7 @@ PPCODE:
     sv_setref_pv(ST(0), "Qt::Network::QNetworkProxyQuery", (void *)ret);
     XSRETURN(1);
     }
-        else if (SvUOK(ST(1)) && sv_isa(ST(2), "Qt::Core::QString")) {
+        else if ((SvIOK(ST(1)) || SvUOK(ST(1))) && sv_isa(ST(2), "Qt::Core::QString")) {
       arg50 = (quint16)SvUV(ST(1));
       arg51 = reinterpret_cast<QString *>(SvIV((SV*)SvRV(ST(2))));
     ret = new QNetworkProxyQuery(arg50, *arg51, arg52);
@@ -132,7 +132,7 @@ PPCODE:
       }
       case 4:
       {
-        if (SvUOK(ST(1)) && sv_isa(ST(2), "Qt::Core::QString") && SvIOK(ST(3))) {
+        if ((SvIOK(ST(1)) || SvUOK(ST(1))) && sv_isa(ST(2), "Qt::Core::QString") && SvIOK(ST(3))) {
       arg40 = (quint16)SvUV(ST(1));
       arg41 = reinterpret_cast<QString *>(SvIV((SV*)SvRV(ST(2))));
       arg42 = (QNetworkProxyQuery::QueryType)SvIV(ST(3));

@@ -112,7 +112,7 @@ PPCODE:
       }
       case 4:
       {
-        if (SvIOK(ST(1)) && sv_isa(ST(2), "Qt::Core::QString") && SvUOK(ST(3))) {
+        if (SvIOK(ST(1)) && sv_isa(ST(2), "Qt::Core::QString") && (SvIOK(ST(3)) || SvUOK(ST(3)))) {
       arg40 = (QNetworkProxy::ProxyType)SvIV(ST(1));
       arg41 = reinterpret_cast<QString *>(SvIV((SV*)SvRV(ST(2))));
       arg42 = (quint16)SvUV(ST(3));
@@ -127,7 +127,7 @@ PPCODE:
       }
       case 5:
       {
-        if (SvIOK(ST(1)) && sv_isa(ST(2), "Qt::Core::QString") && SvUOK(ST(3)) && sv_isa(ST(4), "Qt::Core::QString")) {
+        if (SvIOK(ST(1)) && sv_isa(ST(2), "Qt::Core::QString") && (SvIOK(ST(3)) || SvUOK(ST(3))) && sv_isa(ST(4), "Qt::Core::QString")) {
       arg30 = (QNetworkProxy::ProxyType)SvIV(ST(1));
       arg31 = reinterpret_cast<QString *>(SvIV((SV*)SvRV(ST(2))));
       arg32 = (quint16)SvUV(ST(3));
@@ -143,7 +143,7 @@ PPCODE:
       }
       case 6:
       {
-        if (SvIOK(ST(1)) && sv_isa(ST(2), "Qt::Core::QString") && SvUOK(ST(3)) && sv_isa(ST(4), "Qt::Core::QString") && sv_isa(ST(5), "Qt::Core::QString")) {
+        if (SvIOK(ST(1)) && sv_isa(ST(2), "Qt::Core::QString") && (SvIOK(ST(3)) || SvUOK(ST(3))) && sv_isa(ST(4), "Qt::Core::QString") && sv_isa(ST(5), "Qt::Core::QString")) {
       arg20 = (QNetworkProxy::ProxyType)SvIV(ST(1));
       arg21 = reinterpret_cast<QString *>(SvIV((SV*)SvRV(ST(2))));
       arg22 = (quint16)SvUV(ST(3));
@@ -357,7 +357,7 @@ QNetworkProxy::setPort(...)
 PREINIT:
 quint16 arg00;
 PPCODE:
-    if (SvUOK(ST(1))) {
+    if ((SvIOK(ST(1)) || SvUOK(ST(1)))) {
       arg00 = (quint16)SvUV(ST(1));
     (void)THIS->setPort(arg00);
     XSRETURN(0);

@@ -36,7 +36,10 @@ PPCODE:
     }
     else
         Perl_croak(aTHX_ "arg01 is not of type Qt::Core::QObject");
-    Perl_croak(aTHX_ "Trying to create abstract class object");
+    ret = new QAbstractSocket(arg00, arg01);
+    ST(0) = sv_newmortal();
+    sv_setref_pv(ST(0), "Qt::Network::QAbstractSocket", (void *)ret);
+    XSRETURN(1);
     }
 
 ##  ~QAbstractSocket()
@@ -143,13 +146,13 @@ PPCODE:
     switch(items) {
       case 3:
       {
-        if (sv_isa(ST(1), "Qt::Core::QString") && SvUOK(ST(2))) {
+        if (sv_isa(ST(1), "Qt::Core::QString") && (SvIOK(ST(2)) || SvUOK(ST(2)))) {
       arg10 = reinterpret_cast<QString *>(SvIV((SV*)SvRV(ST(1))));
       arg11 = (quint16)SvUV(ST(2));
     (void)THIS->connectToHost(*arg10, arg11, arg12);
     XSRETURN(0);
     }
-        else if (sv_isa(ST(1), "Qt::Network::QHostAddress") && SvUOK(ST(2))) {
+        else if (sv_isa(ST(1), "Qt::Network::QHostAddress") && (SvIOK(ST(2)) || SvUOK(ST(2)))) {
       arg30 = reinterpret_cast<QHostAddress *>(SvIV((SV*)SvRV(ST(1))));
       arg31 = (quint16)SvUV(ST(2));
     (void)THIS->connectToHost(*arg30, arg31, arg32);
@@ -161,14 +164,14 @@ PPCODE:
       }
       case 4:
       {
-        if (sv_isa(ST(1), "Qt::Core::QString") && SvUOK(ST(2)) && SvIOK(ST(3))) {
+        if (sv_isa(ST(1), "Qt::Core::QString") && (SvIOK(ST(2)) || SvUOK(ST(2))) && SvIOK(ST(3))) {
       arg00 = reinterpret_cast<QString *>(SvIV((SV*)SvRV(ST(1))));
       arg01 = (quint16)SvUV(ST(2));
       arg02 = QFlags<QIODevice::OpenModeFlag>((int)SvIV(ST(3)));
     (void)THIS->connectToHost(*arg00, arg01, arg02);
     XSRETURN(0);
     }
-        else if (sv_isa(ST(1), "Qt::Network::QHostAddress") && SvUOK(ST(2)) && SvIOK(ST(3))) {
+        else if (sv_isa(ST(1), "Qt::Network::QHostAddress") && (SvIOK(ST(2)) || SvUOK(ST(2))) && SvIOK(ST(3))) {
       arg20 = reinterpret_cast<QHostAddress *>(SvIV((SV*)SvRV(ST(1))));
       arg21 = (quint16)SvUV(ST(2));
       arg22 = QFlags<QIODevice::OpenModeFlag>((int)SvIV(ST(3)));

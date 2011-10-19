@@ -48,7 +48,10 @@ PPCODE:
       {
         if (1) {
       
-    Perl_croak(aTHX_ "Trying to create abstract class object");
+    ret = new QHttpRequestHeader();
+    ST(0) = sv_newmortal();
+    sv_setref_pv(ST(0), "Qt::Network::QHttpRequestHeader", (void *)ret);
+    XSRETURN(1);
     }
         break;
       }
@@ -56,11 +59,17 @@ PPCODE:
       {
         if (sv_isa(ST(1), "Qt::Network::QHttpRequestHeader")) {
       arg10 = reinterpret_cast<QHttpRequestHeader *>(SvIV((SV*)SvRV(ST(1))));
-    Perl_croak(aTHX_ "Trying to create abstract class object");
+    ret = new QHttpRequestHeader(*arg10);
+    ST(0) = sv_newmortal();
+    sv_setref_pv(ST(0), "Qt::Network::QHttpRequestHeader", (void *)ret);
+    XSRETURN(1);
     }
         else if (sv_isa(ST(1), "Qt::Core::QString")) {
       arg20 = reinterpret_cast<QString *>(SvIV((SV*)SvRV(ST(1))));
-    Perl_croak(aTHX_ "Trying to create abstract class object");
+    ret = new QHttpRequestHeader(*arg20);
+    ST(0) = sv_newmortal();
+    sv_setref_pv(ST(0), "Qt::Network::QHttpRequestHeader", (void *)ret);
+    XSRETURN(1);
     }
 	else
             Perl_croak(aTHX_ "wrong number/type of arguments passed in");
@@ -71,7 +80,10 @@ PPCODE:
         if (sv_isa(ST(1), "Qt::Core::QString") && sv_isa(ST(2), "Qt::Core::QString")) {
       arg50 = reinterpret_cast<QString *>(SvIV((SV*)SvRV(ST(1))));
       arg51 = reinterpret_cast<QString *>(SvIV((SV*)SvRV(ST(2))));
-    Perl_croak(aTHX_ "Trying to create abstract class object");
+    ret = new QHttpRequestHeader(*arg50, *arg51, arg52, arg53);
+    ST(0) = sv_newmortal();
+    sv_setref_pv(ST(0), "Qt::Network::QHttpRequestHeader", (void *)ret);
+    XSRETURN(1);
     }
 	else
             Perl_croak(aTHX_ "wrong number/type of arguments passed in");
@@ -83,7 +95,10 @@ PPCODE:
       arg40 = reinterpret_cast<QString *>(SvIV((SV*)SvRV(ST(1))));
       arg41 = reinterpret_cast<QString *>(SvIV((SV*)SvRV(ST(2))));
       arg42 = (int)SvIV(ST(3));
-    Perl_croak(aTHX_ "Trying to create abstract class object");
+    ret = new QHttpRequestHeader(*arg40, *arg41, arg42, arg43);
+    ST(0) = sv_newmortal();
+    sv_setref_pv(ST(0), "Qt::Network::QHttpRequestHeader", (void *)ret);
+    XSRETURN(1);
     }
 	else
             Perl_croak(aTHX_ "wrong number/type of arguments passed in");
@@ -96,7 +111,10 @@ PPCODE:
       arg31 = reinterpret_cast<QString *>(SvIV((SV*)SvRV(ST(2))));
       arg32 = (int)SvIV(ST(3));
       arg33 = (int)SvIV(ST(4));
-    Perl_croak(aTHX_ "Trying to create abstract class object");
+    ret = new QHttpRequestHeader(*arg30, *arg31, arg32, arg33);
+    ST(0) = sv_newmortal();
+    sv_setref_pv(ST(0), "Qt::Network::QHttpRequestHeader", (void *)ret);
+    XSRETURN(1);
     }
 	else
             Perl_croak(aTHX_ "wrong number/type of arguments passed in");

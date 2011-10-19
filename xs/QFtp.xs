@@ -159,7 +159,7 @@ PPCODE:
       }
       case 3:
       {
-        if (sv_isa(ST(1), "Qt::Core::QString") && SvUOK(ST(2))) {
+        if (sv_isa(ST(1), "Qt::Core::QString") && (SvIOK(ST(2)) || SvUOK(ST(2)))) {
       arg00 = reinterpret_cast<QString *>(SvIV((SV*)SvRV(ST(1))));
       arg01 = (quint16)SvUV(ST(2));
     int ret = THIS->connectToHost(*arg00, arg01);
@@ -625,7 +625,7 @@ PREINIT:
 QString * arg00;
 quint16 arg01;
 PPCODE:
-    if (sv_isa(ST(1), "Qt::Core::QString") && SvUOK(ST(2))) {
+    if (sv_isa(ST(1), "Qt::Core::QString") && (SvIOK(ST(2)) || SvUOK(ST(2)))) {
       arg00 = reinterpret_cast<QString *>(SvIV((SV*)SvRV(ST(1))));
       arg01 = (quint16)SvUV(ST(2));
     int ret = THIS->setProxy(*arg00, arg01);
