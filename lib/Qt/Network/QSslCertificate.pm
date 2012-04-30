@@ -7,7 +7,7 @@ use strict;
 use warnings;
 #use Carp;
 
-our $VERSION = '0.01_03';
+our $VERSION = '0.01_04';
 
 
 # FIXME: operator overload
@@ -46,6 +46,20 @@ Qt::Network::QSslCertificate
 =item  QDateTime effectiveDate()
 
 =item  QDateTime expiryDate()
+
+=item  static QList<QSslCertificate> fromData(const QByteArray & data, QSsl::EncodingFormat format)
+
+=item  static QList<QSslCertificate> fromData(const QByteArray & data, QSsl::EncodingFormat format = QSsl::Pem)
+
+=item  static QList<QSslCertificate> fromDevice(QIODevice * device, QSsl::EncodingFormat format)
+
+=item  static QList<QSslCertificate> fromDevice(QIODevice * device, QSsl::EncodingFormat format = QSsl::Pem)
+
+=item  static QList<QSslCertificate> fromPath(const QString & path, QSsl::EncodingFormat format, QRegExp::PatternSyntax syntax)
+
+=item  static QList<QSslCertificate> fromPath(const QString & path, QSsl::EncodingFormat format, QRegExp::PatternSyntax syntax = QRegExp::FixedString)
+
+=item  static QList<QSslCertificate> fromPath(const QString & path, QSsl::EncodingFormat format = QSsl::Pem, QRegExp::PatternSyntax syntax = QRegExp::FixedString)
 
 =item  unsigned long handle()
 
@@ -109,7 +123,7 @@ Dongxu Ma E<lt>dongxu@cpan.orgE<gt>
 
 =head1 COPYRIGHT AND LICENSE
 
-Copyright (C) 2011 - 2011 by Dongxu Ma
+Copyright (C) 2011 - 2012 by Dongxu Ma
 
 This library is free software; you can redistribute it and/or modify
 it under the same terms as Perl itself.

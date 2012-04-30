@@ -5,7 +5,7 @@
 
 # change 'tests => 1' to 'tests => last_test_to_print';
 
-use Test::More tests => 40;
+use Test::More tests => 41;
 BEGIN {
 use_ok('Qt::Network');
 use_ok('Qt::Network');
@@ -14,6 +14,7 @@ use_ok('Qt::Network::QSslCipher');
 use_ok('Qt::Network::QNetworkConfiguration');
 use_ok('Qt::Network::QNetworkReply');
 use_ok('Qt::Network::QNetworkProxyFactory');
+use_ok('Qt::Network::Template');
 use_ok('Qt::Network::QLocalServer');
 use_ok('Qt::Network::QHttpRequestHeader');
 use_ok('Qt::Network::QNetworkRequest');

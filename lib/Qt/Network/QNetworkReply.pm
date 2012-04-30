@@ -7,7 +7,7 @@ use strict;
 use warnings;
 #use Carp;
 
-our $VERSION = '0.01_03';
+our $VERSION = '0.01_04';
 use base qw/Qt::Core::QIODevice/;
 #our @ISA = qw/Qt::Core::QIODevice/;
 
@@ -41,6 +41,8 @@ Qt::Network::QNetworkReply
 
 =item  void ignoreSslErrors()
 
+=item  void ignoreSslErrors(const QList<QSslError> & errors)
+
 =item  bool isFinished()
 
 =item  bool isRunning()
@@ -52,6 +54,10 @@ Qt::Network::QNetworkReply
 =item  QNetworkAccessManager::Operation operation()
 
 =item  QByteArray rawHeader(const QByteArray & headerName)
+
+=item  QList<QByteArray> rawHeaderList()
+
+=item  const QList<QPair<QByteArray,QByteArray> > & rawHeaderPairs()
 
 =item  qint64 readBufferSize()
 
@@ -133,7 +139,7 @@ Dongxu Ma E<lt>dongxu@cpan.orgE<gt>
 
 =head1 COPYRIGHT AND LICENSE
 
-Copyright (C) 2011 - 2011 by Dongxu Ma
+Copyright (C) 2011 - 2012 by Dongxu Ma
 
 This library is free software; you can redistribute it and/or modify
 it under the same terms as Perl itself.

@@ -1,7 +1,7 @@
 ################################################################
 # THE FOLLOWING CODE IS AUTOMATED, ANY MODIFICATION WILL BE LOST!
 #
-# Copyright (C) 2007 - 2011 by Dongxu Ma <dongxu _at_ cpan _dot_ org>
+# Copyright (C) 2007 - 2012 by Dongxu Ma <dongxu _at_ cpan _dot_ org>
 #
 # This library is free software; you can redistribute it and/or 
 # modify it under the same terms as Perl itself.
@@ -62,6 +62,19 @@ QNetworkCacheMetaData::DESTROY()
 CODE:
     if(THIS != 0 && !SvREADONLY(SvRV(ST(0))))
         delete THIS;
+
+## QHash<QNetworkRequest::Attribute,QVariant> attributes()
+void
+QNetworkCacheMetaData::attributes(...)
+PREINIT:
+PPCODE:
+    if (1) {
+      
+    QHash<QNetworkRequest::Attribute,QVariant> ret = THIS->attributes();
+    ST(0) = sv_newmortal();
+    sv_setref_pv(ST(0), "Qt::Network::Template::T004", (void *)new QHash<QNetworkRequest::Attribute,QVariant>(ret));
+    XSRETURN(1);
+    }
 
 ## QDateTime expirationDate()
 void
@@ -144,6 +157,19 @@ PPCODE:
     XSRETURN(1);
     }
 
+## QList<QPair<QByteArray,QByteArray> > rawHeaders()
+void
+QNetworkCacheMetaData::rawHeaders(...)
+PREINIT:
+PPCODE:
+    if (1) {
+      
+    QList<QPair<QByteArray,QByteArray> > ret = THIS->rawHeaders();
+    ST(0) = sv_newmortal();
+    sv_setref_pv(ST(0), "Qt::Network::Template::T003", (void *)new QList<QPair<QByteArray,QByteArray> >(ret));
+    XSRETURN(1);
+    }
+
 ## bool saveToDisk()
 void
 QNetworkCacheMetaData::saveToDisk(...)
@@ -155,6 +181,18 @@ PPCODE:
     ST(0) = sv_newmortal();
     ST(0) = boolSV(ret);
     XSRETURN(1);
+    }
+
+## void setAttributes(const QHash<QNetworkRequest::Attribute,QVariant> & attributes)
+void
+QNetworkCacheMetaData::setAttributes(...)
+PREINIT:
+QHash<QNetworkRequest::Attribute,QVariant> * arg00;
+PPCODE:
+    if (sv_isa(ST(1), "Qt::Network::Template::T004")) {
+      arg00 = reinterpret_cast<QHash<QNetworkRequest::Attribute,QVariant> *>(SvIV((SV*)SvRV(ST(1))));
+    (void)THIS->setAttributes(*arg00);
+    XSRETURN(0);
     }
 
 ## void setExpirationDate(const QDateTime & dateTime)
@@ -178,6 +216,18 @@ PPCODE:
     if (sv_isa(ST(1), "Qt::Core::QDateTime")) {
       arg00 = reinterpret_cast<QDateTime *>(SvIV((SV*)SvRV(ST(1))));
     (void)THIS->setLastModified(*arg00);
+    XSRETURN(0);
+    }
+
+## void setRawHeaders(const QList<QPair<QByteArray,QByteArray> > & headers)
+void
+QNetworkCacheMetaData::setRawHeaders(...)
+PREINIT:
+QList<QPair<QByteArray,QByteArray> > * arg00;
+PPCODE:
+    if (sv_isa(ST(1), "Qt::Network::Template::T003")) {
+      arg00 = reinterpret_cast<QList<QPair<QByteArray,QByteArray> > *>(SvIV((SV*)SvRV(ST(1))));
+    (void)THIS->setRawHeaders(*arg00);
     XSRETURN(0);
     }
 

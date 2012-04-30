@@ -1,7 +1,7 @@
 ################################################################
 # THE FOLLOWING CODE IS AUTOMATED, ANY MODIFICATION WILL BE LOST!
 #
-# Copyright (C) 2007 - 2011 by Dongxu Ma <dongxu _at_ cpan _dot_ org>
+# Copyright (C) 2007 - 2012 by Dongxu Ma <dongxu _at_ cpan _dot_ org>
 #
 # This library is free software; you can redistribute it and/or 
 # modify it under the same terms as Perl itself.
@@ -192,7 +192,7 @@ PPCODE:
       
     QFlags<QNetworkProxy::Capability> ret = THIS->capabilities();
     ST(0) = sv_newmortal();
-    sv_setiv(ST(0), (IV)ret);
+    sv_setiv(ST(0), (int)ret);
     XSRETURN(1);
     }
 
@@ -322,7 +322,7 @@ PREINIT:
 QFlags<QNetworkProxy::Capability> arg00;
 PPCODE:
     if (SvIOK(ST(1))) {
-      arg00 = QFlags<QNetworkProxy::Capability>((int)SvIV(ST(1)));
+      arg00 = QFlags<QNetworkProxy::Capability>((QNetworkProxy::Capability)SvIV(ST(1)));
     (void)THIS->setCapabilities(arg00);
     XSRETURN(0);
     }

@@ -1,7 +1,7 @@
 ################################################################
 # THE FOLLOWING CODE IS AUTOMATED, ANY MODIFICATION WILL BE LOST!
 #
-# Copyright (C) 2007 - 2011 by Dongxu Ma <dongxu _at_ cpan _dot_ org>
+# Copyright (C) 2007 - 2012 by Dongxu Ma <dongxu _at_ cpan _dot_ org>
 #
 # This library is free software; you can redistribute it and/or 
 # modify it under the same terms as Perl itself.
@@ -138,20 +138,46 @@ PPCODE:
     XSRETURN(0);
     }
 
+## bool isInSubnet(const QPair<QHostAddress,int> & subnet)
 ## bool isInSubnet(const QHostAddress & subnet, int netmask)
 void
 QHostAddress::isInSubnet(...)
 PREINIT:
-QHostAddress * arg00;
-int arg01;
+QPair<QHostAddress,int> * arg00;
+QHostAddress * arg10;
+int arg11;
 PPCODE:
-    if (sv_isa(ST(1), "Qt::Network::QHostAddress") && SvIOK(ST(2))) {
-      arg00 = reinterpret_cast<QHostAddress *>(SvIV((SV*)SvRV(ST(1))));
-      arg01 = (int)SvIV(ST(2));
-    bool ret = THIS->isInSubnet(*arg00, arg01);
+    switch(items) {
+      case 2:
+      {
+        if (sv_isa(ST(1), "Qt::Network::Template::T018")) {
+      arg00 = reinterpret_cast<QPair<QHostAddress,int> *>(SvIV((SV*)SvRV(ST(1))));
+    bool ret = THIS->isInSubnet(*arg00);
     ST(0) = sv_newmortal();
     ST(0) = boolSV(ret);
     XSRETURN(1);
+    }
+	else
+            Perl_croak(aTHX_ "wrong number/type of arguments passed in");
+        break;
+      }
+      case 3:
+      {
+        if (sv_isa(ST(1), "Qt::Network::QHostAddress") && SvIOK(ST(2))) {
+      arg10 = reinterpret_cast<QHostAddress *>(SvIV((SV*)SvRV(ST(1))));
+      arg11 = (int)SvIV(ST(2));
+    bool ret = THIS->isInSubnet(*arg10, arg11);
+    ST(0) = sv_newmortal();
+    ST(0) = boolSV(ret);
+    XSRETURN(1);
+    }
+	else
+            Perl_croak(aTHX_ "wrong number/type of arguments passed in");
+        break;
+      }
+      default:
+        Perl_croak(aTHX_ "wrong number/type of arguments passed in");
+        break;
     }
 
 ## bool isNull()
@@ -267,6 +293,20 @@ PPCODE:
       default:
         Perl_croak(aTHX_ "wrong number/type of arguments passed in");
         break;
+    }
+
+## static QPair<QHostAddress,int> parseSubnet(const QString & subnet)
+void
+QHostAddress::parseSubnet(...)
+PREINIT:
+QString * arg00;
+PPCODE:
+    if (sv_isa(ST(1), "Qt::Core::QString")) {
+      arg00 = reinterpret_cast<QString *>(SvIV((SV*)SvRV(ST(1))));
+    QPair<QHostAddress,int> ret = THIS->parseSubnet(*arg00);
+    ST(0) = sv_newmortal();
+    sv_setref_pv(ST(0), "Qt::Network::Template::T018", (void *)new QPair<QHostAddress,int>(ret));
+    XSRETURN(1);
     }
 
 ## QAbstractSocket::NetworkLayerProtocol protocol()

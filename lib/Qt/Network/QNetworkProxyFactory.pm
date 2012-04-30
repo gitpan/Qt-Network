@@ -7,7 +7,7 @@ use strict;
 use warnings;
 #use Carp;
 
-our $VERSION = '0.01_03';
+our $VERSION = '0.01_04';
 
 
 # FIXME: operator overload
@@ -27,9 +27,19 @@ Qt::Network::QNetworkProxyFactory
 
 =item   ~QNetworkProxyFactory()
 
+=item  static QList<QNetworkProxy> proxyForQuery(const QNetworkProxyQuery & query)
+
+=item  QList<QNetworkProxy> queryProxy(const QNetworkProxyQuery & query)
+
+=item  QList<QNetworkProxy> queryProxy(const QNetworkProxyQuery & query = QNetworkProxyQuery())
+
 =item  static void setApplicationProxyFactory(QNetworkProxyFactory * factory)
 
 =item  static void setUseSystemConfiguration(bool enable)
+
+=item  static QList<QNetworkProxy> systemProxyForQuery(const QNetworkProxyQuery & query)
+
+=item  static QList<QNetworkProxy> systemProxyForQuery(const QNetworkProxyQuery & query = QNetworkProxyQuery())
 
 
 =back
@@ -51,7 +61,7 @@ Dongxu Ma E<lt>dongxu@cpan.orgE<gt>
 
 =head1 COPYRIGHT AND LICENSE
 
-Copyright (C) 2011 - 2011 by Dongxu Ma
+Copyright (C) 2011 - 2012 by Dongxu Ma
 
 This library is free software; you can redistribute it and/or modify
 it under the same terms as Perl itself.

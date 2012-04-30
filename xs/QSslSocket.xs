@@ -1,7 +1,7 @@
 ################################################################
 # THE FOLLOWING CODE IS AUTOMATED, ANY MODIFICATION WILL BE LOST!
 #
-# Copyright (C) 2007 - 2011 by Dongxu Ma <dongxu _at_ cpan _dot_ org>
+# Copyright (C) 2007 - 2012 by Dongxu Ma <dongxu _at_ cpan _dot_ org>
 #
 # This library is free software; you can redistribute it and/or 
 # modify it under the same terms as Perl itself.
@@ -94,28 +94,35 @@ PPCODE:
     XSRETURN(0);
     }
 
+## void addCaCertificates(const QList<QSslCertificate> & certificates)
 ## bool addCaCertificates(const QString & path, QSsl::EncodingFormat format, QRegExp::PatternSyntax syntax)
 ## bool addCaCertificates(const QString & path, QSsl::EncodingFormat format, QRegExp::PatternSyntax syntax = QRegExp::FixedString)
 ## bool addCaCertificates(const QString & path, QSsl::EncodingFormat format = QSsl::Pem, QRegExp::PatternSyntax syntax = QRegExp::FixedString)
 void
 QSslSocket::addCaCertificates(...)
 PREINIT:
-QString * arg00;
-QSsl::EncodingFormat arg01;
-QRegExp::PatternSyntax arg02;
+QList<QSslCertificate> * arg00;
 QString * arg10;
 QSsl::EncodingFormat arg11;
-QRegExp::PatternSyntax arg12 = QRegExp::FixedString;
+QRegExp::PatternSyntax arg12;
 QString * arg20;
-QSsl::EncodingFormat arg21 = QSsl::Pem;
+QSsl::EncodingFormat arg21;
 QRegExp::PatternSyntax arg22 = QRegExp::FixedString;
+QString * arg30;
+QSsl::EncodingFormat arg31 = QSsl::Pem;
+QRegExp::PatternSyntax arg32 = QRegExp::FixedString;
 PPCODE:
     switch(items) {
       case 2:
       {
-        if (sv_isa(ST(1), "Qt::Core::QString")) {
-      arg20 = reinterpret_cast<QString *>(SvIV((SV*)SvRV(ST(1))));
-    bool ret = THIS->addCaCertificates(*arg20, arg21, arg22);
+        if (sv_isa(ST(1), "Qt::Network::Template::T006")) {
+      arg00 = reinterpret_cast<QList<QSslCertificate> *>(SvIV((SV*)SvRV(ST(1))));
+    (void)THIS->addCaCertificates(*arg00);
+    XSRETURN(0);
+    }
+        else if (sv_isa(ST(1), "Qt::Core::QString")) {
+      arg30 = reinterpret_cast<QString *>(SvIV((SV*)SvRV(ST(1))));
+    bool ret = THIS->addCaCertificates(*arg30, arg31, arg32);
     ST(0) = sv_newmortal();
     ST(0) = boolSV(ret);
     XSRETURN(1);
@@ -127,9 +134,9 @@ PPCODE:
       case 3:
       {
         if (sv_isa(ST(1), "Qt::Core::QString") && SvIOK(ST(2))) {
-      arg10 = reinterpret_cast<QString *>(SvIV((SV*)SvRV(ST(1))));
-      arg11 = (QSsl::EncodingFormat)SvIV(ST(2));
-    bool ret = THIS->addCaCertificates(*arg10, arg11, arg12);
+      arg20 = reinterpret_cast<QString *>(SvIV((SV*)SvRV(ST(1))));
+      arg21 = (QSsl::EncodingFormat)SvIV(ST(2));
+    bool ret = THIS->addCaCertificates(*arg20, arg21, arg22);
     ST(0) = sv_newmortal();
     ST(0) = boolSV(ret);
     XSRETURN(1);
@@ -141,10 +148,10 @@ PPCODE:
       case 4:
       {
         if (sv_isa(ST(1), "Qt::Core::QString") && SvIOK(ST(2)) && SvIOK(ST(3))) {
-      arg00 = reinterpret_cast<QString *>(SvIV((SV*)SvRV(ST(1))));
-      arg01 = (QSsl::EncodingFormat)SvIV(ST(2));
-      arg02 = (QRegExp::PatternSyntax)SvIV(ST(3));
-    bool ret = THIS->addCaCertificates(*arg00, arg01, arg02);
+      arg10 = reinterpret_cast<QString *>(SvIV((SV*)SvRV(ST(1))));
+      arg11 = (QSsl::EncodingFormat)SvIV(ST(2));
+      arg12 = (QRegExp::PatternSyntax)SvIV(ST(3));
+    bool ret = THIS->addCaCertificates(*arg10, arg11, arg12);
     ST(0) = sv_newmortal();
     ST(0) = boolSV(ret);
     XSRETURN(1);
@@ -170,28 +177,35 @@ PPCODE:
     XSRETURN(0);
     }
 
+## static void addDefaultCaCertificates(const QList<QSslCertificate> & certificates)
 ## static bool addDefaultCaCertificates(const QString & path, QSsl::EncodingFormat format, QRegExp::PatternSyntax syntax)
 ## static bool addDefaultCaCertificates(const QString & path, QSsl::EncodingFormat format, QRegExp::PatternSyntax syntax = QRegExp::FixedString)
 ## static bool addDefaultCaCertificates(const QString & path, QSsl::EncodingFormat format = QSsl::Pem, QRegExp::PatternSyntax syntax = QRegExp::FixedString)
 void
 QSslSocket::addDefaultCaCertificates(...)
 PREINIT:
-QString * arg00;
-QSsl::EncodingFormat arg01;
-QRegExp::PatternSyntax arg02;
+QList<QSslCertificate> * arg00;
 QString * arg10;
 QSsl::EncodingFormat arg11;
-QRegExp::PatternSyntax arg12 = QRegExp::FixedString;
+QRegExp::PatternSyntax arg12;
 QString * arg20;
-QSsl::EncodingFormat arg21 = QSsl::Pem;
+QSsl::EncodingFormat arg21;
 QRegExp::PatternSyntax arg22 = QRegExp::FixedString;
+QString * arg30;
+QSsl::EncodingFormat arg31 = QSsl::Pem;
+QRegExp::PatternSyntax arg32 = QRegExp::FixedString;
 PPCODE:
     switch(items) {
       case 2:
       {
-        if (sv_isa(ST(1), "Qt::Core::QString")) {
-      arg20 = reinterpret_cast<QString *>(SvIV((SV*)SvRV(ST(1))));
-    bool ret = THIS->addDefaultCaCertificates(*arg20, arg21, arg22);
+        if (sv_isa(ST(1), "Qt::Network::Template::T006")) {
+      arg00 = reinterpret_cast<QList<QSslCertificate> *>(SvIV((SV*)SvRV(ST(1))));
+    (void)THIS->addDefaultCaCertificates(*arg00);
+    XSRETURN(0);
+    }
+        else if (sv_isa(ST(1), "Qt::Core::QString")) {
+      arg30 = reinterpret_cast<QString *>(SvIV((SV*)SvRV(ST(1))));
+    bool ret = THIS->addDefaultCaCertificates(*arg30, arg31, arg32);
     ST(0) = sv_newmortal();
     ST(0) = boolSV(ret);
     XSRETURN(1);
@@ -203,9 +217,9 @@ PPCODE:
       case 3:
       {
         if (sv_isa(ST(1), "Qt::Core::QString") && SvIOK(ST(2))) {
-      arg10 = reinterpret_cast<QString *>(SvIV((SV*)SvRV(ST(1))));
-      arg11 = (QSsl::EncodingFormat)SvIV(ST(2));
-    bool ret = THIS->addDefaultCaCertificates(*arg10, arg11, arg12);
+      arg20 = reinterpret_cast<QString *>(SvIV((SV*)SvRV(ST(1))));
+      arg21 = (QSsl::EncodingFormat)SvIV(ST(2));
+    bool ret = THIS->addDefaultCaCertificates(*arg20, arg21, arg22);
     ST(0) = sv_newmortal();
     ST(0) = boolSV(ret);
     XSRETURN(1);
@@ -217,10 +231,10 @@ PPCODE:
       case 4:
       {
         if (sv_isa(ST(1), "Qt::Core::QString") && SvIOK(ST(2)) && SvIOK(ST(3))) {
-      arg00 = reinterpret_cast<QString *>(SvIV((SV*)SvRV(ST(1))));
-      arg01 = (QSsl::EncodingFormat)SvIV(ST(2));
-      arg02 = (QRegExp::PatternSyntax)SvIV(ST(3));
-    bool ret = THIS->addDefaultCaCertificates(*arg00, arg01, arg02);
+      arg10 = reinterpret_cast<QString *>(SvIV((SV*)SvRV(ST(1))));
+      arg11 = (QSsl::EncodingFormat)SvIV(ST(2));
+      arg12 = (QRegExp::PatternSyntax)SvIV(ST(3));
+    bool ret = THIS->addDefaultCaCertificates(*arg10, arg11, arg12);
     ST(0) = sv_newmortal();
     ST(0) = boolSV(ret);
     XSRETURN(1);
@@ -273,6 +287,19 @@ PPCODE:
     XSRETURN(1);
     }
 
+## QList<QSslCertificate> caCertificates()
+void
+QSslSocket::caCertificates(...)
+PREINIT:
+PPCODE:
+    if (1) {
+      
+    QList<QSslCertificate> ret = THIS->caCertificates();
+    ST(0) = sv_newmortal();
+    sv_setref_pv(ST(0), "Qt::Network::Template::T006", (void *)new QList<QSslCertificate>(ret));
+    XSRETURN(1);
+    }
+
 ## bool canReadLine()
 void
 QSslSocket::canReadLine(...)
@@ -283,6 +310,19 @@ PPCODE:
     bool ret = THIS->canReadLine();
     ST(0) = sv_newmortal();
     ST(0) = boolSV(ret);
+    XSRETURN(1);
+    }
+
+## QList<QSslCipher> ciphers()
+void
+QSslSocket::ciphers(...)
+PREINIT:
+PPCODE:
+    if (1) {
+      
+    QList<QSslCipher> ret = THIS->ciphers();
+    ST(0) = sv_newmortal();
+    sv_setref_pv(ST(0), "Qt::Network::Template::T007", (void *)new QList<QSslCipher>(ret));
     XSRETURN(1);
     }
 
@@ -337,7 +377,7 @@ PPCODE:
         if (sv_isa(ST(1), "Qt::Core::QString") && (SvIOK(ST(2)) || SvUOK(ST(2))) && SvIOK(ST(3))) {
       arg00 = reinterpret_cast<QString *>(SvIV((SV*)SvRV(ST(1))));
       arg01 = (quint16)SvUV(ST(2));
-      arg02 = QFlags<QIODevice::OpenModeFlag>((int)SvIV(ST(3)));
+      arg02 = QFlags<QIODevice::OpenModeFlag>((QIODevice::OpenModeFlag)SvIV(ST(3)));
     (void)THIS->connectToHostEncrypted(*arg00, arg01, arg02);
     XSRETURN(0);
     }
@@ -358,7 +398,7 @@ PPCODE:
       arg20 = reinterpret_cast<QString *>(SvIV((SV*)SvRV(ST(1))));
       arg21 = (quint16)SvUV(ST(2));
       arg22 = reinterpret_cast<QString *>(SvIV((SV*)SvRV(ST(3))));
-      arg23 = QFlags<QIODevice::OpenModeFlag>((int)SvIV(ST(4)));
+      arg23 = QFlags<QIODevice::OpenModeFlag>((QIODevice::OpenModeFlag)SvIV(ST(4)));
     (void)THIS->connectToHostEncrypted(*arg20, arg21, *arg22, arg23);
     XSRETURN(0);
     }
@@ -369,6 +409,32 @@ PPCODE:
       default:
         Perl_croak(aTHX_ "wrong number/type of arguments passed in");
         break;
+    }
+
+## static QList<QSslCertificate> defaultCaCertificates()
+void
+QSslSocket::defaultCaCertificates(...)
+PREINIT:
+PPCODE:
+    if (1) {
+      
+    QList<QSslCertificate> ret = THIS->defaultCaCertificates();
+    ST(0) = sv_newmortal();
+    sv_setref_pv(ST(0), "Qt::Network::Template::T006", (void *)new QList<QSslCertificate>(ret));
+    XSRETURN(1);
+    }
+
+## static QList<QSslCipher> defaultCiphers()
+void
+QSslSocket::defaultCiphers(...)
+PREINIT:
+PPCODE:
+    if (1) {
+      
+    QList<QSslCipher> ret = THIS->defaultCiphers();
+    ST(0) = sv_newmortal();
+    sv_setref_pv(ST(0), "Qt::Network::Template::T007", (void *)new QList<QSslCipher>(ret));
+    XSRETURN(1);
     }
 
 ## qint64 encryptedBytesAvailable()
@@ -411,14 +477,36 @@ PPCODE:
     }
 
 ## void ignoreSslErrors()
+## void ignoreSslErrors(const QList<QSslError> & errors)
 void
 QSslSocket::ignoreSslErrors(...)
 PREINIT:
+QList<QSslError> * arg10;
 PPCODE:
-    if (1) {
+    switch(items) {
+      case 1:
+      {
+        if (1) {
       
     (void)THIS->ignoreSslErrors();
     XSRETURN(0);
+    }
+        break;
+      }
+      case 2:
+      {
+        if (sv_isa(ST(1), "Qt::Network::Template::T005")) {
+      arg10 = reinterpret_cast<QList<QSslError> *>(SvIV((SV*)SvRV(ST(1))));
+    (void)THIS->ignoreSslErrors(*arg10);
+    XSRETURN(0);
+    }
+	else
+            Perl_croak(aTHX_ "wrong number/type of arguments passed in");
+        break;
+      }
+      default:
+        Perl_croak(aTHX_ "wrong number/type of arguments passed in");
+        break;
     }
 
 ## bool isEncrypted()
@@ -470,6 +558,19 @@ PPCODE:
     QSslCertificate ret = THIS->peerCertificate();
     ST(0) = sv_newmortal();
     sv_setref_pv(ST(0), "Qt::Network::QSslCertificate", (void *)new QSslCertificate(ret));
+    XSRETURN(1);
+    }
+
+## QList<QSslCertificate> peerCertificateChain()
+void
+QSslSocket::peerCertificateChain(...)
+PREINIT:
+PPCODE:
+    if (1) {
+      
+    QList<QSslCertificate> ret = THIS->peerCertificateChain();
+    ST(0) = sv_newmortal();
+    sv_setref_pv(ST(0), "Qt::Network::Template::T006", (void *)new QList<QSslCertificate>(ret));
     XSRETURN(1);
     }
 
@@ -538,15 +639,69 @@ PPCODE:
     XSRETURN(1);
     }
 
+## void setCaCertificates(const QList<QSslCertificate> & certificates)
+void
+QSslSocket::setCaCertificates(...)
+PREINIT:
+QList<QSslCertificate> * arg00;
+PPCODE:
+    if (sv_isa(ST(1), "Qt::Network::Template::T006")) {
+      arg00 = reinterpret_cast<QList<QSslCertificate> *>(SvIV((SV*)SvRV(ST(1))));
+    (void)THIS->setCaCertificates(*arg00);
+    XSRETURN(0);
+    }
+
+## void setCiphers(const QList<QSslCipher> & ciphers)
 ## void setCiphers(const QString & ciphers)
 void
 QSslSocket::setCiphers(...)
 PREINIT:
-QString * arg00;
+QList<QSslCipher> * arg00;
+QString * arg10;
 PPCODE:
-    if (sv_isa(ST(1), "Qt::Core::QString")) {
-      arg00 = reinterpret_cast<QString *>(SvIV((SV*)SvRV(ST(1))));
+    switch(items) {
+      case 2:
+      {
+        if (sv_isa(ST(1), "Qt::Network::Template::T007")) {
+      arg00 = reinterpret_cast<QList<QSslCipher> *>(SvIV((SV*)SvRV(ST(1))));
     (void)THIS->setCiphers(*arg00);
+    XSRETURN(0);
+    }
+        else if (sv_isa(ST(1), "Qt::Core::QString")) {
+      arg10 = reinterpret_cast<QString *>(SvIV((SV*)SvRV(ST(1))));
+    (void)THIS->setCiphers(*arg10);
+    XSRETURN(0);
+    }
+	else
+            Perl_croak(aTHX_ "wrong number/type of arguments passed in");
+        break;
+      }
+      default:
+        Perl_croak(aTHX_ "wrong number/type of arguments passed in");
+        break;
+    }
+
+## static void setDefaultCaCertificates(const QList<QSslCertificate> & certificates)
+void
+QSslSocket::setDefaultCaCertificates(...)
+PREINIT:
+QList<QSslCertificate> * arg00;
+PPCODE:
+    if (sv_isa(ST(1), "Qt::Network::Template::T006")) {
+      arg00 = reinterpret_cast<QList<QSslCertificate> *>(SvIV((SV*)SvRV(ST(1))));
+    (void)THIS->setDefaultCaCertificates(*arg00);
+    XSRETURN(0);
+    }
+
+## static void setDefaultCiphers(const QList<QSslCipher> & ciphers)
+void
+QSslSocket::setDefaultCiphers(...)
+PREINIT:
+QList<QSslCipher> * arg00;
+PPCODE:
+    if (sv_isa(ST(1), "Qt::Network::Template::T007")) {
+      arg00 = reinterpret_cast<QList<QSslCipher> *>(SvIV((SV*)SvRV(ST(1))));
+    (void)THIS->setDefaultCiphers(*arg00);
     XSRETURN(0);
     }
 
@@ -783,7 +938,7 @@ PPCODE:
         if (SvIOK(ST(1)) && SvIOK(ST(2)) && SvIOK(ST(3))) {
       arg00 = (int)SvIV(ST(1));
       arg01 = (QAbstractSocket::SocketState)SvIV(ST(2));
-      arg02 = QFlags<QIODevice::OpenModeFlag>((int)SvIV(ST(3)));
+      arg02 = QFlags<QIODevice::OpenModeFlag>((QIODevice::OpenModeFlag)SvIV(ST(3)));
     bool ret = THIS->setSocketDescriptor(arg00, arg01, arg02);
     ST(0) = sv_newmortal();
     ST(0) = boolSV(ret);
@@ -851,6 +1006,19 @@ PPCODE:
     XSRETURN(1);
     }
 
+## QList<QSslError> sslErrors()
+void
+QSslSocket::sslErrors(...)
+PREINIT:
+PPCODE:
+    if (1) {
+      
+    QList<QSslError> ret = THIS->sslErrors();
+    ST(0) = sv_newmortal();
+    sv_setref_pv(ST(0), "Qt::Network::Template::T005", (void *)new QList<QSslError>(ret));
+    XSRETURN(1);
+    }
+
 ## void startClientEncryption()
 void
 QSslSocket::startClientEncryption(...)
@@ -873,6 +1041,19 @@ PPCODE:
     XSRETURN(0);
     }
 
+## static QList<QSslCipher> supportedCiphers()
+void
+QSslSocket::supportedCiphers(...)
+PREINIT:
+PPCODE:
+    if (1) {
+      
+    QList<QSslCipher> ret = THIS->supportedCiphers();
+    ST(0) = sv_newmortal();
+    sv_setref_pv(ST(0), "Qt::Network::Template::T007", (void *)new QList<QSslCipher>(ret));
+    XSRETURN(1);
+    }
+
 ## static bool supportsSsl()
 void
 QSslSocket::supportsSsl(...)
@@ -883,6 +1064,19 @@ PPCODE:
     bool ret = THIS->supportsSsl();
     ST(0) = sv_newmortal();
     ST(0) = boolSV(ret);
+    XSRETURN(1);
+    }
+
+## static QList<QSslCertificate> systemCaCertificates()
+void
+QSslSocket::systemCaCertificates(...)
+PREINIT:
+PPCODE:
+    if (1) {
+      
+    QList<QSslCertificate> ret = THIS->systemCaCertificates();
+    ST(0) = sv_newmortal();
+    sv_setref_pv(ST(0), "Qt::Network::Template::T006", (void *)new QList<QSslCertificate>(ret));
     XSRETURN(1);
     }
 

@@ -1,7 +1,7 @@
 ################################################################
 # THE FOLLOWING CODE IS AUTOMATED, ANY MODIFICATION WILL BE LOST!
 #
-# Copyright (C) 2007 - 2011 by Dongxu Ma <dongxu _at_ cpan _dot_ org>
+# Copyright (C) 2007 - 2012 by Dongxu Ma <dongxu _at_ cpan _dot_ org>
 #
 # This library is free software; you can redistribute it and/or 
 # modify it under the same terms as Perl itself.
@@ -105,14 +105,36 @@ PPCODE:
     }
 
 ## void ignoreSslErrors()
+## void ignoreSslErrors(const QList<QSslError> & errors)
 void
 QNetworkReply::ignoreSslErrors(...)
 PREINIT:
+QList<QSslError> * arg10;
 PPCODE:
-    if (1) {
+    switch(items) {
+      case 1:
+      {
+        if (1) {
       
     (void)THIS->ignoreSslErrors();
     XSRETURN(0);
+    }
+        break;
+      }
+      case 2:
+      {
+        if (sv_isa(ST(1), "Qt::Network::Template::T005")) {
+      arg10 = reinterpret_cast<QList<QSslError> *>(SvIV((SV*)SvRV(ST(1))));
+    (void)THIS->ignoreSslErrors(*arg10);
+    XSRETURN(0);
+    }
+	else
+            Perl_croak(aTHX_ "wrong number/type of arguments passed in");
+        break;
+      }
+      default:
+        Perl_croak(aTHX_ "wrong number/type of arguments passed in");
+        break;
     }
 
 ## bool isFinished()
@@ -191,6 +213,32 @@ PPCODE:
     QByteArray ret = THIS->rawHeader(*arg00);
     ST(0) = sv_newmortal();
     sv_setref_pv(ST(0), "Qt::Core::QByteArray", (void *)new QByteArray(ret));
+    XSRETURN(1);
+    }
+
+## QList<QByteArray> rawHeaderList()
+void
+QNetworkReply::rawHeaderList(...)
+PREINIT:
+PPCODE:
+    if (1) {
+      
+    QList<QByteArray> ret = THIS->rawHeaderList();
+    ST(0) = sv_newmortal();
+    sv_setref_pv(ST(0), "Qt::Network::Template::T008", (void *)new QList<QByteArray>(ret));
+    XSRETURN(1);
+    }
+
+## const QList<QPair<QByteArray,QByteArray> > & rawHeaderPairs()
+void
+QNetworkReply::rawHeaderPairs(...)
+PREINIT:
+PPCODE:
+    if (1) {
+      
+    const QList<QPair<QByteArray,QByteArray> > * ret = &THIS->rawHeaderPairs();
+    ST(0) = sv_newmortal();
+    sv_setref_pv(ST(0), "Qt::Network::Template::T003", (void *)ret);
     XSRETURN(1);
     }
 

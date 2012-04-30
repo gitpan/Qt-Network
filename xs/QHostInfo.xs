@@ -1,7 +1,7 @@
 ################################################################
 # THE FOLLOWING CODE IS AUTOMATED, ANY MODIFICATION WILL BE LOST!
 #
-# Copyright (C) 2007 - 2011 by Dongxu Ma <dongxu _at_ cpan _dot_ org>
+# Copyright (C) 2007 - 2012 by Dongxu Ma <dongxu _at_ cpan _dot_ org>
 #
 # This library is free software; you can redistribute it and/or 
 # modify it under the same terms as Perl itself.
@@ -83,6 +83,19 @@ PPCODE:
       arg00 = (int)SvIV(ST(1));
     (void)THIS->abortHostLookup(arg00);
     XSRETURN(0);
+    }
+
+## QList<QHostAddress> addresses()
+void
+QHostInfo::addresses(...)
+PREINIT:
+PPCODE:
+    if (1) {
+      
+    QList<QHostAddress> ret = THIS->addresses();
+    ST(0) = sv_newmortal();
+    sv_setref_pv(ST(0), "Qt::Network::Template::T010", (void *)new QList<QHostAddress>(ret));
+    XSRETURN(1);
     }
 
 ## QHostInfo::HostInfoError error()
@@ -214,6 +227,18 @@ PPCODE:
     ST(0) = sv_newmortal();
     sv_setref_pv(ST(0), "Qt::Network::QHostInfo", (void *)ret);
     XSRETURN(1);
+    }
+
+## void setAddresses(const QList<QHostAddress> & addresses)
+void
+QHostInfo::setAddresses(...)
+PREINIT:
+QList<QHostAddress> * arg00;
+PPCODE:
+    if (sv_isa(ST(1), "Qt::Network::Template::T010")) {
+      arg00 = reinterpret_cast<QList<QHostAddress> *>(SvIV((SV*)SvRV(ST(1))));
+    (void)THIS->setAddresses(*arg00);
+    XSRETURN(0);
     }
 
 ## void setError(QHostInfo::HostInfoError error)

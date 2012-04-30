@@ -49,6 +49,25 @@ QVariant::Private *                     		T_PTROBJ_0045
 QNetworkConfigurationManager *          		T_PTROBJ_0046
 QSslConfiguration *                     		T_PTROBJ_0047
 QBool *                                 		T_PTROBJ_0048
+T000 *                                  		T_PTROBJ_0049
+T001 *                                  		T_PTROBJ_0050
+T002 *                                  		T_PTROBJ_0051
+T003 *                                  		T_PTROBJ_0052
+T004 *                                  		T_PTROBJ_0053
+T005 *                                  		T_PTROBJ_0054
+T006 *                                  		T_PTROBJ_0055
+T007 *                                  		T_PTROBJ_0056
+T008 *                                  		T_PTROBJ_0057
+T009 *                                  		T_PTROBJ_0058
+T010 *                                  		T_PTROBJ_0059
+T011 *                                  		T_PTROBJ_0060
+T012 *                                  		T_PTROBJ_0061
+T013 *                                  		T_PTROBJ_0062
+T014 *                                  		T_PTROBJ_0063
+T015 *                                  		T_PTROBJ_0064
+T016 *                                  		T_PTROBJ_0065
+T017 *                                  		T_PTROBJ_0066
+T018 *                                  		T_PTROBJ_0067
 
 ################################################################
 INPUT
@@ -346,6 +365,120 @@ T_PTROBJ_0048
     else
         Perl_croak(aTHX_ \"$var is not of type Qt::Core::QBool\");
 
+T_PTROBJ_0049
+    if (sv_derived_from($arg, \"Qt::Network::Template::T000\"))
+        $var = reinterpret_cast<$type>(SvIV((SV*)SvRV($arg)));
+    else
+        Perl_croak(aTHX_ \"$var is not of type Qt::Network::Template::T000\");
+
+T_PTROBJ_0050
+    if (sv_derived_from($arg, \"Qt::Network::Template::T001\"))
+        $var = reinterpret_cast<$type>(SvIV((SV*)SvRV($arg)));
+    else
+        Perl_croak(aTHX_ \"$var is not of type Qt::Network::Template::T001\");
+
+T_PTROBJ_0051
+    if (sv_derived_from($arg, \"Qt::Network::Template::T002\"))
+        $var = reinterpret_cast<$type>(SvIV((SV*)SvRV($arg)));
+    else
+        Perl_croak(aTHX_ \"$var is not of type Qt::Network::Template::T002\");
+
+T_PTROBJ_0052
+    if (sv_derived_from($arg, \"Qt::Network::Template::T003\"))
+        $var = reinterpret_cast<$type>(SvIV((SV*)SvRV($arg)));
+    else
+        Perl_croak(aTHX_ \"$var is not of type Qt::Network::Template::T003\");
+
+T_PTROBJ_0053
+    if (sv_derived_from($arg, \"Qt::Network::Template::T004\"))
+        $var = reinterpret_cast<$type>(SvIV((SV*)SvRV($arg)));
+    else
+        Perl_croak(aTHX_ \"$var is not of type Qt::Network::Template::T004\");
+
+T_PTROBJ_0054
+    if (sv_derived_from($arg, \"Qt::Network::Template::T005\"))
+        $var = reinterpret_cast<$type>(SvIV((SV*)SvRV($arg)));
+    else
+        Perl_croak(aTHX_ \"$var is not of type Qt::Network::Template::T005\");
+
+T_PTROBJ_0055
+    if (sv_derived_from($arg, \"Qt::Network::Template::T006\"))
+        $var = reinterpret_cast<$type>(SvIV((SV*)SvRV($arg)));
+    else
+        Perl_croak(aTHX_ \"$var is not of type Qt::Network::Template::T006\");
+
+T_PTROBJ_0056
+    if (sv_derived_from($arg, \"Qt::Network::Template::T007\"))
+        $var = reinterpret_cast<$type>(SvIV((SV*)SvRV($arg)));
+    else
+        Perl_croak(aTHX_ \"$var is not of type Qt::Network::Template::T007\");
+
+T_PTROBJ_0057
+    if (sv_derived_from($arg, \"Qt::Network::Template::T008\"))
+        $var = reinterpret_cast<$type>(SvIV((SV*)SvRV($arg)));
+    else
+        Perl_croak(aTHX_ \"$var is not of type Qt::Network::Template::T008\");
+
+T_PTROBJ_0058
+    if (sv_derived_from($arg, \"Qt::Network::Template::T009\"))
+        $var = reinterpret_cast<$type>(SvIV((SV*)SvRV($arg)));
+    else
+        Perl_croak(aTHX_ \"$var is not of type Qt::Network::Template::T009\");
+
+T_PTROBJ_0059
+    if (sv_derived_from($arg, \"Qt::Network::Template::T010\"))
+        $var = reinterpret_cast<$type>(SvIV((SV*)SvRV($arg)));
+    else
+        Perl_croak(aTHX_ \"$var is not of type Qt::Network::Template::T010\");
+
+T_PTROBJ_0060
+    if (sv_derived_from($arg, \"Qt::Network::Template::T011\"))
+        $var = reinterpret_cast<$type>(SvIV((SV*)SvRV($arg)));
+    else
+        Perl_croak(aTHX_ \"$var is not of type Qt::Network::Template::T011\");
+
+T_PTROBJ_0061
+    if (sv_derived_from($arg, \"Qt::Network::Template::T012\"))
+        $var = reinterpret_cast<$type>(SvIV((SV*)SvRV($arg)));
+    else
+        Perl_croak(aTHX_ \"$var is not of type Qt::Network::Template::T012\");
+
+T_PTROBJ_0062
+    if (sv_derived_from($arg, \"Qt::Network::Template::T013\"))
+        $var = reinterpret_cast<$type>(SvIV((SV*)SvRV($arg)));
+    else
+        Perl_croak(aTHX_ \"$var is not of type Qt::Network::Template::T013\");
+
+T_PTROBJ_0063
+    if (sv_derived_from($arg, \"Qt::Network::Template::T014\"))
+        $var = reinterpret_cast<$type>(SvIV((SV*)SvRV($arg)));
+    else
+        Perl_croak(aTHX_ \"$var is not of type Qt::Network::Template::T014\");
+
+T_PTROBJ_0064
+    if (sv_derived_from($arg, \"Qt::Network::Template::T015\"))
+        $var = reinterpret_cast<$type>(SvIV((SV*)SvRV($arg)));
+    else
+        Perl_croak(aTHX_ \"$var is not of type Qt::Network::Template::T015\");
+
+T_PTROBJ_0065
+    if (sv_derived_from($arg, \"Qt::Network::Template::T016\"))
+        $var = reinterpret_cast<$type>(SvIV((SV*)SvRV($arg)));
+    else
+        Perl_croak(aTHX_ \"$var is not of type Qt::Network::Template::T016\");
+
+T_PTROBJ_0066
+    if (sv_derived_from($arg, \"Qt::Network::Template::T017\"))
+        $var = reinterpret_cast<$type>(SvIV((SV*)SvRV($arg)));
+    else
+        Perl_croak(aTHX_ \"$var is not of type Qt::Network::Template::T017\");
+
+T_PTROBJ_0067
+    if (sv_derived_from($arg, \"Qt::Network::Template::T018\"))
+        $var = reinterpret_cast<$type>(SvIV((SV*)SvRV($arg)));
+    else
+        Perl_croak(aTHX_ \"$var is not of type Qt::Network::Template::T018\");
+
 
 ################################################################
 OUTPUT
@@ -495,4 +628,61 @@ T_PTROBJ_0047
 
 T_PTROBJ_0048
     sv_setref_pv($arg, \"Qt::Core::QBool\", (void *)$var);
+
+T_PTROBJ_0049
+    sv_setref_pv($arg, \"Qt::Network::Template::T000\", (void *)$var);
+
+T_PTROBJ_0050
+    sv_setref_pv($arg, \"Qt::Network::Template::T001\", (void *)$var);
+
+T_PTROBJ_0051
+    sv_setref_pv($arg, \"Qt::Network::Template::T002\", (void *)$var);
+
+T_PTROBJ_0052
+    sv_setref_pv($arg, \"Qt::Network::Template::T003\", (void *)$var);
+
+T_PTROBJ_0053
+    sv_setref_pv($arg, \"Qt::Network::Template::T004\", (void *)$var);
+
+T_PTROBJ_0054
+    sv_setref_pv($arg, \"Qt::Network::Template::T005\", (void *)$var);
+
+T_PTROBJ_0055
+    sv_setref_pv($arg, \"Qt::Network::Template::T006\", (void *)$var);
+
+T_PTROBJ_0056
+    sv_setref_pv($arg, \"Qt::Network::Template::T007\", (void *)$var);
+
+T_PTROBJ_0057
+    sv_setref_pv($arg, \"Qt::Network::Template::T008\", (void *)$var);
+
+T_PTROBJ_0058
+    sv_setref_pv($arg, \"Qt::Network::Template::T009\", (void *)$var);
+
+T_PTROBJ_0059
+    sv_setref_pv($arg, \"Qt::Network::Template::T010\", (void *)$var);
+
+T_PTROBJ_0060
+    sv_setref_pv($arg, \"Qt::Network::Template::T011\", (void *)$var);
+
+T_PTROBJ_0061
+    sv_setref_pv($arg, \"Qt::Network::Template::T012\", (void *)$var);
+
+T_PTROBJ_0062
+    sv_setref_pv($arg, \"Qt::Network::Template::T013\", (void *)$var);
+
+T_PTROBJ_0063
+    sv_setref_pv($arg, \"Qt::Network::Template::T014\", (void *)$var);
+
+T_PTROBJ_0064
+    sv_setref_pv($arg, \"Qt::Network::Template::T015\", (void *)$var);
+
+T_PTROBJ_0065
+    sv_setref_pv($arg, \"Qt::Network::Template::T016\", (void *)$var);
+
+T_PTROBJ_0066
+    sv_setref_pv($arg, \"Qt::Network::Template::T017\", (void *)$var);
+
+T_PTROBJ_0067
+    sv_setref_pv($arg, \"Qt::Network::Template::T018\", (void *)$var);
 

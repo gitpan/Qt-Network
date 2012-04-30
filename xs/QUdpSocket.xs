@@ -1,7 +1,7 @@
 ################################################################
 # THE FOLLOWING CODE IS AUTOMATED, ANY MODIFICATION WILL BE LOST!
 #
-# Copyright (C) 2007 - 2011 by Dongxu Ma <dongxu _at_ cpan _dot_ org>
+# Copyright (C) 2007 - 2012 by Dongxu Ma <dongxu _at_ cpan _dot_ org>
 #
 # This library is free software; you can redistribute it and/or 
 # modify it under the same terms as Perl itself.
@@ -126,7 +126,7 @@ PPCODE:
     }
         else if ((SvIOK(ST(1)) || SvUOK(ST(1))) && SvIOK(ST(2))) {
       arg30 = (quint16)SvUV(ST(1));
-      arg31 = QFlags<QUdpSocket::BindFlag>((int)SvIV(ST(2)));
+      arg31 = QFlags<QUdpSocket::BindFlag>((QUdpSocket::BindFlag)SvIV(ST(2)));
     bool ret = THIS->bind(arg30, arg31);
     ST(0) = sv_newmortal();
     ST(0) = boolSV(ret);
@@ -141,7 +141,7 @@ PPCODE:
         if (sv_isa(ST(1), "Qt::Network::QHostAddress") && (SvIOK(ST(2)) || SvUOK(ST(2))) && SvIOK(ST(3))) {
       arg40 = reinterpret_cast<QHostAddress *>(SvIV((SV*)SvRV(ST(1))));
       arg41 = (quint16)SvUV(ST(2));
-      arg42 = QFlags<QUdpSocket::BindFlag>((int)SvIV(ST(3)));
+      arg42 = QFlags<QUdpSocket::BindFlag>((QUdpSocket::BindFlag)SvIV(ST(3)));
     bool ret = THIS->bind(*arg40, arg41, arg42);
     ST(0) = sv_newmortal();
     ST(0) = boolSV(ret);

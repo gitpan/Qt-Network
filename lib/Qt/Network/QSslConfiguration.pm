@@ -7,7 +7,7 @@ use strict;
 use warnings;
 #use Carp;
 
-our $VERSION = '0.01_03';
+our $VERSION = '0.01_04';
 
 
 # FIXME: operator overload
@@ -29,6 +29,10 @@ Qt::Network::QSslConfiguration
 
 =item   ~QSslConfiguration()
 
+=item  QList<QSslCertificate> caCertificates()
+
+=item  QList<QSslCipher> ciphers()
+
 =item  static QSslConfiguration defaultConfiguration()
 
 =item  bool isNull()
@@ -43,6 +47,8 @@ Qt::Network::QSslConfiguration
 
 =item  QSslCertificate peerCertificate()
 
+=item  QList<QSslCertificate> peerCertificateChain()
+
 =item  int peerVerifyDepth()
 
 =item  QSslSocket::PeerVerifyMode peerVerifyMode()
@@ -52,6 +58,10 @@ Qt::Network::QSslConfiguration
 =item  QSsl::SslProtocol protocol()
 
 =item  QSslCipher sessionCipher()
+
+=item  void setCaCertificates(const QList<QSslCertificate> & certificates)
+
+=item  void setCiphers(const QList<QSslCipher> & ciphers)
 
 =item  static void setDefaultConfiguration(const QSslConfiguration & configuration)
 
@@ -85,7 +95,7 @@ Dongxu Ma E<lt>dongxu@cpan.orgE<gt>
 
 =head1 COPYRIGHT AND LICENSE
 
-Copyright (C) 2011 - 2011 by Dongxu Ma
+Copyright (C) 2011 - 2012 by Dongxu Ma
 
 This library is free software; you can redistribute it and/or modify
 it under the same terms as Perl itself.

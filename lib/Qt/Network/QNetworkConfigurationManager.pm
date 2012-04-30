@@ -7,7 +7,7 @@ use strict;
 use warnings;
 #use Carp;
 
-our $VERSION = '0.01_03';
+our $VERSION = '0.01_04';
 
 
 # FIXME: operator overload
@@ -28,6 +28,10 @@ Qt::Network::QNetworkConfigurationManager
 =item   QNetworkConfigurationManager(QObject * parent = 0)
 
 =item   ~QNetworkConfigurationManager()
+
+=item  QList<QNetworkConfiguration> allConfigurations(QFlags<QNetworkConfiguration::StateFlag> flags)
+
+=item  QList<QNetworkConfiguration> allConfigurations(QFlags<QNetworkConfiguration::StateFlag> flags = 0)
 
 =item  QFlags<QNetworkConfigurationManager::Capability> capabilities()
 
@@ -73,7 +77,7 @@ Dongxu Ma E<lt>dongxu@cpan.orgE<gt>
 
 =head1 COPYRIGHT AND LICENSE
 
-Copyright (C) 2011 - 2011 by Dongxu Ma
+Copyright (C) 2011 - 2012 by Dongxu Ma
 
 This library is free software; you can redistribute it and/or modify
 it under the same terms as Perl itself.

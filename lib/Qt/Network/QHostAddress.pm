@@ -7,7 +7,7 @@ use strict;
 use warnings;
 #use Carp;
 
-our $VERSION = '0.01_03';
+our $VERSION = '0.01_04';
 
 
 # FIXME: operator overload
@@ -43,6 +43,8 @@ Qt::Network::QHostAddress
 
 =item  void clear()
 
+=item  bool isInSubnet(const QPair<QHostAddress,int> & subnet)
+
 =item  bool isInSubnet(const QHostAddress & subnet, int netmask)
 
 =item  bool isNull()
@@ -58,6 +60,8 @@ Qt::Network::QHostAddress
 =item  bool operator==(const QHostAddress & address)
 
 =item  bool operator==(QHostAddress::SpecialAddress address)
+
+=item  static QPair<QHostAddress,int> parseSubnet(const QString & subnet)
 
 =item  QAbstractSocket::NetworkLayerProtocol protocol()
 
@@ -113,7 +117,7 @@ Dongxu Ma E<lt>dongxu@cpan.orgE<gt>
 
 =head1 COPYRIGHT AND LICENSE
 
-Copyright (C) 2011 - 2011 by Dongxu Ma
+Copyright (C) 2011 - 2012 by Dongxu Ma
 
 This library is free software; you can redistribute it and/or modify
 it under the same terms as Perl itself.

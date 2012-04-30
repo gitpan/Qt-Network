@@ -1,7 +1,7 @@
 ################################################################
 # THE FOLLOWING CODE IS AUTOMATED, ANY MODIFICATION WILL BE LOST!
 #
-# Copyright (C) 2007 - 2011 by Dongxu Ma <dongxu _at_ cpan _dot_ org>
+# Copyright (C) 2007 - 2012 by Dongxu Ma <dongxu _at_ cpan _dot_ org>
 #
 # This library is free software; you can redistribute it and/or 
 # modify it under the same terms as Perl itself.
@@ -167,14 +167,14 @@ PPCODE:
         if (sv_isa(ST(1), "Qt::Core::QString") && (SvIOK(ST(2)) || SvUOK(ST(2))) && SvIOK(ST(3))) {
       arg00 = reinterpret_cast<QString *>(SvIV((SV*)SvRV(ST(1))));
       arg01 = (quint16)SvUV(ST(2));
-      arg02 = QFlags<QIODevice::OpenModeFlag>((int)SvIV(ST(3)));
+      arg02 = QFlags<QIODevice::OpenModeFlag>((QIODevice::OpenModeFlag)SvIV(ST(3)));
     (void)THIS->connectToHost(*arg00, arg01, arg02);
     XSRETURN(0);
     }
         else if (sv_isa(ST(1), "Qt::Network::QHostAddress") && (SvIOK(ST(2)) || SvUOK(ST(2))) && SvIOK(ST(3))) {
       arg20 = reinterpret_cast<QHostAddress *>(SvIV((SV*)SvRV(ST(1))));
       arg21 = (quint16)SvUV(ST(2));
-      arg22 = QFlags<QIODevice::OpenModeFlag>((int)SvIV(ST(3)));
+      arg22 = QFlags<QIODevice::OpenModeFlag>((QIODevice::OpenModeFlag)SvIV(ST(3)));
     (void)THIS->connectToHost(*arg20, arg21, arg22);
     XSRETURN(0);
     }
@@ -414,7 +414,7 @@ PPCODE:
         if (SvIOK(ST(1)) && SvIOK(ST(2)) && SvIOK(ST(3))) {
       arg00 = (int)SvIV(ST(1));
       arg01 = (QAbstractSocket::SocketState)SvIV(ST(2));
-      arg02 = QFlags<QIODevice::OpenModeFlag>((int)SvIV(ST(3)));
+      arg02 = QFlags<QIODevice::OpenModeFlag>((QIODevice::OpenModeFlag)SvIV(ST(3)));
     bool ret = THIS->setSocketDescriptor(arg00, arg01, arg02);
     ST(0) = sv_newmortal();
     ST(0) = boolSV(ret);

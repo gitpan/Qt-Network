@@ -7,7 +7,7 @@ use strict;
 use warnings;
 #use Carp;
 
-our $VERSION = '0.01_03';
+our $VERSION = '0.01_04';
 
 
 # FIXME: operator overload
@@ -29,6 +29,8 @@ Qt::Network::QNetworkCacheMetaData
 
 =item   ~QNetworkCacheMetaData()
 
+=item  QHash<QNetworkRequest::Attribute,QVariant> attributes()
+
 =item  QDateTime expirationDate()
 
 =item  bool isValid()
@@ -41,11 +43,17 @@ Qt::Network::QNetworkCacheMetaData
 
 =item  bool operator==(const QNetworkCacheMetaData & other)
 
+=item  QList<QPair<QByteArray,QByteArray> > rawHeaders()
+
 =item  bool saveToDisk()
+
+=item  void setAttributes(const QHash<QNetworkRequest::Attribute,QVariant> & attributes)
 
 =item  void setExpirationDate(const QDateTime & dateTime)
 
 =item  void setLastModified(const QDateTime & dateTime)
+
+=item  void setRawHeaders(const QList<QPair<QByteArray,QByteArray> > & headers)
 
 =item  void setSaveToDisk(bool allow)
 
@@ -73,7 +81,7 @@ Dongxu Ma E<lt>dongxu@cpan.orgE<gt>
 
 =head1 COPYRIGHT AND LICENSE
 
-Copyright (C) 2011 - 2011 by Dongxu Ma
+Copyright (C) 2011 - 2012 by Dongxu Ma
 
 This library is free software; you can redistribute it and/or modify
 it under the same terms as Perl itself.

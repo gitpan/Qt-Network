@@ -1,7 +1,7 @@
 ################################################################
 # THE FOLLOWING CODE IS AUTOMATED, ANY MODIFICATION WILL BE LOST!
 #
-# Copyright (C) 2007 - 2011 by Dongxu Ma <dongxu _at_ cpan _dot_ org>
+# Copyright (C) 2007 - 2012 by Dongxu Ma <dongxu _at_ cpan _dot_ org>
 #
 # This library is free software; you can redistribute it and/or 
 # modify it under the same terms as Perl itself.
@@ -70,3 +70,33 @@ QNetworkCookieJar::DESTROY()
 CODE:
     if(THIS != 0 && !SvREADONLY(SvRV(ST(0))))
         delete THIS;
+
+## QList<QNetworkCookie> cookiesForUrl(const QUrl & url)
+void
+QNetworkCookieJar::cookiesForUrl(...)
+PREINIT:
+QUrl * arg00;
+PPCODE:
+    if (sv_isa(ST(1), "Qt::Core::QUrl")) {
+      arg00 = reinterpret_cast<QUrl *>(SvIV((SV*)SvRV(ST(1))));
+    QList<QNetworkCookie> ret = THIS->cookiesForUrl(*arg00);
+    ST(0) = sv_newmortal();
+    sv_setref_pv(ST(0), "Qt::Network::Template::T009", (void *)new QList<QNetworkCookie>(ret));
+    XSRETURN(1);
+    }
+
+## bool setCookiesFromUrl(const QList<QNetworkCookie> & cookieList, const QUrl & url)
+void
+QNetworkCookieJar::setCookiesFromUrl(...)
+PREINIT:
+QList<QNetworkCookie> * arg00;
+QUrl * arg01;
+PPCODE:
+    if (sv_isa(ST(1), "Qt::Network::Template::T009") && sv_isa(ST(2), "Qt::Core::QUrl")) {
+      arg00 = reinterpret_cast<QList<QNetworkCookie> *>(SvIV((SV*)SvRV(ST(1))));
+      arg01 = reinterpret_cast<QUrl *>(SvIV((SV*)SvRV(ST(2))));
+    bool ret = THIS->setCookiesFromUrl(*arg00, *arg01);
+    ST(0) = sv_newmortal();
+    ST(0) = boolSV(ret);
+    XSRETURN(1);
+    }

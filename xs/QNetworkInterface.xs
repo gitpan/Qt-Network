@@ -1,7 +1,7 @@
 ################################################################
 # THE FOLLOWING CODE IS AUTOMATED, ANY MODIFICATION WILL BE LOST!
 #
-# Copyright (C) 2007 - 2011 by Dongxu Ma <dongxu _at_ cpan _dot_ org>
+# Copyright (C) 2007 - 2012 by Dongxu Ma <dongxu _at_ cpan _dot_ org>
 #
 # This library is free software; you can redistribute it and/or 
 # modify it under the same terms as Perl itself.
@@ -63,6 +63,45 @@ CODE:
     if(THIS != 0 && !SvREADONLY(SvRV(ST(0))))
         delete THIS;
 
+## QList<QNetworkAddressEntry> addressEntries()
+void
+QNetworkInterface::addressEntries(...)
+PREINIT:
+PPCODE:
+    if (1) {
+      
+    QList<QNetworkAddressEntry> ret = THIS->addressEntries();
+    ST(0) = sv_newmortal();
+    sv_setref_pv(ST(0), "Qt::Network::Template::T015", (void *)new QList<QNetworkAddressEntry>(ret));
+    XSRETURN(1);
+    }
+
+## static QList<QHostAddress> allAddresses()
+void
+QNetworkInterface::allAddresses(...)
+PREINIT:
+PPCODE:
+    if (1) {
+      
+    QList<QHostAddress> ret = THIS->allAddresses();
+    ST(0) = sv_newmortal();
+    sv_setref_pv(ST(0), "Qt::Network::Template::T010", (void *)new QList<QHostAddress>(ret));
+    XSRETURN(1);
+    }
+
+## static QList<QNetworkInterface> allInterfaces()
+void
+QNetworkInterface::allInterfaces(...)
+PREINIT:
+PPCODE:
+    if (1) {
+      
+    QList<QNetworkInterface> ret = THIS->allInterfaces();
+    ST(0) = sv_newmortal();
+    sv_setref_pv(ST(0), "Qt::Network::Template::T016", (void *)new QList<QNetworkInterface>(ret));
+    XSRETURN(1);
+    }
+
 ## QFlags<QNetworkInterface::InterfaceFlag> flags()
 void
 QNetworkInterface::flags(...)
@@ -72,7 +111,7 @@ PPCODE:
       
     QFlags<QNetworkInterface::InterfaceFlag> ret = THIS->flags();
     ST(0) = sv_newmortal();
-    sv_setiv(ST(0), (IV)ret);
+    sv_setiv(ST(0), (int)ret);
     XSRETURN(1);
     }
 

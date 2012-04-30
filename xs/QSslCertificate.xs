@@ -1,7 +1,7 @@
 ################################################################
 # THE FOLLOWING CODE IS AUTOMATED, ANY MODIFICATION WILL BE LOST!
 #
-# Copyright (C) 2007 - 2011 by Dongxu Ma <dongxu _at_ cpan _dot_ org>
+# Copyright (C) 2007 - 2012 by Dongxu Ma <dongxu _at_ cpan _dot_ org>
 #
 # This library is free software; you can redistribute it and/or 
 # modify it under the same terms as Perl itself.
@@ -201,6 +201,170 @@ PPCODE:
     ST(0) = sv_newmortal();
     sv_setref_pv(ST(0), "Qt::Core::QDateTime", (void *)new QDateTime(ret));
     XSRETURN(1);
+    }
+
+## static QList<QSslCertificate> fromData(const QByteArray & data, QSsl::EncodingFormat format)
+## static QList<QSslCertificate> fromData(const QByteArray & data, QSsl::EncodingFormat format = QSsl::Pem)
+void
+QSslCertificate::fromData(...)
+PREINIT:
+QByteArray * arg00;
+QSsl::EncodingFormat arg01;
+QByteArray * arg10;
+QSsl::EncodingFormat arg11 = QSsl::Pem;
+PPCODE:
+    switch(items) {
+      case 2:
+      {
+        if (sv_isa(ST(1), "Qt::Core::QByteArray")) {
+      arg10 = reinterpret_cast<QByteArray *>(SvIV((SV*)SvRV(ST(1))));
+    QList<QSslCertificate> ret = THIS->fromData(*arg10, arg11);
+    ST(0) = sv_newmortal();
+    sv_setref_pv(ST(0), "Qt::Network::Template::T006", (void *)new QList<QSslCertificate>(ret));
+    XSRETURN(1);
+    }
+	else
+            Perl_croak(aTHX_ "wrong number/type of arguments passed in");
+        break;
+      }
+      case 3:
+      {
+        if (sv_isa(ST(1), "Qt::Core::QByteArray") && SvIOK(ST(2))) {
+      arg00 = reinterpret_cast<QByteArray *>(SvIV((SV*)SvRV(ST(1))));
+      arg01 = (QSsl::EncodingFormat)SvIV(ST(2));
+    QList<QSslCertificate> ret = THIS->fromData(*arg00, arg01);
+    ST(0) = sv_newmortal();
+    sv_setref_pv(ST(0), "Qt::Network::Template::T006", (void *)new QList<QSslCertificate>(ret));
+    XSRETURN(1);
+    }
+	else
+            Perl_croak(aTHX_ "wrong number/type of arguments passed in");
+        break;
+      }
+      default:
+        Perl_croak(aTHX_ "wrong number/type of arguments passed in");
+        break;
+    }
+
+## static QList<QSslCertificate> fromDevice(QIODevice * device, QSsl::EncodingFormat format)
+## static QList<QSslCertificate> fromDevice(QIODevice * device, QSsl::EncodingFormat format = QSsl::Pem)
+void
+QSslCertificate::fromDevice(...)
+PREINIT:
+QIODevice * arg00;
+QSsl::EncodingFormat arg01;
+QIODevice * arg10;
+QSsl::EncodingFormat arg11 = QSsl::Pem;
+PPCODE:
+    switch(items) {
+      case 2:
+      {
+        if ((sv_derived_from(ST(1), "Qt::Core::QIODevice") || ST(1) == &PL_sv_undef)) {
+      if (sv_derived_from(ST(1), "Qt::Core::QIODevice")) {
+        arg10 = reinterpret_cast<QIODevice *>(SvIV((SV*)SvRV(ST(1))));
+    }
+    else if (ST(1) == &PL_sv_undef) {
+        arg10 = 0;
+    }
+    else
+        Perl_croak(aTHX_ "arg10 is not of type Qt::Core::QIODevice");
+    QList<QSslCertificate> ret = THIS->fromDevice(arg10, arg11);
+    ST(0) = sv_newmortal();
+    sv_setref_pv(ST(0), "Qt::Network::Template::T006", (void *)new QList<QSslCertificate>(ret));
+    XSRETURN(1);
+    }
+	else
+            Perl_croak(aTHX_ "wrong number/type of arguments passed in");
+        break;
+      }
+      case 3:
+      {
+        if ((sv_derived_from(ST(1), "Qt::Core::QIODevice") || ST(1) == &PL_sv_undef) && SvIOK(ST(2))) {
+      if (sv_derived_from(ST(1), "Qt::Core::QIODevice")) {
+        arg00 = reinterpret_cast<QIODevice *>(SvIV((SV*)SvRV(ST(1))));
+    }
+    else if (ST(1) == &PL_sv_undef) {
+        arg00 = 0;
+    }
+    else
+        Perl_croak(aTHX_ "arg00 is not of type Qt::Core::QIODevice");
+      arg01 = (QSsl::EncodingFormat)SvIV(ST(2));
+    QList<QSslCertificate> ret = THIS->fromDevice(arg00, arg01);
+    ST(0) = sv_newmortal();
+    sv_setref_pv(ST(0), "Qt::Network::Template::T006", (void *)new QList<QSslCertificate>(ret));
+    XSRETURN(1);
+    }
+	else
+            Perl_croak(aTHX_ "wrong number/type of arguments passed in");
+        break;
+      }
+      default:
+        Perl_croak(aTHX_ "wrong number/type of arguments passed in");
+        break;
+    }
+
+## static QList<QSslCertificate> fromPath(const QString & path, QSsl::EncodingFormat format, QRegExp::PatternSyntax syntax)
+## static QList<QSslCertificate> fromPath(const QString & path, QSsl::EncodingFormat format, QRegExp::PatternSyntax syntax = QRegExp::FixedString)
+## static QList<QSslCertificate> fromPath(const QString & path, QSsl::EncodingFormat format = QSsl::Pem, QRegExp::PatternSyntax syntax = QRegExp::FixedString)
+void
+QSslCertificate::fromPath(...)
+PREINIT:
+QString * arg00;
+QSsl::EncodingFormat arg01;
+QRegExp::PatternSyntax arg02;
+QString * arg10;
+QSsl::EncodingFormat arg11;
+QRegExp::PatternSyntax arg12 = QRegExp::FixedString;
+QString * arg20;
+QSsl::EncodingFormat arg21 = QSsl::Pem;
+QRegExp::PatternSyntax arg22 = QRegExp::FixedString;
+PPCODE:
+    switch(items) {
+      case 2:
+      {
+        if (sv_isa(ST(1), "Qt::Core::QString")) {
+      arg20 = reinterpret_cast<QString *>(SvIV((SV*)SvRV(ST(1))));
+    QList<QSslCertificate> ret = THIS->fromPath(*arg20, arg21, arg22);
+    ST(0) = sv_newmortal();
+    sv_setref_pv(ST(0), "Qt::Network::Template::T006", (void *)new QList<QSslCertificate>(ret));
+    XSRETURN(1);
+    }
+	else
+            Perl_croak(aTHX_ "wrong number/type of arguments passed in");
+        break;
+      }
+      case 3:
+      {
+        if (sv_isa(ST(1), "Qt::Core::QString") && SvIOK(ST(2))) {
+      arg10 = reinterpret_cast<QString *>(SvIV((SV*)SvRV(ST(1))));
+      arg11 = (QSsl::EncodingFormat)SvIV(ST(2));
+    QList<QSslCertificate> ret = THIS->fromPath(*arg10, arg11, arg12);
+    ST(0) = sv_newmortal();
+    sv_setref_pv(ST(0), "Qt::Network::Template::T006", (void *)new QList<QSslCertificate>(ret));
+    XSRETURN(1);
+    }
+	else
+            Perl_croak(aTHX_ "wrong number/type of arguments passed in");
+        break;
+      }
+      case 4:
+      {
+        if (sv_isa(ST(1), "Qt::Core::QString") && SvIOK(ST(2)) && SvIOK(ST(3))) {
+      arg00 = reinterpret_cast<QString *>(SvIV((SV*)SvRV(ST(1))));
+      arg01 = (QSsl::EncodingFormat)SvIV(ST(2));
+      arg02 = (QRegExp::PatternSyntax)SvIV(ST(3));
+    QList<QSslCertificate> ret = THIS->fromPath(*arg00, arg01, arg02);
+    ST(0) = sv_newmortal();
+    sv_setref_pv(ST(0), "Qt::Network::Template::T006", (void *)new QList<QSslCertificate>(ret));
+    XSRETURN(1);
+    }
+	else
+            Perl_croak(aTHX_ "wrong number/type of arguments passed in");
+        break;
+      }
+      default:
+        Perl_croak(aTHX_ "wrong number/type of arguments passed in");
+        break;
     }
 
 ## unsigned long handle()

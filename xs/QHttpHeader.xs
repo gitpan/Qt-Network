@@ -1,7 +1,7 @@
 ################################################################
 # THE FOLLOWING CODE IS AUTOMATED, ANY MODIFICATION WILL BE LOST!
 #
-# Copyright (C) 2007 - 2011 by Dongxu Ma <dongxu _at_ cpan _dot_ org>
+# Copyright (C) 2007 - 2012 by Dongxu Ma <dongxu _at_ cpan _dot_ org>
 #
 # This library is free software; you can redistribute it and/or 
 # modify it under the same terms as Perl itself.
@@ -285,6 +285,18 @@ PPCODE:
     XSRETURN(0);
     }
 
+## void setValues(const QList<QPair<QString,QString> > & values)
+void
+QHttpHeader::setValues(...)
+PREINIT:
+QList<QPair<QString,QString> > * arg00;
+PPCODE:
+    if (sv_isa(ST(1), "Qt::Network::Template::T012")) {
+      arg00 = reinterpret_cast<QList<QPair<QString,QString> > *>(SvIV((SV*)SvRV(ST(1))));
+    (void)THIS->setValues(*arg00);
+    XSRETURN(0);
+    }
+
 ## QString toString()
 void
 QHttpHeader::toString(...)
@@ -309,5 +321,18 @@ PPCODE:
     QString ret = THIS->value(*arg00);
     ST(0) = sv_newmortal();
     sv_setref_pv(ST(0), "Qt::Core::QString", (void *)new QString(ret));
+    XSRETURN(1);
+    }
+
+## QList<QPair<QString,QString> > values()
+void
+QHttpHeader::values(...)
+PREINIT:
+PPCODE:
+    if (1) {
+      
+    QList<QPair<QString,QString> > ret = THIS->values();
+    ST(0) = sv_newmortal();
+    sv_setref_pv(ST(0), "Qt::Network::Template::T012", (void *)new QList<QPair<QString,QString> >(ret));
     XSRETURN(1);
     }

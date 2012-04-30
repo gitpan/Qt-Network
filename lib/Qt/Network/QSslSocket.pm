@@ -7,7 +7,7 @@ use strict;
 use warnings;
 #use Carp;
 
-our $VERSION = '0.01_03';
+our $VERSION = '0.01_04';
 use base qw/Qt::Network::QTcpSocket/;
 #our @ISA = qw/Qt::Network::QTcpSocket/;
 
@@ -35,6 +35,8 @@ Qt::Network::QSslSocket
 
 =item  void addCaCertificate(const QSslCertificate & certificate)
 
+=item  void addCaCertificates(const QList<QSslCertificate> & certificates)
+
 =item  bool addCaCertificates(const QString & path, QSsl::EncodingFormat format, QRegExp::PatternSyntax syntax)
 
 =item  bool addCaCertificates(const QString & path, QSsl::EncodingFormat format, QRegExp::PatternSyntax syntax = QRegExp::FixedString)
@@ -42,6 +44,8 @@ Qt::Network::QSslSocket
 =item  bool addCaCertificates(const QString & path, QSsl::EncodingFormat format = QSsl::Pem, QRegExp::PatternSyntax syntax = QRegExp::FixedString)
 
 =item  static void addDefaultCaCertificate(const QSslCertificate & certificate)
+
+=item  static void addDefaultCaCertificates(const QList<QSslCertificate> & certificates)
 
 =item  static bool addDefaultCaCertificates(const QString & path, QSsl::EncodingFormat format, QRegExp::PatternSyntax syntax)
 
@@ -55,7 +59,11 @@ Qt::Network::QSslSocket
 
 =item  qint64 bytesToWrite()
 
+=item  QList<QSslCertificate> caCertificates()
+
 =item  bool canReadLine()
+
+=item  QList<QSslCipher> ciphers()
 
 =item  void close()
 
@@ -67,6 +75,10 @@ Qt::Network::QSslSocket
 
 =item  void connectToHostEncrypted(const QString & hostName, quint16 port, const QString & sslPeerName, QFlags<QIODevice::OpenModeFlag> mode = QIODevice::ReadWrite)
 
+=item  static QList<QSslCertificate> defaultCaCertificates()
+
+=item  static QList<QSslCipher> defaultCiphers()
+
 =item  qint64 encryptedBytesAvailable()
 
 =item  qint64 encryptedBytesToWrite()
@@ -75,6 +87,8 @@ Qt::Network::QSslSocket
 
 =item  void ignoreSslErrors()
 
+=item  void ignoreSslErrors(const QList<QSslError> & errors)
+
 =item  bool isEncrypted()
 
 =item  QSslCertificate localCertificate()
@@ -82,6 +96,8 @@ Qt::Network::QSslSocket
 =item  QSslSocket::SslMode mode()
 
 =item  QSslCertificate peerCertificate()
+
+=item  QList<QSslCertificate> peerCertificateChain()
 
 =item  int peerVerifyDepth()
 
@@ -93,7 +109,15 @@ Qt::Network::QSslSocket
 
 =item  QSslCipher sessionCipher()
 
+=item  void setCaCertificates(const QList<QSslCertificate> & certificates)
+
+=item  void setCiphers(const QList<QSslCipher> & ciphers)
+
 =item  void setCiphers(const QString & ciphers)
+
+=item  static void setDefaultCaCertificates(const QList<QSslCertificate> & certificates)
+
+=item  static void setDefaultCiphers(const QList<QSslCipher> & ciphers)
 
 =item  void setLocalCertificate(const QSslCertificate & certificate)
 
@@ -133,11 +157,17 @@ Qt::Network::QSslSocket
 
 =item  QSslConfiguration sslConfiguration()
 
+=item  QList<QSslError> sslErrors()
+
 =item  void startClientEncryption()
 
 =item  void startServerEncryption()
 
+=item  static QList<QSslCipher> supportedCiphers()
+
 =item  static bool supportsSsl()
+
+=item  static QList<QSslCertificate> systemCaCertificates()
 
 =item  bool waitForBytesWritten(int msecs)
 
@@ -193,7 +223,7 @@ Dongxu Ma E<lt>dongxu@cpan.orgE<gt>
 
 =head1 COPYRIGHT AND LICENSE
 
-Copyright (C) 2011 - 2011 by Dongxu Ma
+Copyright (C) 2011 - 2012 by Dongxu Ma
 
 This library is free software; you can redistribute it and/or modify
 it under the same terms as Perl itself.

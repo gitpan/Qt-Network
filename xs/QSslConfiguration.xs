@@ -1,7 +1,7 @@
 ################################################################
 # THE FOLLOWING CODE IS AUTOMATED, ANY MODIFICATION WILL BE LOST!
 #
-# Copyright (C) 2007 - 2011 by Dongxu Ma <dongxu _at_ cpan _dot_ org>
+# Copyright (C) 2007 - 2012 by Dongxu Ma <dongxu _at_ cpan _dot_ org>
 #
 # This library is free software; you can redistribute it and/or 
 # modify it under the same terms as Perl itself.
@@ -62,6 +62,32 @@ QSslConfiguration::DESTROY()
 CODE:
     if(THIS != 0 && !SvREADONLY(SvRV(ST(0))))
         delete THIS;
+
+## QList<QSslCertificate> caCertificates()
+void
+QSslConfiguration::caCertificates(...)
+PREINIT:
+PPCODE:
+    if (1) {
+      
+    QList<QSslCertificate> ret = THIS->caCertificates();
+    ST(0) = sv_newmortal();
+    sv_setref_pv(ST(0), "Qt::Network::Template::T006", (void *)new QList<QSslCertificate>(ret));
+    XSRETURN(1);
+    }
+
+## QList<QSslCipher> ciphers()
+void
+QSslConfiguration::ciphers(...)
+PREINIT:
+PPCODE:
+    if (1) {
+      
+    QList<QSslCipher> ret = THIS->ciphers();
+    ST(0) = sv_newmortal();
+    sv_setref_pv(ST(0), "Qt::Network::Template::T007", (void *)new QList<QSslCipher>(ret));
+    XSRETURN(1);
+    }
 
 ## static QSslConfiguration defaultConfiguration()
 void
@@ -157,6 +183,19 @@ PPCODE:
     XSRETURN(1);
     }
 
+## QList<QSslCertificate> peerCertificateChain()
+void
+QSslConfiguration::peerCertificateChain(...)
+PREINIT:
+PPCODE:
+    if (1) {
+      
+    QList<QSslCertificate> ret = THIS->peerCertificateChain();
+    ST(0) = sv_newmortal();
+    sv_setref_pv(ST(0), "Qt::Network::Template::T006", (void *)new QList<QSslCertificate>(ret));
+    XSRETURN(1);
+    }
+
 ## int peerVerifyDepth()
 void
 QSslConfiguration::peerVerifyDepth(...)
@@ -220,6 +259,30 @@ PPCODE:
     ST(0) = sv_newmortal();
     sv_setref_pv(ST(0), "Qt::Network::QSslCipher", (void *)new QSslCipher(ret));
     XSRETURN(1);
+    }
+
+## void setCaCertificates(const QList<QSslCertificate> & certificates)
+void
+QSslConfiguration::setCaCertificates(...)
+PREINIT:
+QList<QSslCertificate> * arg00;
+PPCODE:
+    if (sv_isa(ST(1), "Qt::Network::Template::T006")) {
+      arg00 = reinterpret_cast<QList<QSslCertificate> *>(SvIV((SV*)SvRV(ST(1))));
+    (void)THIS->setCaCertificates(*arg00);
+    XSRETURN(0);
+    }
+
+## void setCiphers(const QList<QSslCipher> & ciphers)
+void
+QSslConfiguration::setCiphers(...)
+PREINIT:
+QList<QSslCipher> * arg00;
+PPCODE:
+    if (sv_isa(ST(1), "Qt::Network::Template::T007")) {
+      arg00 = reinterpret_cast<QList<QSslCipher> *>(SvIV((SV*)SvRV(ST(1))));
+    (void)THIS->setCiphers(*arg00);
+    XSRETURN(0);
     }
 
 ## static void setDefaultConfiguration(const QSslConfiguration & configuration)

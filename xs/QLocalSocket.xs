@@ -1,7 +1,7 @@
 ################################################################
 # THE FOLLOWING CODE IS AUTOMATED, ANY MODIFICATION WILL BE LOST!
 #
-# Copyright (C) 2007 - 2011 by Dongxu Ma <dongxu _at_ cpan _dot_ org>
+# Copyright (C) 2007 - 2012 by Dongxu Ma <dongxu _at_ cpan _dot_ org>
 #
 # This library is free software; you can redistribute it and/or 
 # modify it under the same terms as Perl itself.
@@ -158,7 +158,7 @@ PPCODE:
       {
         if (sv_isa(ST(1), "Qt::Core::QString") && SvIOK(ST(2))) {
       arg00 = reinterpret_cast<QString *>(SvIV((SV*)SvRV(ST(1))));
-      arg01 = QFlags<QIODevice::OpenModeFlag>((int)SvIV(ST(2)));
+      arg01 = QFlags<QIODevice::OpenModeFlag>((QIODevice::OpenModeFlag)SvIV(ST(2)));
     (void)THIS->connectToServer(*arg00, arg01);
     XSRETURN(0);
     }
@@ -283,6 +283,83 @@ PPCODE:
       arg00 = (qint64)SvIV(ST(1));
     (void)THIS->setReadBufferSize(arg00);
     XSRETURN(0);
+    }
+
+## bool setSocketDescriptor(QIntegerForSizeof<void *>::Unsigned socketDescriptor, QLocalSocket::LocalSocketState socketState, QFlags<QIODevice::OpenModeFlag> openMode)
+## bool setSocketDescriptor(QIntegerForSizeof<void *>::Unsigned socketDescriptor, QLocalSocket::LocalSocketState socketState, QFlags<QIODevice::OpenModeFlag> openMode = QIODevice::ReadWrite)
+## bool setSocketDescriptor(QIntegerForSizeof<void *>::Unsigned socketDescriptor, QLocalSocket::LocalSocketState socketState = QLocalSocket::ConnectedState, QFlags<QIODevice::OpenModeFlag> openMode = QIODevice::ReadWrite)
+void
+QLocalSocket::setSocketDescriptor(...)
+PREINIT:
+QIntegerForSizeof<void *>::Unsigned arg00;
+QLocalSocket::LocalSocketState arg01;
+QFlags<QIODevice::OpenModeFlag> arg02;
+QIntegerForSizeof<void *>::Unsigned arg10;
+QLocalSocket::LocalSocketState arg11;
+QFlags<QIODevice::OpenModeFlag> arg12 = QIODevice::ReadWrite;
+QIntegerForSizeof<void *>::Unsigned arg20;
+QLocalSocket::LocalSocketState arg21 = QLocalSocket::ConnectedState;
+QFlags<QIODevice::OpenModeFlag> arg22 = QIODevice::ReadWrite;
+PPCODE:
+    switch(items) {
+      case 2:
+      {
+        if ((SvIOK(ST(1)) || SvUOK(ST(1)))) {
+      arg20 = (QIntegerForSizeof<void *>::Unsigned)SvUV(ST(1));
+    bool ret = THIS->setSocketDescriptor(arg20, arg21, arg22);
+    ST(0) = sv_newmortal();
+    ST(0) = boolSV(ret);
+    XSRETURN(1);
+    }
+	else
+            Perl_croak(aTHX_ "wrong number/type of arguments passed in");
+        break;
+      }
+      case 3:
+      {
+        if ((SvIOK(ST(1)) || SvUOK(ST(1))) && SvIOK(ST(2))) {
+      arg10 = (QIntegerForSizeof<void *>::Unsigned)SvUV(ST(1));
+      arg11 = (QLocalSocket::LocalSocketState)SvIV(ST(2));
+    bool ret = THIS->setSocketDescriptor(arg10, arg11, arg12);
+    ST(0) = sv_newmortal();
+    ST(0) = boolSV(ret);
+    XSRETURN(1);
+    }
+	else
+            Perl_croak(aTHX_ "wrong number/type of arguments passed in");
+        break;
+      }
+      case 4:
+      {
+        if ((SvIOK(ST(1)) || SvUOK(ST(1))) && SvIOK(ST(2)) && SvIOK(ST(3))) {
+      arg00 = (QIntegerForSizeof<void *>::Unsigned)SvUV(ST(1));
+      arg01 = (QLocalSocket::LocalSocketState)SvIV(ST(2));
+      arg02 = QFlags<QIODevice::OpenModeFlag>((QIODevice::OpenModeFlag)SvIV(ST(3)));
+    bool ret = THIS->setSocketDescriptor(arg00, arg01, arg02);
+    ST(0) = sv_newmortal();
+    ST(0) = boolSV(ret);
+    XSRETURN(1);
+    }
+	else
+            Perl_croak(aTHX_ "wrong number/type of arguments passed in");
+        break;
+      }
+      default:
+        Perl_croak(aTHX_ "wrong number/type of arguments passed in");
+        break;
+    }
+
+## QIntegerForSizeof<void *>::Unsigned socketDescriptor()
+void
+QLocalSocket::socketDescriptor(...)
+PREINIT:
+PPCODE:
+    if (1) {
+      
+    QIntegerForSizeof<void *>::Unsigned ret = THIS->socketDescriptor();
+    ST(0) = sv_newmortal();
+    sv_setuv(ST(0), (UV)ret);
+    XSRETURN(1);
     }
 
 ## QLocalSocket::LocalSocketState state()

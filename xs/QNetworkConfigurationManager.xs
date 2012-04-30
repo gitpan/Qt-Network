@@ -1,7 +1,7 @@
 ################################################################
 # THE FOLLOWING CODE IS AUTOMATED, ANY MODIFICATION WILL BE LOST!
 #
-# Copyright (C) 2007 - 2011 by Dongxu Ma <dongxu _at_ cpan _dot_ org>
+# Copyright (C) 2007 - 2012 by Dongxu Ma <dongxu _at_ cpan _dot_ org>
 #
 # This library is free software; you can redistribute it and/or 
 # modify it under the same terms as Perl itself.
@@ -71,6 +71,44 @@ CODE:
     if(THIS != 0 && !SvREADONLY(SvRV(ST(0))))
         delete THIS;
 
+## QList<QNetworkConfiguration> allConfigurations(QFlags<QNetworkConfiguration::StateFlag> flags)
+## QList<QNetworkConfiguration> allConfigurations(QFlags<QNetworkConfiguration::StateFlag> flags = 0)
+void
+QNetworkConfigurationManager::allConfigurations(...)
+PREINIT:
+QFlags<QNetworkConfiguration::StateFlag> arg00;
+QFlags<QNetworkConfiguration::StateFlag> arg10 = 0;
+PPCODE:
+    switch(items) {
+      case 1:
+      {
+        if (1) {
+      
+    QList<QNetworkConfiguration> ret = THIS->allConfigurations(arg10);
+    ST(0) = sv_newmortal();
+    sv_setref_pv(ST(0), "Qt::Network::Template::T001", (void *)new QList<QNetworkConfiguration>(ret));
+    XSRETURN(1);
+    }
+        break;
+      }
+      case 2:
+      {
+        if (SvIOK(ST(1))) {
+      arg00 = QFlags<QNetworkConfiguration::StateFlag>((QNetworkConfiguration::StateFlag)SvIV(ST(1)));
+    QList<QNetworkConfiguration> ret = THIS->allConfigurations(arg00);
+    ST(0) = sv_newmortal();
+    sv_setref_pv(ST(0), "Qt::Network::Template::T001", (void *)new QList<QNetworkConfiguration>(ret));
+    XSRETURN(1);
+    }
+	else
+            Perl_croak(aTHX_ "wrong number/type of arguments passed in");
+        break;
+      }
+      default:
+        Perl_croak(aTHX_ "wrong number/type of arguments passed in");
+        break;
+    }
+
 ## QFlags<QNetworkConfigurationManager::Capability> capabilities()
 void
 QNetworkConfigurationManager::capabilities(...)
@@ -80,7 +118,7 @@ PPCODE:
       
     QFlags<QNetworkConfigurationManager::Capability> ret = THIS->capabilities();
     ST(0) = sv_newmortal();
-    sv_setiv(ST(0), (IV)ret);
+    sv_setiv(ST(0), (int)ret);
     XSRETURN(1);
     }
 

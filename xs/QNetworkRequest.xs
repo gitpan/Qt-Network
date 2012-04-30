@@ -1,7 +1,7 @@
 ################################################################
 # THE FOLLOWING CODE IS AUTOMATED, ANY MODIFICATION WILL BE LOST!
 #
-# Copyright (C) 2007 - 2011 by Dongxu Ma <dongxu _at_ cpan _dot_ org>
+# Copyright (C) 2007 - 2012 by Dongxu Ma <dongxu _at_ cpan _dot_ org>
 #
 # This library is free software; you can redistribute it and/or 
 # modify it under the same terms as Perl itself.
@@ -225,6 +225,19 @@ PPCODE:
     QByteArray ret = THIS->rawHeader(*arg00);
     ST(0) = sv_newmortal();
     sv_setref_pv(ST(0), "Qt::Core::QByteArray", (void *)new QByteArray(ret));
+    XSRETURN(1);
+    }
+
+## QList<QByteArray> rawHeaderList()
+void
+QNetworkRequest::rawHeaderList(...)
+PREINIT:
+PPCODE:
+    if (1) {
+      
+    QList<QByteArray> ret = THIS->rawHeaderList();
+    ST(0) = sv_newmortal();
+    sv_setref_pv(ST(0), "Qt::Network::Template::T008", (void *)new QList<QByteArray>(ret));
     XSRETURN(1);
     }
 
